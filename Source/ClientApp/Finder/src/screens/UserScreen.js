@@ -2,7 +2,9 @@ import { StyleSheet, View, Text, Button } from "react-native";
 
 import { useSelector, useDispatch } from "react-redux";
 import { login, logout } from "../redux/actions/loginAction";
-import { store } from "../redux/store";
+
+// Import components
+import { LoginForm } from "../components/LoginForm";
 
 export function UserScreen() {
   const dispatch = useDispatch();
@@ -25,12 +27,7 @@ export function UserScreen() {
       </View>
     );
   } else {
-    return (
-      <View style={styles.container}>
-        <Text>Login screen</Text>
-        <Button title="Login" onPress={handleLogin}></Button>
-      </View>
-    );
+    return <LoginForm />;
   }
 }
 
