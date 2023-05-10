@@ -1,7 +1,7 @@
 import { StyleSheet, View, Text, Button } from "react-native";
 
 import { useSelector, useDispatch } from "react-redux";
-import { login, logout } from "../redux/actions/loginAction";
+import { logout } from "../redux/actions/loginAction";
 
 // Import components
 import { LoginForm } from "../components/LoginForm";
@@ -10,10 +10,6 @@ export function UserScreen() {
   const dispatch = useDispatch();
 
   const isLogged = useSelector((store) => store.isLogged.isLogged);
-
-  const handleLogin = () => {
-    dispatch(login());
-  };
 
   const handleLogout = () => {
     dispatch(logout());
