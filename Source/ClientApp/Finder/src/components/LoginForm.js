@@ -6,7 +6,13 @@ import { login } from "../redux/actions/loginAction";
 export function LoginForm() {
   const dispatch = useDispatch();
 
+  async function getUserById(url){
+    const responce = await fetch(url);
+    return responce.json()
+  }
+
   const handleLogin = () => {
+    
     dispatch(login());
   };
 

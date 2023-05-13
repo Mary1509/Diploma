@@ -18,9 +18,15 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.finder.app",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyC5SjEpoJvCoK_yfdTUgelKXjFHibf-qls"
+        }
       }
     },
     "web": {

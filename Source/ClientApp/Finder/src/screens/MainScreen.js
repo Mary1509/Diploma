@@ -1,32 +1,65 @@
-import { useState } from "react";
-import { StyleSheet, View, Text, Modal } from "react-native";
+import { StyleSheet, View, Text, Modal, Platform } from "react-native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 // Import components
 import { Button } from "../components/MainButton";
 import { FilterButton } from "../components/FilterButton";
 import { Filters } from "../components/FilterComponent";
+import { useState } from "react";
 
 export function HomeScreen() {
-  const [modalIsVisible, setModalIsVisible] = useState(false);
+  const [typesFilters, setTypesFilters] = useState([]);
+  const [purposesFilters, setPurposesFilters] = useState([]);
+  const [hasRampFilter, setHasRampFilter] = useState("");
+
+  function saveFilterHandler() {
+    // apply filters
+    setModalIsVisible(false);
+  }
+
+  function MainScreen({ navigation }) {
+    return (
+      <View style={styles.container}>
+        <View style={styles.listContainer}></View>
+        <View
+          style={
+            Platform.OS == "android"
+              ? styles.buttonContainerAndroid
+              : styles.buttonContainerIOS
+          }
+        >
+          <View flex={3}>
+            <Button
+              title="Знайти"
+              onPress={() => console.log("Button pressed")}
+            />
+          </View>
+          <View flex={1}>
+            <FilterButton
+              onPress={() => navigation.navigate("Filters")}
+            ></FilterButton>
+          </View>
+        </View>
+      </View>
+    );
+  }
+
+  const RootStack = createNativeStackNavigator();
 
   return (
-    <View style={styles.container}>
-      <Filters visible={modalIsVisible} onCancel={() => setModalIsVisible(false)}/>
-      <View style={styles.listContainer}>
-        <Text>Results list</Text>
-      </View>
-      <View style={styles.buttonContainer}>
-        <View flex={3}>
-          <Button
-            title="Знайти"
-            onPress={() => console.log("Button pressed")}
-          />
-        </View>
-        <View flex={1}>
-          <FilterButton onPress={() => setModalIsVisible(true)}></FilterButton>
-        </View>
-      </View>
-    </View>
+    <RootStack.Navigator screenOptions={{ headerShown: false }}>
+      <RootStack.Group>
+        <RootStack.Screen name="Results" component={MainScreen} />
+      </RootStack.Group>
+      <RootStack.Group
+        screenOptions={{
+          presentation: "transparentModal",
+          animation: "slide_from_bottom",
+        }}
+      >
+        <RootStack.Screen name="Filters" component={Filters} />
+      </RootStack.Group>
+    </RootStack.Navigator>
   );
 }
 
@@ -41,14 +74,25 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  buttonContainer: {
+  buttonContainerAndroid: {
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    borderWidth: 2,
-    borderColor: "red",
+    borderWidth: 1,
+    borderColor: "#ffffff",
+    elevation: 3,
     paddingHorizontal: 30,
   },
-  buttonStyle: {},
+  buttonContainerIOS: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    borderWidth: 1,
+    borderColor: "#ffffff",
+    shadowRadius: 10,
+    shadowColor: "#000",
+    paddingHorizontal: 30,
+  },
 });

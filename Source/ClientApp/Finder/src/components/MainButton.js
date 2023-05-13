@@ -17,7 +17,6 @@ export function Button(props) {
 
 const styles = StyleSheet.create({
   text: {
-    color: "#e0fbfc",
     fontSize: 16,
     lineHeight: 21,
     fontFamily: "Monserrat-SemiBold",
@@ -29,6 +28,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingVertical: 12,
     paddingHorizontal: 32,
+    margin: 5,
     borderRadius: 4,
     elevation: 3,
     backgroundColor: "#ee6c4d",
@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingVertical: 12,
     paddingHorizontal: 32,
+    margin: 5,
     borderRadius: 4,
     elevation: 3,
     backgroundColor: "#ee6c4d",
