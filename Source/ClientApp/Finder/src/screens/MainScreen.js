@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Button } from "../components/MainButton";
 import { FilterButton } from "../components/FilterButton";
 import { Filters } from "../components/FilterComponent";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function HomeScreen() {
   const [typesFilters, setTypesFilters] = useState([]);
@@ -17,7 +17,14 @@ export function HomeScreen() {
     setModalIsVisible(false);
   }
 
-  function MainScreen({ navigation }) {
+  function MainScreen({ navigation, route }) {
+
+    useEffect(() => {
+      if (route.params?.filters){
+        console.log('Sent successfully');
+      }
+    }, route.params?.filters)
+
     return (
       <View style={styles.container}>
         <View style={styles.listContainer}></View>

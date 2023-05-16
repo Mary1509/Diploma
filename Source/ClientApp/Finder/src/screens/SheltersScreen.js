@@ -1,9 +1,26 @@
-import { StyleSheet, View, Text, Button } from "react-native";
+import { useEffect, useState } from "react";
+import { StyleSheet, View, Text, Button, FlatList } from "react-native";
+
+import { ShelterItem } from "./../components/ShelterItem";
 
 export function SheltersScreen({ navigation }) {
+  const [shelters, setShelters] = useState([]);
+
+  useEffect(() => {
+    const sheltersJson = require("./../../data/shelters.json");
+    setShelters(sheltersJson.shelters);
+  });
+
   return (
     <View style={styles.container}>
-      <Text>Shelters list with filter</Text>
+      <FlatList
+        data={shelters}
+        renderItem={(itemData) => {
+          return (
+            <ShelterItem text={itemData.item.addressId} id={itemData.item.id} />
+          );
+        }}
+      />
     </View>
   );
 }

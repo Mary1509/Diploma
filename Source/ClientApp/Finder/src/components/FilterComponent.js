@@ -13,72 +13,82 @@ import { Switch } from "react-native-paper";
 export function Filters({ navigation }) {
   const [types, setTypes] = useState([]);
   const [purposes, setPurposes] = useState([]);
-  // const [filterTypes, setFilterTypes] = useState([]);
-  // const [filterPurposes, setFilterPurposes] = useState([]);
+  const [filterTypes, setFilterTypes] = useState([]);
+  const [filterPurposes, setFilterPurposes] = useState([]);
 
   function saveFilterHandler() {
     getFilters();
+    navigation.navigate({
+      name: 'Results',
+      merge: true
+    });
+  }
+
+  function cancelFilterHandler() {
+    types.forEach((type) => {
+      type.selected = ""
+    });
+    purposes.forEach((purpose) => {
+      purpose.selected = ""
+    })
     navigation.goBack();
   }
 
   useEffect(() => {
-    if (typeof filterTypes == "undefined") {
+    if (types.length <= 0) {
       const typesJson = require("./../../data/types.json");
-      typesJson.types.forEach((type) => {
-        type["switch"] = "false";
-      });
       setTypes(typesJson.types);
     } else setTypes(filterTypes);
 
-    if (typeof filterPurposes == "undefined") {
+    if (purposes.length <= 0) {
       const purposesJson = require("./../../data/purposes.json");
-      purposesJson.purposes.forEach((purpose) => {
-        purpose["switch"] = "false";
-      });
       setPurposes(purposesJson.purposes);
     } else setPurposes(filterPurposes);
   });
 
   function getFilters() {
     console.log(types, purposes);
+    types.forEach((type) => {
+      if (type["selected"] === "true") {
+        setFilterTypes(...filterTypes, type)
+      }
+    });
+    purposes.forEach((purpose) => {
+      if (purpose["selected"] === "true") {
+        setFilterPurposes(...filterPurposes, type)
+      }
+    })
   }
 
   function setTypeSwitchValue(val, id) {
-    types[id].switch = String(val);
-    return setTypes([...types]);
+    setTypes(...types, types[id].selected = val);
   }
 
   function setPurposeSwitchValue(val, id) {
-    const temp = JSON.parse(JSON.stringify(purposes));
-    console.log(id, temp[id], val);
-    temp[id].switch = String(val);
-    console.log(temp)
-    setPurposes(temp);
-    console.log(purposes);
-    // setFilterPurposes(temp);
+    setPurposes(...purposes, purposes[id].selected = val);
   }
 
-  function listTypeItem(itemData, index) {
+  const listTypeItem = (itemData, index) => {
     index = itemData.item.id;
     return (
       <View style={styles.filtersListItem}>
         <Text style={styles.listText}>{itemData.item.type}</Text>
         <Switch
           onValueChange={(val) => setTypeSwitchValue(val, index)}
-          value={itemData.item.switch}
+          value={itemData.item.selected}
         />
       </View>
     );
   }
 
-  function listPurposeItem(itemData, index) {
+  const listPurposeItem = (itemData, index) => {
     index = itemData.item.id;
     return (
       <View style={styles.filtersListItem}>
         <Text style={styles.listText}>{itemData.item.purpose}</Text>
         <Switch
           onValueChange={(val) => setPurposeSwitchValue(val, index)}
-          value={itemData.item.switch}
+          value={itemData.item.selected}
           style={styles.listSwitcher}
         />
       </View>
@@ -93,12 +103,12 @@ export function Filters({ navigation }) {
     >
       <View style={styles.filtersContainer}>
         <Text style={styles.headeringText}>Тип укриття</Text>
-        <FlatList data={types} renderItem={listTypeItem} />
+        <FlatList data={types} renderItem={listTypeItem} keyExtractor={item => item.type} />
         <Text style={styles.headeringText}>Призначення</Text>
-        <FlatList data={purposes} renderItem={listPurposeItem} />
+        <FlatList data={purposes} renderItem={listPurposeItem} keyExtractor={item => item.purpose} />
       </View>
       <View style={styles.buttonContainer}>
-        <Button onPress={() => navigation.goBack()} title="Відміна" />
+        <Button onPress={cancelFilterHandler} title="Відміна" />
         <Button onPress={saveFilterHandler} title="Зберегти" />
       </View>
     </View>

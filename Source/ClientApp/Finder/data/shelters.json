@@ -1,0 +1,54 @@
+{
+  "shelters": [
+    {
+      "id": 0,
+      "longitude": 53.05789,
+      "latitude": 40.66855,
+      "typeId": 1,
+      "purposeId": 0,
+      "capacity": 50,
+      "addressId": 5,
+      "hasRamp": false
+    },
+    {
+      "id": 1,
+      "longitude": 53.05789,
+      "latitude": 40.66855,
+      "typeId": 0,
+      "purposeId": 0,
+      "capacity": 50,
+      "addressId": 5,
+      "hasRamp": false
+    },
+    {
+      "id": 2,
+      "longitude": 53.05789,
+      "latitude": 40.66855,
+      "typeId": 2,
+      "purposeId": 0,
+      "capacity": 50,
+      "addressId": 5,
+      "hasRamp": true
+    },
+    {
+      "id": 3,
+      "longitude": 53.05789,
+      "latitude": 40.66855,
+      "typeId": 1,
+      "purposeId": 0,
+      "capacity": 50,
+      "addressId": 5,
+      "hasRamp": false
+    },
+    {
+      "id": 4,
+      "longitude": 53.05789,
+      "latitude": 40.66855,
+      "typeId": 0,
+      "purposeId": 0,
+      "capacity": 50,
+      "addressId": 5,
+      "hasRamp": false
+    }
+  ]
+}
