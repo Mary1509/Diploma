@@ -10,62 +10,75 @@ import {
 import { Button } from "./MainButton";
 import { Switch } from "react-native-paper";
 
-export function Filters({ navigation }) {
+export function Filters({ navigation, route }) {
   const [types, setTypes] = useState([]);
   const [purposes, setPurposes] = useState([]);
   const [filterTypes, setFilterTypes] = useState([]);
   const [filterPurposes, setFilterPurposes] = useState([]);
 
+  const [hasRamp, setHasRamp] = useState(false);
+  const toggleRampSwitch = () => setHasRamp(hasRamp => !hasRamp);
+
+
   function saveFilterHandler() {
     getFilters();
-    navigation.navigate({
-      name: 'Results',
-      merge: true
+    navigation.navigate("Results", {
+      types: filterTypes,
+      purposes: filterPurposes,
+      hasRamp: hasRamp,
     });
   }
 
   function cancelFilterHandler() {
     types.forEach((type) => {
-      type.selected = ""
+      type.selected = "";
     });
+    setTypes([...types]);
     purposes.forEach((purpose) => {
-      purpose.selected = ""
-    })
-    navigation.goBack();
+      purpose.selected = "";
+    });
+    setPurposes([...purposes]);
+    getFilters();
+    setHasRamp(false);
+    navigation.navigate("Results", {
+      types: filterTypes,
+      purposes: filterPurposes,
+      hasRamp: hasRamp,
+    });
   }
 
   useEffect(() => {
-    if (types.length <= 0) {
-      const typesJson = require("./../../data/types.json");
-      setTypes(typesJson.types);
-    } else setTypes(filterTypes);
-
-    if (purposes.length <= 0) {
-      const purposesJson = require("./../../data/purposes.json");
-      setPurposes(purposesJson.purposes);
-    } else setPurposes(filterPurposes);
+    const typesJson = require("./../../data/types.json");
+    setTypes(typesJson.types);
+    const purposesJson = require("./../../data/purposes.json");
+    setPurposes(purposesJson.purposes);
   });
 
   function getFilters() {
-    console.log(types, purposes);
     types.forEach((type) => {
-      if (type["selected"] === "true") {
-        setFilterTypes(...filterTypes, type)
+      if (type.selected === true) {
+        filterTypes.push(type.id);
+        setFilterTypes([...filterTypes]);
       }
     });
     purposes.forEach((purpose) => {
-      if (purpose["selected"] === "true") {
-        setFilterPurposes(...filterPurposes, type)
+      if (purpose.selected === true) {
+        filterPurposes.push(purpose.id);
+        setFilterPurposes([...filterPurposes]);
       }
-    })
+    });
   }
 
   function setTypeSwitchValue(val, id) {
-    setTypes(...types, types[id].selected = val);
+    setTypes(...types, (types[id].selected = val));
   }
 
   function setPurposeSwitchValue(val, id) {
-    setPurposes(...purposes, purposes[id].selected = val);
+    setPurposes(...purposes, (purposes[id].selected = val));
+  }
+
+  function setRampSwitchValue(val) {
+    setHasRamp(val);
   }
 
   const listTypeItem = (itemData, index) => {
@@ -79,7 +92,7 @@ export function Filters({ navigation }) {
         />
       </View>
     );
-  }
+  };
 
   const listPurposeItem = (itemData, index) => {
     index = itemData.item.id;
@@ -93,7 +106,7 @@ export function Filters({ navigation }) {
         />
       </View>
     );
-  }
+  };
 
   return (
     <View
@@ -103,9 +116,25 @@ export function Filters({ navigation }) {
     >
       <View style={styles.filtersContainer}>
         <Text style={styles.headeringText}>Тип укриття</Text>
-        <FlatList data={types} renderItem={listTypeItem} keyExtractor={item => item.type} />
+        <FlatList
+          data={types}
+          renderItem={listTypeItem}
+          keyExtractor={(item) => item.type}
+        />
         <Text style={styles.headeringText}>Призначення</Text>
-        <FlatList data={purposes} renderItem={listPurposeItem} keyExtractor={item => item.purpose} />
+        <FlatList
+          data={purposes}
+          renderItem={listPurposeItem}
+          keyExtractor={(item) => item.purpose}
+        />
+        <View style={styles.filtersListItem}>
+          <Text style={styles.headeringText}>Наявність пандусу</Text>
+          <Switch
+            onValueChange={toggleRampSwitch}
+            value={hasRamp}
+            style={styles.listSwitcher}
+          />
+        </View>
       </View>
       <View style={styles.buttonContainer}>
         <Button onPress={cancelFilterHandler} title="Відміна" />
@@ -147,7 +176,7 @@ const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "column",
     justifyContent: "center",
-    padding: 10,
+    padding: 5,
   },
   headeringText: {
     padding: 15,
@@ -155,6 +184,8 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     fontFamily: "Monserrat-SemiBold",
     letterSpacing: 0.25,
+    color: "#09008e",
+    // color: "#ee6c4d"
   },
   buttonContainer: {
     flex: 1,
@@ -173,6 +204,9 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     fontFamily: "Monserrat-SemiBold",
     letterSpacing: 0.25,
+    color: "#000",
   },
-  listSwitcher: {},
+  listSwitcher: {
+    color: "#ee6c4d",
+  },
 });

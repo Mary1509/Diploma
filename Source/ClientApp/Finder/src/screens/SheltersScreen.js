@@ -17,7 +17,7 @@ export function SheltersScreen({ navigation }) {
         data={shelters}
         renderItem={(itemData) => {
           return (
-            <ShelterItem text={itemData.item.addressId} id={itemData.item.id} />
+            <ShelterItem text={itemData.item.address} id={itemData.item.id} />
           );
         }}
       />

@@ -12,22 +12,12 @@ export function HomeScreen() {
   const [purposesFilters, setPurposesFilters] = useState([]);
   const [hasRampFilter, setHasRampFilter] = useState("");
 
-  function saveFilterHandler() {
-    // apply filters
-    setModalIsVisible(false);
-  }
-
   function MainScreen({ navigation, route }) {
-
-    useEffect(() => {
-      if (route.params?.filters){
-        console.log('Sent successfully');
-      }
-    }, route.params?.filters)
-
     return (
       <View style={styles.container}>
-        <View style={styles.listContainer}></View>
+        <View style={styles.listContainer}>
+          <Text>{route.params.hasRamp}</Text>
+        </View>
         <View
           style={
             Platform.OS == "android"
@@ -56,7 +46,15 @@ export function HomeScreen() {
   return (
     <RootStack.Navigator screenOptions={{ headerShown: false }}>
       <RootStack.Group>
-        <RootStack.Screen name="Results" component={MainScreen} />
+        <RootStack.Screen
+          name="Results"
+          component={MainScreen}
+          initialParams={{
+            types: "types",
+            purposes: "purposes",
+            hasRamp: "hasRamp",
+          }}
+        />
       </RootStack.Group>
       <RootStack.Group
         screenOptions={{

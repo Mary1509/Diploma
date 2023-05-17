@@ -6,7 +6,7 @@ export function ShelterItem(props) {
       <Pressable
         android_ripple={{ color: "#210644" }}
         style={({pressed}) => pressed && styles.pressedItem}
-        onPress={()=> console.log("Item pressed")}
+        onPress={()=> console.log("Item pressed: " + props.id)}
       >
         <Text style={styles.goalText}>{props.text}</Text>
       </Pressable>
@@ -16,15 +16,18 @@ export function ShelterItem(props) {
 
 const styles = StyleSheet.create({
   goalItem: {
+    width: "100%",
     margin: 8,
     borderRadius: 6,
-    backgroundColor: "#5e0acc",
+    backgroundColor: "#F0F0F0",
   },
   pressedItem: {
     opacity: 0.5
   },
   goalText: {
-    color: "#fff",
+    color: "#000",
     padding: 8,
+    fontSize: 16,
+    fontFamily: "Monserrat-SemiBold"
   },
 });
