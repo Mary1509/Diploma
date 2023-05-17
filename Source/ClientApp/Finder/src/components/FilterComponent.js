@@ -22,7 +22,7 @@ export function Filters({ navigation, route }) {
 
   function saveFilterHandler() {
     getFilters();
-    navigation.navigate("Results", {
+    navigation.navigate(route.params.parentWin, {
       types: filterTypes,
       purposes: filterPurposes,
       hasRamp: hasRamp,
@@ -40,7 +40,7 @@ export function Filters({ navigation, route }) {
     setPurposes([...purposes]);
     getFilters();
     setHasRamp(false);
-    navigation.navigate("Results", {
+    navigation.navigate(route.params.parentWin, {
       types: filterTypes,
       purposes: filterPurposes,
       hasRamp: hasRamp,

@@ -50,7 +50,8 @@ export default function App() {
             },
             headerTitleStyle: {
               fontFamily: "Monserrat-SemiBold",
-            },
+            }
+            
           }}
         >
           <Tab.Screen

@@ -49,6 +49,106 @@
       "capacity": 50,
       "address": "Золотоворітська, 45",
       "hasRamp": false
+    },
+    {
+      "id": 12,
+      "longitude": 53.05789,
+      "latitude": 40.66855,
+      "type": "Підвал",
+      "purpose": "Загального призначення",
+      "capacity": 50,
+      "address": "Сагайдачного, 13",
+      "hasRamp": false
+    },
+    {
+      "id": 11,
+      "longitude": 53.05789,
+      "latitude": 40.66855,
+      "type": "Станція метро",
+      "purpose": "Подвійного призначення",
+      "capacity": 50,
+      "address": "Конашевича, 17",
+      "hasRamp": false
+    },
+    {
+      "id": 21,
+      "longitude": 53.05789,
+      "latitude": 40.66855,
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "capacity": 50,
+      "address": "Миропільська, 32",
+      "hasRamp": true
+    },
+    {
+      "id": 31,
+      "longitude": 53.05789,
+      "latitude": 40.66855,
+      "type": "Підземний перехід",
+      "purpose": "Найпростіше укриття",
+      "capacity": 50,
+      "address": "Малишка, 19в",
+      "hasRamp": false
+    },
+    {
+      "id": 41,
+      "longitude": 53.05789,
+      "latitude": 40.66855,
+      "type": "Підземний перехід",
+      "purpose": "Найпростіше укриття",
+      "capacity": 50,
+      "address": "Золотоворітська, 45",
+      "hasRamp": false
+    },
+    {
+      "id": 110,
+      "longitude": 53.05789,
+      "latitude": 40.66855,
+      "type": "Підвал",
+      "purpose": "Загального призначення",
+      "capacity": 50,
+      "address": "Сагайдачного, 13",
+      "hasRamp": false
+    },
+    {
+      "id": 111,
+      "longitude": 53.05789,
+      "latitude": 40.66855,
+      "type": "Станція метро",
+      "purpose": "Подвійного призначення",
+      "capacity": 50,
+      "address": "Конашевича, 17",
+      "hasRamp": false
+    },
+    {
+      "id": 211,
+      "longitude": 53.05789,
+      "latitude": 40.66855,
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "capacity": 50,
+      "address": "Миропільська, 32",
+      "hasRamp": true
+    },
+    {
+      "id": 311,
+      "longitude": 53.05789,
+      "latitude": 40.66855,
+      "type": "Підземний перехід",
+      "purpose": "Найпростіше укриття",
+      "capacity": 50,
+      "address": "Малишка, 19в",
+      "hasRamp": false
+    },
+    {
+      "id": 411,
+      "longitude": 53.05789,
+      "latitude": 40.66855,
+      "type": "Підземний перехід",
+      "purpose": "Найпростіше укриття",
+      "capacity": 50,
+      "address": "Золотоворітська, 45",
+      "hasRamp": false
     }
   ]
 }

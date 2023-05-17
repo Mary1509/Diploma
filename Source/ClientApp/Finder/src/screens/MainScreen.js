@@ -59,10 +59,10 @@ export function HomeScreen() {
       <RootStack.Group
         screenOptions={{
           presentation: "transparentModal",
-          animation: "slide_from_bottom",
+          animation: "fade_from_bottom",
         }}
       >
-        <RootStack.Screen name="Filters" component={Filters} />
+        <RootStack.Screen name="Filters" component={Filters} initialParams={{parentWin: "Results"}} />
       </RootStack.Group>
     </RootStack.Navigator>
   );
@@ -86,7 +86,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     borderWidth: 1,
     borderColor: "#ffffff",
-    elevation: 3,
     paddingHorizontal: 30,
   },
   buttonContainerIOS: {
