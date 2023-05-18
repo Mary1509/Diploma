@@ -49,6 +49,9 @@ export function SheltersScreen({ navigation }) {
       setFilteredShelters(() => {
         return filtered;
       });
+      setSearch(() => {
+        return text;
+      });
     } else {
       setFilteredShelters(shelters);
       setSearch(text);

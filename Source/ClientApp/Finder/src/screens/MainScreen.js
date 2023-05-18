@@ -1,5 +1,8 @@
-import { StyleSheet, View, Text, Modal, Platform } from "react-native";
+import { StyleSheet, View, Platform, ActivityIndicator } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import * as Location from "expo-location";
+import MapView from "react-native-maps";
+import { Marker } from "react-native-maps";
 
 // Import components
 import { Button } from "../components/MainButton";
@@ -11,12 +14,100 @@ export function HomeScreen() {
   const [typesFilters, setTypesFilters] = useState([]);
   const [purposesFilters, setPurposesFilters] = useState([]);
   const [hasRampFilter, setHasRampFilter] = useState("");
+  const [errorMsg, setErrorMsg] = useState(null);
+  const [location, setLocation] = useState(null);
+  
+
+  useEffect(() => {
+    (async () => {
+      var { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        setErrorMsg("Permission to access location was denied");
+        return;
+      }
+      var location = await Location.getCurrentPositionAsync({});
+      setLocation(() => {
+        return {
+          latitude: location.coords.latitude,
+          longitude: location.coords.longitude,
+        };
+      });
+    })();
+  }, []);
 
   function MainScreen({ navigation, route }) {
+    const [fileteredShelters, setFilteredShelters] = useState([]);
+    const [shelters, setShelters] = useState([]);
+
+    function SheltersList({ navigation }) {
+      // <View style={styles.container}>
+      //   <FlatList
+      //     data={fileteredShelters}
+      //     renderItem={(itemData) => {
+      //       return (
+      //         <ShelterItem
+      //           text={itemData.item.address}
+      //           id={itemData.item.id}
+      //         />
+      //       );
+      //     }}
+      //   />
+      // </View>
+      if (location) {
+        var markers = shelters || [];
+        return (
+          <View style={styles.mapContainer}>
+            <MapView
+              style={styles.map}
+              initialRegion={{
+                latitude: 50.45466,
+                longitude: 30.5238,
+                latitudeDelta: 0.5,
+                longitudeDelta: 0.5,
+              }}
+            >
+              <Marker coordinate={location} pinColor={"blue"} title="Ви тут" />
+              
+              {markers.map(shelter => (
+                <Marker
+                  key={shelter.id}
+                  coordinate={{
+                    latitude: parseFloat(shelter.latitude),
+                    longitude: parseFloat(shelter.longitude),
+                  }}
+                  title={shelter.address}
+                />
+              ))}
+            </MapView>
+          </View>
+        );
+      } else if (errorMsg) {
+        return (
+          <View>
+            <Text>Для пошуку необхідно надати дозвіл до геопозиції</Text>
+          </View>
+        );
+      } else {
+        return (
+          <View>
+            <ActivityIndicator size="large" color="#ee6c4d" />
+          </View>
+        );
+      }
+    }
+
+    function handleFind() {
+      sheltersJson = require("./../../data/shelters.json");
+      console.log(sheltersJson.shelters);
+      setShelters(sheltersJson.shelters);
+      setFilteredShelters(sheltersJson.shelters);
+      console.log(shelters);
+    }
+
     return (
       <View style={styles.container}>
         <View style={styles.listContainer}>
-          <Text>{route.params.hasRamp}</Text>
+          <SheltersList />
         </View>
         <View
           style={
@@ -26,10 +117,7 @@ export function HomeScreen() {
           }
         >
           <View flex={3}>
-            <Button
-              title="Знайти"
-              onPress={() => console.log("Button pressed")}
-            />
+            <Button title="Знайти" onPress={handleFind} />
           </View>
           <View flex={1}>
             <FilterButton
@@ -62,7 +150,11 @@ export function HomeScreen() {
           animation: "fade_from_bottom",
         }}
       >
-        <RootStack.Screen name="Filters" component={Filters} initialParams={{parentWin: "Results"}} />
+        <RootStack.Screen
+          name="Filters"
+          component={Filters}
+          initialParams={{ parentWin: "Results" }}
+        />
       </RootStack.Group>
     </RootStack.Navigator>
   );
@@ -98,5 +190,13 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     shadowColor: "#000",
     paddingHorizontal: 30,
+  },
+  mapContainer: {
+    width: "100%",
+    height: "100%",
+  },
+  map: {
+    width: "100%",
+    height: "100%",
   },
 });
