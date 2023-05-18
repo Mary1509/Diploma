@@ -22,21 +22,33 @@ export function SheltersScreen({ navigation }) {
     const sheltersJson = require("./../../data/shelters.json");
     setShelters(sheltersJson.shelters);
     setFilteredShelters(sheltersJson.shelters);
-  });
+  }, []);
 
   async function searchFilter(text) {
     if (text) {
-      const newShelters = shelters.filter((shelter) => {
+      // const newShelters = shelters.filter((shelter) => {
+      //   const shelterData = shelter.address
+      //     ? shelter.address.toLowerCase()
+      //     : "";
+      //   const textData = text.toLowerCase();
+      //   return shelterData.indexOf(textData) > -1;
+      // });
+      // console.log(newShelters);
+      // await setFilteredShelters(newShelters);
+      // await setSearch(text);
+      // console.log(search);
+      const newShelters = require("./../../data/shelters.json");
+      const filtered = newShelters.shelters.filter((shelter) => {
         const shelterData = shelter.address
           ? shelter.address.toLowerCase()
           : "";
         const textData = text.toLowerCase();
         return shelterData.indexOf(textData) > -1;
       });
-      console.log(newShelters);
-      await setFilteredShelters(newShelters);
-      await setSearch(text);
-      console.log(search);
+      console.log(filtered);
+      setFilteredShelters(() => {
+        return filtered;
+      });
     } else {
       setFilteredShelters(shelters);
       setSearch(text);
@@ -46,7 +58,7 @@ export function SheltersScreen({ navigation }) {
   const RootStack = createNativeStackNavigator();
 
   const SearchAndFilters = () => {
-    const [temp, setTemp] = useState('');
+    const [temp, setTemp] = useState("");
 
     return (
       <View style={styles.filterContainer}>
