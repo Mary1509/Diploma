@@ -12,11 +12,15 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { ShelterItem } from "./../components/ShelterItem";
 import { Filters } from "../components/FilterComponent";
 import { FilterButton } from "../components/FilterButton";
+import { useSelector, useDispatch } from "react-redux";
+import { Shelter } from "../components/ShelterComponent";
 
 export function SheltersScreen({ navigation }) {
   const [shelters, setShelters] = useState([]);
   const [fileteredShelters, setFilteredShelters] = useState([]);
   const [search, setSearch] = useState("");
+
+  const isLogged = useSelector((store) => store.isLogged.isLogged);
 
   useEffect(() => {
     const sheltersJson = require("./../../data/shelters.json");
@@ -26,17 +30,6 @@ export function SheltersScreen({ navigation }) {
 
   async function searchFilter(text) {
     if (text) {
-      // const newShelters = shelters.filter((shelter) => {
-      //   const shelterData = shelter.address
-      //     ? shelter.address.toLowerCase()
-      //     : "";
-      //   const textData = text.toLowerCase();
-      //   return shelterData.indexOf(textData) > -1;
-      // });
-      // console.log(newShelters);
-      // await setFilteredShelters(newShelters);
-      // await setSearch(text);
-      // console.log(search);
       const newShelters = require("./../../data/shelters.json");
       const filtered = newShelters.shelters.filter((shelter) => {
         const shelterData = shelter.address
@@ -69,7 +62,7 @@ export function SheltersScreen({ navigation }) {
           flex={5}
           style={styles.textInput}
           placeholder="Введіть адресу для пошуку"
-          value={temp.text}
+          value={search.text}
           onChangeText={(text) => setTemp(text)}
           onSubmitEditing={() => searchFilter(temp)}
         />
@@ -88,7 +81,10 @@ export function SheltersScreen({ navigation }) {
               return (
                 <ShelterItem
                   text={itemData.item.address}
-                  id={itemData.item.id}
+                  onPress={()=> navigation.navigate("Shelter", {
+                    id: itemData.item.id
+                  })}
+                  
                 />
               );
             }}
@@ -105,6 +101,7 @@ export function SheltersScreen({ navigation }) {
     >
       <RootStack.Group>
         <RootStack.Screen name="SheltersList" component={SheltersList} />
+        <RootStack.Screen name="Shelter" component={Shelter} />
       </RootStack.Group>
       <RootStack.Group
         screenOptions={{

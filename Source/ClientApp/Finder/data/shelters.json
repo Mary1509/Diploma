@@ -2,52 +2,3972 @@
   "shelters": [
     {
       "id": 0,
-      "longitude": "50.47551",
-      "latitude": "30.59555",
+      "longitude": "30.59555",
+      "latitude": "50.47551",
       "type": "Підвал з пандусом ОЗ",
       "purpose": "Найпростіші укриття",
       "address": "б-р  Перова, 1",
-      "capacity": 196,
+      "capacity": 197,
       "hasRamp": ""
     },
     {
       "id": 1,
-      "longitude": "50.48599",
-      "latitude": "30.59181",
+      "longitude": "30.59181",
+      "latitude": "50.48599",
       "type": "Підвал ОЗ",
       "purpose": "Найпростіші укриття",
       "address": "б-р  Перова, 23",
-      "capacity": 178,
+      "capacity": 146,
       "hasRamp": "False"
     },
     {
       "id": 2,
-      "longitude": "50.47716",
-      "latitude": "30.59471",
+      "longitude": "30.59471",
+      "latitude": "50.47716",
       "type": "Підвал з пандусом ОЗ",
       "purpose": "Найпростіші укриття",
       "address": "б-р  Перова, 3",
-      "capacity": 119,
+      "capacity": 193,
       "hasRamp": ""
     },
     {
       "id": 3,
-      "longitude": "50.4482",
-      "latitude": "30.62627",
+      "longitude": "30.62627",
+      "latitude": "50.4482",
       "type": "Підвал",
       "purpose": "Найпростіші укриття",
       "address": "б-р Верховної Ради, 12",
-      "capacity": 84,
+      "capacity": 86,
       "hasRamp": "False"
     },
     {
       "id": 4,
-      "longitude": "50.44835",
-      "latitude": "30.61675",
+      "longitude": "30.61675",
+      "latitude": "50.44835",
       "type": "Підвал",
       "purpose": "Найпростіші укриття",
       "address": "б-р Верховної Ради, 13",
+      "capacity": 96,
+      "hasRamp": "False"
+    },
+    {
+      "id": 5,
+      "longitude": "30.62033",
+      "latitude": "50.44725",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Верховної Ради, 14Б",
+      "capacity": 12,
+      "hasRamp": ""
+    },
+    {
+      "id": 6,
+      "longitude": "30.61723",
+      "latitude": "50.44957",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Верховної Ради, 15А",
+      "capacity": 124,
+      "hasRamp": "False"
+    },
+    {
+      "id": 7,
+      "longitude": "30.61884",
+      "latitude": "50.44892",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Верховної Ради, 17",
+      "capacity": 2,
+      "hasRamp": "False"
+    },
+    {
+      "id": 8,
+      "longitude": "30.62341",
+      "latitude": "50.44821",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Верховної Ради, 20А",
+      "capacity": 86,
+      "hasRamp": "False"
+    },
+    {
+      "id": 9,
+      "longitude": "30.62215",
+      "latitude": "50.45045",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Верховної Ради, 21",
+      "capacity": 61,
+      "hasRamp": "False"
+    },
+    {
+      "id": 10,
+      "longitude": "30.62209",
+      "latitude": "50.44991",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Верховної Ради, 21А",
+      "capacity": 69,
+      "hasRamp": "False"
+    },
+    {
+      "id": 11,
+      "longitude": "30.62241",
+      "latitude": "50.45013",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Верховної Ради, 21А",
       "capacity": 142,
+      "hasRamp": ""
+    },
+    {
+      "id": 12,
+      "longitude": "30.62207",
+      "latitude": "50.44996",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Верховної Ради, 21Б",
+      "capacity": 162,
+      "hasRamp": ""
+    },
+    {
+      "id": 13,
+      "longitude": "30.62388",
+      "latitude": "50.4494",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Верховної Ради, 22",
+      "capacity": 5,
+      "hasRamp": "False"
+    },
+    {
+      "id": 14,
+      "longitude": "30.61174",
+      "latitude": "50.44697",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Верховної Ради, 3",
+      "capacity": 30,
+      "hasRamp": "False"
+    },
+    {
+      "id": 15,
+      "longitude": "30.61361",
+      "latitude": "50.44775",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Верховної Ради, 7А",
+      "capacity": 148,
+      "hasRamp": "False"
+    },
+    {
+      "id": 16,
+      "longitude": "30.62858",
+      "latitude": "50.43716",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Гашека, 10",
+      "capacity": 162,
+      "hasRamp": "False"
+    },
+    {
+      "id": 17,
+      "longitude": "30.63162",
+      "latitude": "50.43768",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Гашека, 16",
+      "capacity": 2,
+      "hasRamp": "False"
+    },
+    {
+      "id": 18,
+      "longitude": "30.62637",
+      "latitude": "50.43753",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Гашека, 5",
+      "capacity": 111,
+      "hasRamp": "False"
+    },
+    {
+      "id": 19,
+      "longitude": "30.62759",
+      "latitude": "50.43529",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Гашека, 6А",
+      "capacity": 123,
+      "hasRamp": "False"
+    },
+    {
+      "id": 20,
+      "longitude": "30.68801",
+      "latitude": "50.4359",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Гашека, 8А",
+      "capacity": 115,
+      "hasRamp": ""
+    },
+    {
+      "id": 21,
+      "longitude": "30.62798",
+      "latitude": "50.43608",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Гашека, 8А",
+      "capacity": 119,
+      "hasRamp": "False"
+    },
+    {
+      "id": 22,
+      "longitude": "30.61447",
+      "latitude": "50.45951",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Дарницький, 1",
+      "capacity": 84,
+      "hasRamp": "False"
+    },
+    {
+      "id": 23,
+      "longitude": "30.61136",
+      "latitude": "50.46512",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Дарницький, 10",
+      "capacity": 81,
+      "hasRamp": "False"
+    },
+    {
+      "id": 24,
+      "longitude": "30.61118",
+      "latitude": "50.46532",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Дарницький, 10А",
+      "capacity": 56,
+      "hasRamp": "False"
+    },
+    {
+      "id": 25,
+      "longitude": "30.61161",
+      "latitude": "50.46562",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Дарницький, 12",
+      "capacity": 156,
+      "hasRamp": "False"
+    },
+    {
+      "id": 26,
+      "longitude": "30.61364",
+      "latitude": "50.45969",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Дарницький, 1А",
+      "capacity": 148,
+      "hasRamp": "False"
+    },
+    {
+      "id": 27,
+      "longitude": "30.6136",
+      "latitude": "50.46027",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Дарницький, 3А",
+      "capacity": 44,
+      "hasRamp": "False"
+    },
+    {
+      "id": 28,
+      "longitude": "30.61061",
+      "latitude": "50.46413",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Дарницький, 8",
+      "capacity": 15,
+      "hasRamp": "False"
+    },
+    {
+      "id": 29,
+      "longitude": "30.6098",
+      "latitude": "50.46438",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Дарницький, 8Б",
+      "capacity": 130,
+      "hasRamp": ""
+    },
+    {
+      "id": 30,
+      "longitude": "30.59303",
+      "latitude": "50.48561",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Перова - вул. Микитенка",
+      "capacity": 23,
+      "hasRamp": ""
+    },
+    {
+      "id": 31,
+      "longitude": "30.59621",
+      "latitude": "50.47395",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Перова - вул. Стальського",
+      "capacity": 188,
+      "hasRamp": ""
+    },
+    {
+      "id": 32,
+      "longitude": "30.59711",
+      "latitude": "50.47395",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Перова - просп. Навої",
+      "capacity": 184,
+      "hasRamp": ""
+    },
+    {
+      "id": 33,
+      "longitude": "30.59921",
+      "latitude": "50.46759",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Перова (зуп. Паркові озера)",
+      "capacity": 105,
+      "hasRamp": ""
+    },
+    {
+      "id": 34,
+      "longitude": "30.59921",
+      "latitude": "50.46759",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Перова- вул. Воскресенська",
+      "capacity": 172,
+      "hasRamp": ""
+    },
+    {
+      "id": 35,
+      "longitude": "30.59523",
+      "latitude": "50.47395",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Перова- вул. Кибальчича",
+      "capacity": 32,
+      "hasRamp": ""
+    },
+    {
+      "id": 36,
+      "longitude": "30.59913",
+      "latitude": "50.47004",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Перова, 10А",
+      "capacity": 26,
+      "hasRamp": ""
+    },
+    {
+      "id": 37,
+      "longitude": "30.59232",
+      "latitude": "50.4815",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Перова, 13 А",
+      "capacity": 168,
+      "hasRamp": "False"
+    },
+    {
+      "id": 38,
+      "longitude": "30.59361",
+      "latitude": "50.48141",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Перова, 13/2",
+      "capacity": 168,
+      "hasRamp": "False"
+    },
+    {
+      "id": 39,
+      "longitude": "30.59939",
+      "latitude": "50.47519",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Перова, 14А",
+      "capacity": 120,
+      "hasRamp": "False"
+    },
+    {
+      "id": 40,
+      "longitude": "30.59334",
+      "latitude": "50.48247",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Перова, 15",
+      "capacity": 79,
+      "hasRamp": "False"
+    },
+    {
+      "id": 41,
+      "longitude": "30.59141",
+      "latitude": "50.48712",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Перова, 21",
+      "capacity": 3,
+      "hasRamp": "False"
+    },
+    {
+      "id": 42,
+      "longitude": "30.59514",
+      "latitude": "50.48029",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Перова, 24",
+      "capacity": 176,
+      "hasRamp": "False"
+    },
+    {
+      "id": 43,
+      "longitude": "30.5901",
+      "latitude": "50.49159",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Перова, 27",
+      "capacity": 134,
+      "hasRamp": "False"
+    },
+    {
+      "id": 44,
+      "longitude": "30.59611",
+      "latitude": "50.48142",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Перова, 28А",
+      "capacity": 86,
+      "hasRamp": "False"
+    },
+    {
+      "id": 45,
+      "longitude": "30.59996",
+      "latitude": "50.46684",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Перова, 4",
+      "capacity": 119,
+      "hasRamp": "False"
+    },
+    {
+      "id": 46,
+      "longitude": "30.59224",
+      "latitude": "50.48898",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Перова, 44",
+      "capacity": 30,
+      "hasRamp": "False"
+    },
+    {
+      "id": 47,
+      "longitude": "30.59276",
+      "latitude": "50.49211",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Перова, 48Б",
+      "capacity": 25,
+      "hasRamp": "False"
+    },
+    {
+      "id": 48,
+      "longitude": "30.59134",
+      "latitude": "50.49304",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Перова, 50",
+      "capacity": 145,
+      "hasRamp": "False"
+    },
+    {
+      "id": 49,
+      "longitude": "30.59222",
+      "latitude": "50.49261",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Перова, 50Б",
+      "capacity": 88,
+      "hasRamp": "False"
+    },
+    {
+      "id": 50,
+      "longitude": "30.59907",
+      "latitude": "50.46925",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Перова, 8",
+      "capacity": 64,
+      "hasRamp": "False"
+    },
+    {
+      "id": 51,
+      "longitude": "30.60061",
+      "latitude": "50.46955",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Перова, 8А",
+      "capacity": 147,
+      "hasRamp": "False"
+    },
+    {
+      "id": 52,
+      "longitude": "30.62136",
+      "latitude": "50.45322",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Праці, 4А",
+      "capacity": 42,
+      "hasRamp": "False"
+    },
+    {
+      "id": 53,
+      "longitude": "30.618",
+      "latitude": "50.45518",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Праці, 7",
+      "capacity": 192,
+      "hasRamp": "False"
+    },
+    {
+      "id": 54,
+      "longitude": "30.59596",
+      "latitude": "50.43888",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Русанівський, 11/11",
+      "capacity": 9,
+      "hasRamp": "False"
+    },
+    {
+      "id": 55,
+      "longitude": "30.59809",
+      "latitude": "50.43856",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Шамо, 12",
+      "capacity": 105,
+      "hasRamp": "False"
+    },
+    {
+      "id": 56,
+      "longitude": "30.5966",
+      "latitude": "50.44115",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Шамо, 17",
+      "capacity": 139,
+      "hasRamp": "False"
+    },
+    {
+      "id": 57,
+      "longitude": "30.59524",
+      "latitude": "50.44211",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Шамо, 17А",
+      "capacity": 39,
+      "hasRamp": "False"
+    },
+    {
+      "id": 58,
+      "longitude": "30.59833",
+      "latitude": "50.44113",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Шамо, 18",
+      "capacity": 151,
+      "hasRamp": "False"
+    },
+    {
+      "id": 59,
+      "longitude": "30.60183",
+      "latitude": "50.43944",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Шамо, 18/2",
+      "capacity": 48,
+      "hasRamp": "False"
+    },
+    {
+      "id": 60,
+      "longitude": "30.59696",
+      "latitude": "50.43614",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Шамо, 5",
+      "capacity": 66,
+      "hasRamp": "False"
+    },
+    {
+      "id": 61,
+      "longitude": "30.59537",
+      "latitude": "50.43647",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Шамо, 9/1",
+      "capacity": 108,
+      "hasRamp": "False"
+    },
+    {
+      "id": 62,
+      "longitude": "30.63952",
+      "latitude": "50.44053",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Азербайджанська, 4",
+      "capacity": 119,
+      "hasRamp": "False"
+    },
+    {
+      "id": 63,
+      "longitude": "30.67511",
+      "latitude": "50.44883",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Алматинська, 101",
+      "capacity": 23,
+      "hasRamp": "False"
+    },
+    {
+      "id": 64,
+      "longitude": "30.67566",
+      "latitude": "50.44929",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Алматинська, 103/1",
+      "capacity": 71,
+      "hasRamp": "False"
+    },
+    {
+      "id": 65,
+      "longitude": "30.67725",
+      "latitude": "50.4506",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Алматинська, 107/2",
+      "capacity": 63,
+      "hasRamp": "False"
+    },
+    {
+      "id": 66,
+      "longitude": "30.59338",
+      "latitude": "50.45926",
+      "type": "Підвал з пандусом",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Алматинська, 109",
+      "capacity": 159,
+      "hasRamp": ""
+    },
+    {
+      "id": 67,
+      "longitude": "30.67992",
+      "latitude": "50.45205",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Алматинська, 109",
+      "capacity": 15,
+      "hasRamp": "False"
+    },
+    {
+      "id": 68,
+      "longitude": "30.68249",
+      "latitude": "50.45262",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Алматинська, 111",
+      "capacity": 48,
+      "hasRamp": "False"
+    },
+    {
+      "id": 69,
+      "longitude": "30.68193",
+      "latitude": "50.45332",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Алматинська, 111А",
+      "capacity": 155,
+      "hasRamp": "False"
+    },
+    {
+      "id": 70,
+      "longitude": "30.68327",
+      "latitude": "50.45364",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Алматинська, 113",
+      "capacity": 48,
+      "hasRamp": "False"
+    },
+    {
+      "id": 71,
+      "longitude": "30.66793",
+      "latitude": "50.44314",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Алматинська, 36А",
+      "capacity": 170,
+      "hasRamp": "False"
+    },
+    {
+      "id": 72,
+      "longitude": "30.66449",
+      "latitude": "50.44294",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Алматинська, 37Б",
+      "capacity": 44,
+      "hasRamp": "False"
+    },
+    {
+      "id": 73,
+      "longitude": "30.66124",
+      "latitude": "50.44372",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Алматинська, 39Б",
+      "capacity": 157,
+      "hasRamp": "False"
+    },
+    {
+      "id": 74,
+      "longitude": "30.65977",
+      "latitude": "50.44526",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Алматинська, 41А",
+      "capacity": 177,
+      "hasRamp": "False"
+    },
+    {
+      "id": 75,
+      "longitude": "30.67078",
+      "latitude": "50.44615",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Алматинська, 89",
+      "capacity": 111,
+      "hasRamp": "False"
+    },
+    {
+      "id": 76,
+      "longitude": "30.67309",
+      "latitude": "50.44727",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Алматинська, 95",
+      "capacity": 147,
+      "hasRamp": "False"
+    },
+    {
+      "id": 77,
+      "longitude": "30.67369",
+      "latitude": "50.44751",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Алматинська, 97/1",
+      "capacity": 132,
+      "hasRamp": "False"
+    },
+    {
+      "id": 78,
+      "longitude": "30.61835",
+      "latitude": "50.45084",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Бажова, 5",
+      "capacity": 90,
+      "hasRamp": "False"
+    },
+    {
+      "id": 79,
+      "longitude": "30.61918",
+      "latitude": "50.45238",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Бажова, 6А",
+      "capacity": 39,
+      "hasRamp": "False"
+    },
+    {
+      "id": 80,
+      "longitude": "30.61656",
+      "latitude": "50.45203",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Бажова, 9А",
+      "capacity": 48,
+      "hasRamp": "False"
+    },
+    {
+      "id": 81,
+      "longitude": "30.7125",
+      "latitude": "50.47476",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Берегова, 11",
+      "capacity": 134,
+      "hasRamp": "False"
+    },
+    {
+      "id": 82,
+      "longitude": "30.61816",
+      "latitude": "50.43168",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Березнева, 14",
+      "capacity": 64,
+      "hasRamp": "False"
+    },
+    {
+      "id": 83,
+      "longitude": "30.62949",
+      "latitude": "50.4334",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Березнева, 5",
+      "capacity": 91,
+      "hasRamp": "False"
+    },
+    {
+      "id": 84,
+      "longitude": "30.61256",
+      "latitude": "50.4261",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Березняківська, 26Б",
+      "capacity": 160,
+      "hasRamp": "False"
+    },
+    {
+      "id": 85,
+      "longitude": "30.61072",
+      "latitude": "50.42798",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Березняківська, 30Б",
+      "capacity": 96,
+      "hasRamp": "False"
+    },
+    {
+      "id": 86,
+      "longitude": "30.5995698",
+      "latitude": "50.4227329",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Березняківська, 34",
+      "capacity": 177,
+      "hasRamp": "False"
+    },
+    {
+      "id": 87,
+      "longitude": "30.59649",
+      "latitude": "50.42373",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Березняківська, 38Б",
+      "capacity": 43,
+      "hasRamp": "False"
+    },
+    {
+      "id": 88,
+      "longitude": "30.6716",
+      "latitude": "50.44827",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Бородіна, 6",
+      "capacity": 13,
+      "hasRamp": "False"
+    },
+    {
+      "id": 89,
+      "longitude": "30.67213",
+      "latitude": "50.44768",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Бородіна, 6А",
+      "capacity": 40,
+      "hasRamp": "False"
+    },
+    {
+      "id": 90,
+      "longitude": "30.60971",
+      "latitude": "50.45564",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Будівельників (тунельний прохід)",
+      "capacity": 93,
+      "hasRamp": ""
+    },
+    {
+      "id": 91,
+      "longitude": "30.62283",
+      "latitude": "50.44681",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Будівельників, 10",
+      "capacity": 138,
+      "hasRamp": "False"
+    },
+    {
+      "id": 92,
+      "longitude": "30.62031",
+      "latitude": "50.4459",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Будівельників, 12",
+      "capacity": 87,
+      "hasRamp": "False"
+    },
+    {
+      "id": 93,
+      "longitude": "30.61445",
+      "latitude": "50.44794",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Будівельників, 21/9",
+      "capacity": 65,
+      "hasRamp": "False"
+    },
+    {
+      "id": 94,
+      "longitude": "30.61387",
+      "latitude": "50.45153",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Будівельників, 30",
+      "capacity": 65,
+      "hasRamp": "False"
+    },
+    {
+      "id": 95,
+      "longitude": "30.61276",
+      "latitude": "50.4517",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Будівельників, 32/2",
+      "capacity": 11,
+      "hasRamp": "False"
+    },
+    {
+      "id": 96,
+      "longitude": "30.61232",
+      "latitude": "50.45108",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Будівельників, 35",
+      "capacity": 43,
+      "hasRamp": "False"
+    },
+    {
+      "id": 97,
+      "longitude": "30.61147",
+      "latitude": "50.4517",
+      "type": "Підвал з пандусом ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Будівельників, 37",
+      "capacity": 33,
+      "hasRamp": ""
+    },
+    {
+      "id": 98,
+      "longitude": "30.61077",
+      "latitude": "50.45311",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Будівельників, 41",
+      "capacity": 110,
+      "hasRamp": "False"
+    },
+    {
+      "id": 99,
+      "longitude": "30.62256",
+      "latitude": "50.44533",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Будівельників, 8",
+      "capacity": 110,
+      "hasRamp": "False"
+    },
+    {
+      "id": 100,
+      "longitude": "30.60704",
+      "latitude": "50.43228",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Бучми, 5А",
+      "capacity": 158,
+      "hasRamp": "False"
+    },
+    {
+      "id": 101,
+      "longitude": "30.60309",
+      "latitude": "50.42979",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Бучми, 6/1",
+      "capacity": 113,
+      "hasRamp": "False"
+    },
+    {
+      "id": 102,
+      "longitude": "30.57845",
+      "latitude": "50.49095",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Вершигори, 9Б",
+      "capacity": 87,
+      "hasRamp": "False"
+    },
+    {
+      "id": 103,
+      "longitude": "30.57842",
+      "latitude": "50.49076",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Вершигори, 9Б",
+      "capacity": 126,
+      "hasRamp": "False"
+    },
+    {
+      "id": 104,
+      "longitude": "30.60492",
+      "latitude": "50.48908",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Вільде, 5",
+      "capacity": 17,
+      "hasRamp": "False"
+    },
+    {
+      "id": 105,
+      "longitude": "30.61063",
+      "latitude": "50.44363",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Віфлеємська, 14",
+      "capacity": 25,
+      "hasRamp": "False"
+    },
+    {
+      "id": 106,
+      "longitude": "30.64369",
+      "latitude": "50.43998",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Гродненська, 11А",
+      "capacity": 154,
+      "hasRamp": "False"
+    },
+    {
+      "id": 107,
+      "longitude": "30.60827",
+      "latitude": "50.48319",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Дашкевича, 4В",
+      "capacity": 76,
+      "hasRamp": "False"
+    },
+    {
+      "id": 108,
+      "longitude": "30.59511",
+      "latitude": "50.43535",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Ентузіастів, 1/5",
+      "capacity": 113,
+      "hasRamp": "False"
+    },
+    {
+      "id": 109,
+      "longitude": "30.60388",
+      "latitude": "50.43713",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Ентузіастів, 11",
+      "capacity": 168,
+      "hasRamp": "False"
+    },
+    {
+      "id": 110,
+      "longitude": "30.60091",
+      "latitude": "50.43887",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Ентузіастів, 11/3",
+      "capacity": 197,
+      "hasRamp": "False"
+    },
+    {
+      "id": 111,
+      "longitude": "30.60376",
+      "latitude": "50.43885",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Ентузіастів, 13Б",
+      "capacity": 145,
+      "hasRamp": "False"
+    },
+    {
+      "id": 112,
+      "longitude": "30.60533",
+      "latitude": "50.44079",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Ентузіастів, 25",
+      "capacity": 184,
+      "hasRamp": "False"
+    },
+    {
+      "id": 113,
+      "longitude": "30.60161",
+      "latitude": "50.44022",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Ентузіастів, 29/3",
+      "capacity": 188,
+      "hasRamp": "False"
+    },
+    {
+      "id": 114,
+      "longitude": "30.59959",
+      "latitude": "50.44034",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Ентузіастів, 35/2",
+      "capacity": 80,
+      "hasRamp": "False"
+    },
+    {
+      "id": 115,
+      "longitude": "30.5945",
+      "latitude": "50.44222",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Ентузіастів, 41/2",
+      "capacity": 93,
+      "hasRamp": "False"
+    },
+    {
+      "id": 116,
+      "longitude": "30.59988",
+      "latitude": "50.43836",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Ентузіастів, 7/4",
+      "capacity": 166,
+      "hasRamp": "False"
+    },
+    {
+      "id": 117,
+      "longitude": "30.61026",
+      "latitude": "50.46082",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Жмаченка, 10",
+      "capacity": 200,
+      "hasRamp": "False"
+    },
+    {
+      "id": 118,
+      "longitude": "30.60996",
+      "latitude": "50.46209",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Жмаченка, 14 ",
+      "capacity": 189,
+      "hasRamp": "False"
+    },
+    {
+      "id": 119,
+      "longitude": "30.61218",
+      "latitude": "50.46808",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Жмаченка, 26",
+      "capacity": 9,
+      "hasRamp": "False"
+    },
+    {
+      "id": 120,
+      "longitude": "30.61072",
+      "latitude": "50.45953",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Жмаченка, 6",
+      "capacity": 39,
+      "hasRamp": "False"
+    },
+    {
+      "id": 121,
+      "longitude": "30.60153",
+      "latitude": "50.48074",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Запорожця, 13А",
+      "capacity": 99,
+      "hasRamp": "False"
+    },
+    {
+      "id": 122,
+      "longitude": "30.60592",
+      "latitude": "50.4791",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Запорожця, 26А",
+      "capacity": 196,
+      "hasRamp": ""
+    },
+    {
+      "id": 123,
+      "longitude": "30.60439",
+      "latitude": "50.47884",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Запорожця, 26А",
+      "capacity": 193,
+      "hasRamp": "False"
+    },
+    {
+      "id": 124,
+      "longitude": "30.59836",
+      "latitude": "50.47811",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Запорожця, 8А",
+      "capacity": 6,
+      "hasRamp": "False"
+    },
+    {
+      "id": 125,
+      "longitude": "30.60694",
+      "latitude": "50.49091",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Карбишева, 18В",
+      "capacity": 39,
+      "hasRamp": "False"
+    },
+    {
+      "id": 126,
+      "longitude": "30.60685",
+      "latitude": "50.49354",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Карбишева, 3",
+      "capacity": 177,
+      "hasRamp": "False"
+    },
+    {
+      "id": 127,
+      "longitude": "30.62667",
+      "latitude": "50.43474",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Каунаська, 10А",
+      "capacity": 77,
+      "hasRamp": "False"
+    },
+    {
+      "id": 128,
+      "longitude": "30.62482",
+      "latitude": "50.43908",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Каунаська, 2",
+      "capacity": 191,
+      "hasRamp": "False"
+    },
+    {
+      "id": 129,
+      "longitude": "30.59586",
+      "latitude": "50.48861",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Кибальчича, 10А",
+      "capacity": 68,
+      "hasRamp": "False"
+    },
+    {
+      "id": 130,
+      "longitude": "30.59819",
+      "latitude": "50.48975",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Кибальчича, 12А",
+      "capacity": 158,
+      "hasRamp": "False"
+    },
+    {
+      "id": 131,
+      "longitude": "30.60117",
+      "latitude": "50.49265",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Кибальчича, 15",
+      "capacity": 55,
+      "hasRamp": "False"
+    },
+    {
+      "id": 132,
+      "longitude": "30.60087",
+      "latitude": "50.49319",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Кибальчича, 15А",
+      "capacity": 10,
+      "hasRamp": "False"
+    },
+    {
+      "id": 133,
+      "longitude": "30.60177",
+      "latitude": "50.49325",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Кибальчича, 17В",
+      "capacity": 44,
+      "hasRamp": "False"
+    },
+    {
+      "id": 134,
+      "longitude": "30.59437",
+      "latitude": "50.49074",
+      "type": "Підвал з пандусом ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Кибальчича, 3",
+      "capacity": 9,
+      "hasRamp": ""
+    },
+    {
+      "id": 135,
+      "longitude": "30.59625",
+      "latitude": "50.49088",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Кибальчича, 5",
+      "capacity": 157,
+      "hasRamp": "False"
+    },
+    {
+      "id": 136,
+      "longitude": "30.59784",
+      "latitude": "50.49109",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Кибальчича, 7",
+      "capacity": 109,
+      "hasRamp": "False"
+    },
+    {
+      "id": 137,
+      "longitude": "30.59782",
+      "latitude": "50.49219",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Кибальчича, 7А",
+      "capacity": 179,
+      "hasRamp": "False"
+    },
+    {
+      "id": 138,
+      "longitude": "30.59875",
+      "latitude": "50.49241",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Кибальчича, 7Б",
+      "capacity": 87,
+      "hasRamp": "False"
+    },
+    {
+      "id": 139,
+      "longitude": "30.59947",
+      "latitude": "50.48153",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Кибальчича, 9",
+      "capacity": 73,
+      "hasRamp": "False"
+    },
+    {
+      "id": 140,
+      "longitude": "30.58509",
+      "latitude": "50.46089",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Комбінатна, 25",
+      "capacity": 115,
+      "hasRamp": "False"
+    },
+    {
+      "id": 141,
+      "longitude": "30.62275",
+      "latitude": "50.46563",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Космічна, 12А",
+      "capacity": 156,
+      "hasRamp": "False"
+    },
+    {
+      "id": 142,
+      "longitude": "30.61788",
+      "latitude": "50.45378",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Краківська, 11",
+      "capacity": 41,
+      "hasRamp": "False"
+    },
+    {
+      "id": 143,
+      "longitude": "30.62382",
+      "latitude": "50.45568",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Краківська, 13А",
+      "capacity": 128,
+      "hasRamp": ""
+    },
+    {
+      "id": 144,
+      "longitude": "30.62524",
+      "latitude": "50.45591",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Краківська, 13А",
+      "capacity": 10,
+      "hasRamp": "False"
+    },
+    {
+      "id": 145,
+      "longitude": "30.62513",
+      "latitude": "50.45584",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Краківська, 13Б",
+      "capacity": 22,
+      "hasRamp": ""
+    },
+    {
+      "id": 146,
+      "longitude": "30.62455",
+      "latitude": "50.45574",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Краківська, 13Б",
+      "capacity": 166,
+      "hasRamp": "False"
+    },
+    {
+      "id": 147,
+      "longitude": "30.62371",
+      "latitude": "50.45547",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Краківська, 13Б",
+      "capacity": 60,
+      "hasRamp": ""
+    },
+    {
+      "id": 148,
+      "longitude": "30.62355",
+      "latitude": "50.45543",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Краківська, 13Б",
+      "capacity": 75,
+      "hasRamp": "False"
+    },
+    {
+      "id": 149,
+      "longitude": "30.62654",
+      "latitude": "50.45626",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Краківська, 15/17",
+      "capacity": 108,
+      "hasRamp": "False"
+    },
+    {
+      "id": 150,
+      "longitude": "30.62529",
+      "latitude": "50.45521",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Краківська, 20",
+      "capacity": 11,
+      "hasRamp": "False"
+    },
+    {
+      "id": 151,
+      "longitude": "30.61416",
+      "latitude": "50.45237",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Краківська, 4",
+      "capacity": 71,
+      "hasRamp": "False"
+    },
+    {
+      "id": 152,
+      "longitude": "30.61494",
+      "latitude": "50.45203",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Краківська, 4А",
+      "capacity": 74,
+      "hasRamp": "False"
+    },
+    {
+      "id": 153,
+      "longitude": "30.61531",
+      "latitude": "50.45272",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Краківська, 6",
+      "capacity": 41,
+      "hasRamp": "False"
+    },
+    {
+      "id": 154,
+      "longitude": "30.60203",
+      "latitude": "50.48762",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Курнатовського, 15",
+      "capacity": 56,
+      "hasRamp": "False"
+    },
+    {
+      "id": 155,
+      "longitude": "30.67313",
+      "latitude": "50.44768",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Макаренка, 1А",
+      "capacity": 116,
+      "hasRamp": "False"
+    },
+    {
+      "id": 156,
+      "longitude": "30.58618",
+      "latitude": "50.46105",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Маланюка, 55/2",
+      "capacity": 194,
+      "hasRamp": "False"
+    },
+    {
+      "id": 157,
+      "longitude": "30.68113",
+      "latitude": "50.45396",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Марганецька, 26А",
+      "capacity": 87,
+      "hasRamp": "False"
+    },
+    {
+      "id": 158,
+      "longitude": "30.67514",
+      "latitude": "50.44422",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Машиністівська, 1Б",
+      "capacity": 129,
+      "hasRamp": "False"
+    },
+    {
+      "id": 159,
+      "longitude": "30.59709",
+      "latitude": "50.48639",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Микитенка, 7",
+      "capacity": 164,
+      "hasRamp": "False"
+    },
+    {
+      "id": 160,
+      "longitude": "30.59849",
+      "latitude": "50.48748",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Микитенка, 9А",
+      "capacity": 200,
+      "hasRamp": "False"
+    },
+    {
+      "id": 161,
+      "longitude": "30.59351",
+      "latitude": "50.45461",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Микільсько-Слобідська, 1А",
+      "capacity": 159,
+      "hasRamp": ""
+    },
+    {
+      "id": 162,
+      "longitude": "30.58987",
+      "latitude": "50.4554",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Микільсько-Слобідська, 1А",
+      "capacity": 113,
+      "hasRamp": "False"
+    },
+    {
+      "id": 163,
+      "longitude": "30.58816",
+      "latitude": "50.45604",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Микільсько-Слобідська, 2А",
+      "capacity": 52,
+      "hasRamp": "False"
+    },
+    {
+      "id": 164,
+      "longitude": "30.59208",
+      "latitude": "50.45413",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Микільсько-Слобідська, 2Б",
+      "capacity": 83,
+      "hasRamp": "False"
+    },
+    {
+      "id": 165,
+      "longitude": "30.59142",
+      "latitude": "50.45406",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Микільсько-Слобідська, 2В",
+      "capacity": 103,
+      "hasRamp": "False"
+    },
+    {
+      "id": 166,
+      "longitude": "30.5906",
+      "latitude": "50.45445",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Микільсько-Слобідська, 2В",
+      "capacity": 193,
+      "hasRamp": "False"
+    },
+    {
+      "id": 167,
+      "longitude": "30.59112",
+      "latitude": "50.45525",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Микільсько-Слобідська, 4В",
+      "capacity": 161,
+      "hasRamp": "False"
+    },
+    {
+      "id": 168,
+      "longitude": "30.58976",
+      "latitude": "50.45515",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Микільсько-Слобідська, 4Г",
+      "capacity": 158,
+      "hasRamp": "False"
+    },
+    {
+      "id": 169,
+      "longitude": "30.59039",
+      "latitude": "50.45544",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Микільсько-Слобідська, 4Д",
+      "capacity": 155,
+      "hasRamp": "False"
+    },
+    {
+      "id": 170,
+      "longitude": "30.58768",
+      "latitude": "50.45521",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Микільсько-Слобідська, 6",
+      "capacity": 94,
+      "hasRamp": "False"
+    },
+    {
+      "id": 171,
+      "longitude": "30.58807",
+      "latitude": "50.45426",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Микільсько-Слобідська, 6А",
+      "capacity": 122,
+      "hasRamp": ""
+    },
+    {
+      "id": 172,
+      "longitude": "30.5886",
+      "latitude": "50.45541",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Микільсько-Слобідська, 6Б",
+      "capacity": 176,
+      "hasRamp": "False"
+    },
+    {
+      "id": 173,
+      "longitude": "30.5877",
+      "latitude": "50.4552",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Микільсько-Слобідська, 6В",
+      "capacity": 21,
+      "hasRamp": "False"
+    },
+    {
+      "id": 174,
+      "longitude": "30.607",
+      "latitude": "50.43351",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Миколайчука, 15А",
+      "capacity": 200,
+      "hasRamp": "False"
+    },
+    {
+      "id": 175,
+      "longitude": "30.60945",
+      "latitude": "50.43359",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Миколайчука, 17А",
+      "capacity": 83,
+      "hasRamp": "False"
+    },
+    {
+      "id": 176,
+      "longitude": "30.59709",
+      "latitude": "50.42916",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Миколайчука, 3А",
+      "capacity": 79,
+      "hasRamp": "False"
+    },
+    {
+      "id": 177,
+      "longitude": "30.59878",
+      "latitude": "50.42946",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Миколайчука, 5/3",
+      "capacity": 116,
+      "hasRamp": "False"
+    },
+    {
+      "id": 178,
+      "longitude": "30.62526",
+      "latitude": "50.46561",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Миропільська, 13",
+      "capacity": 6,
+      "hasRamp": "False"
+    },
+    {
+      "id": 179,
+      "longitude": "30.62336",
+      "latitude": "50.46796",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Миропільська, 21",
+      "capacity": 6,
+      "hasRamp": "False"
+    },
+    {
+      "id": 180,
+      "longitude": "30.62067",
+      "latitude": "50.46916",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Миропільська, 25",
+      "capacity": 151,
+      "hasRamp": "False"
+    },
+    {
+      "id": 181,
+      "longitude": "30.61821",
+      "latitude": "50.46989",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Миропільська, 29",
+      "capacity": 139,
+      "hasRamp": "False"
+    },
+    {
+      "id": 182,
+      "longitude": "30.61591",
+      "latitude": "50.46968",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Миропільська, 35А",
+      "capacity": 166,
+      "hasRamp": "False"
+    },
+    {
+      "id": 183,
+      "longitude": "30.61376",
+      "latitude": "50.47116",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Миропільська, 37",
+      "capacity": 7,
+      "hasRamp": "False"
+    },
+    {
+      "id": 184,
+      "longitude": "30.61381",
+      "latitude": "50.47118",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Миропільська, 37Б",
+      "capacity": 184,
+      "hasRamp": "False"
+    },
+    {
+      "id": 185,
+      "longitude": "30.61263",
+      "latitude": "50.47115",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Миропільська, 37В",
+      "capacity": 158,
+      "hasRamp": "False"
+    },
+    {
+      "id": 186,
+      "longitude": "30.61355",
+      "latitude": "50.47134",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Миропільська, 39",
+      "capacity": 27,
+      "hasRamp": "False"
+    },
+    {
+      "id": 187,
+      "longitude": "30.62615",
+      "latitude": "50.45463",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Мініна, 9",
+      "capacity": 93,
+      "hasRamp": ""
+    },
+    {
+      "id": 188,
+      "longitude": "30.62625",
+      "latitude": "50.45448",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Мініна, 9",
+      "capacity": 128,
+      "hasRamp": "False"
+    },
+    {
+      "id": 189,
+      "longitude": "30.59554",
+      "latitude": "50.4557",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Нестайка, 1/18",
+      "capacity": 72,
+      "hasRamp": "False"
+    },
+    {
+      "id": 190,
+      "longitude": "30.59611",
+      "latitude": "50.45622",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Нестайка, 3",
+      "capacity": 98,
+      "hasRamp": "False"
+    },
+    {
+      "id": 191,
+      "longitude": "30.59679",
+      "latitude": "50.4568",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Нестайка, 5А",
+      "capacity": 72,
+      "hasRamp": "False"
+    },
+    {
+      "id": 192,
+      "longitude": "30.59862",
+      "latitude": "50.45543",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Нестайка, 6",
+      "capacity": 100,
+      "hasRamp": "False"
+    },
+    {
+      "id": 193,
+      "longitude": "30.59776",
+      "latitude": "50.45552",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Нестайка, 8",
+      "capacity": 117,
+      "hasRamp": "False"
+    },
+    {
+      "id": 194,
+      "longitude": "30.59045",
+      "latitude": "50.44779",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Окіпної, 10",
+      "capacity": 45,
+      "hasRamp": "False"
+    },
+    {
+      "id": 195,
+      "longitude": "30.58999",
+      "latitude": "50.4482",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Окіпної, 10А",
+      "capacity": 117,
+      "hasRamp": "False"
+    },
+    {
+      "id": 196,
+      "longitude": "30.58945",
+      "latitude": "50.44852",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Окіпної, 10Б",
+      "capacity": 119,
+      "hasRamp": "False"
+    },
+    {
+      "id": 197,
+      "longitude": "30.58871",
+      "latitude": "50.44789",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Окіпної, 18",
+      "capacity": 106,
+      "hasRamp": "False"
+    },
+    {
+      "id": 198,
+      "longitude": "30.59688",
+      "latitude": "50.45072",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Окіпної, 2",
+      "capacity": 28,
+      "hasRamp": "False"
+    },
+    {
+      "id": 199,
+      "longitude": "30.59515",
+      "latitude": "50.44986",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Окіпної, 4",
+      "capacity": 168,
+      "hasRamp": "False"
+    },
+    {
+      "id": 200,
+      "longitude": "30.59367",
+      "latitude": "50.44994",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Окіпної, 4А",
+      "capacity": 170,
+      "hasRamp": "False"
+    },
+    {
+      "id": 201,
+      "longitude": "30.59246",
+      "latitude": "50.44903",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Окіпної, 6",
+      "capacity": 146,
+      "hasRamp": "False"
+    },
+    {
+      "id": 202,
+      "longitude": "30.5912",
+      "latitude": "50.44886",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Окіпної, 8",
+      "capacity": 134,
+      "hasRamp": "False"
+    },
+    {
+      "id": 203,
+      "longitude": "30.59279",
+      "latitude": "50.44838",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Окіпної, 9",
+      "capacity": 92,
+      "hasRamp": "False"
+    },
+    {
+      "id": 204,
+      "longitude": "30.58717",
+      "latitude": "50.4593",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Панельна, 5",
+      "capacity": 55,
+      "hasRamp": ""
+    },
+    {
+      "id": 205,
+      "longitude": "30.587",
+      "latitude": "50.45993",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Панельна, 5",
+      "capacity": 45,
+      "hasRamp": "False"
+    },
+    {
+      "id": 206,
+      "longitude": "30.58541",
+      "latitude": "50.45934",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Панельна, 6",
+      "capacity": 139,
+      "hasRamp": ""
+    },
+    {
+      "id": 207,
+      "longitude": "30.59864",
+      "latitude": "50.47138",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Перова, 10А",
+      "capacity": 116,
+      "hasRamp": "False"
+    },
+    {
+      "id": 208,
+      "longitude": "30.60072",
+      "latitude": "50.44764",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Плеханова, 2",
+      "capacity": 5,
+      "hasRamp": "False"
+    },
+    {
+      "id": 209,
+      "longitude": "30.62362",
+      "latitude": "50.45513",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Пожарського, 10/15",
+      "capacity": 180,
+      "hasRamp": "False"
+    },
+    {
+      "id": 210,
+      "longitude": "30.62442",
+      "latitude": "50.45162",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Пожарського, 4",
+      "capacity": 5,
+      "hasRamp": ""
+    },
+    {
+      "id": 211,
+      "longitude": "30.62442",
+      "latitude": "50.45163",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Пожарського, 4",
+      "capacity": 62,
+      "hasRamp": "False"
+    },
+    {
+      "id": 212,
+      "longitude": "30.62549",
+      "latitude": "50.45203",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Пожарського, 4А",
+      "capacity": 140,
+      "hasRamp": "False"
+    },
+    {
+      "id": 213,
+      "longitude": "30.6276",
+      "latitude": "50.45762",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Поправки, 14",
+      "capacity": 62,
+      "hasRamp": "False"
+    },
+    {
+      "id": 214,
+      "longitude": "30.62956",
+      "latitude": "50.45505",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Поправки, 4/39А",
+      "capacity": 196,
+      "hasRamp": "False"
+    },
+    {
+      "id": 215,
+      "longitude": "30.61639",
+      "latitude": "50.45529",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Попудренка, 22/14",
+      "capacity": 20,
+      "hasRamp": "False"
+    },
+    {
+      "id": 216,
+      "longitude": "30.61694",
+      "latitude": "50.45512",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Попудренка, 24",
+      "capacity": 18,
+      "hasRamp": "False"
+    },
+    {
+      "id": 217,
+      "longitude": "30.61731",
+      "latitude": "50.45555",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Попудренка, 26/9",
+      "capacity": 1,
+      "hasRamp": "False"
+    },
+    {
+      "id": 218,
+      "longitude": "30.63019",
+      "latitude": "50.45902",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Попудренка, 46/2",
+      "capacity": 173,
+      "hasRamp": "False"
+    },
+    {
+      "id": 219,
+      "longitude": "30.63327",
+      "latitude": "50.43972",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Празька, 14",
+      "capacity": 56,
+      "hasRamp": "False"
+    },
+    {
+      "id": 220,
+      "longitude": "30.63802",
+      "latitude": "50.43815",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Празька, 20А",
+      "capacity": 55,
+      "hasRamp": "False"
+    },
+    {
+      "id": 221,
+      "longitude": "30.64451",
+      "latitude": "50.43735",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Празька, 31А",
+      "capacity": 56,
+      "hasRamp": "False"
+    },
+    {
+      "id": 222,
+      "longitude": "30.63011",
+      "latitude": "50.44048",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Празька, 4/1",
+      "capacity": 141,
+      "hasRamp": "False"
+    },
+    {
+      "id": 223,
+      "longitude": "30.58023",
+      "latitude": "50.49114",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Райдужна, 12",
+      "capacity": 9,
+      "hasRamp": "False"
+    },
+    {
+      "id": 224,
+      "longitude": "30.58724",
+      "latitude": "50.48735",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Райдужна, 17Б",
+      "capacity": 2,
+      "hasRamp": "False"
+    },
+    {
+      "id": 225,
+      "longitude": "30.58777",
+      "latitude": "50.48729",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Райдужна, 17Б",
+      "capacity": 186,
+      "hasRamp": "False"
+    },
+    {
+      "id": 226,
+      "longitude": "30.58209",
+      "latitude": "50.49275",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Райдужна, 4Б",
+      "capacity": 178,
+      "hasRamp": "False"
+    },
+    {
+      "id": 227,
+      "longitude": "30.59027",
+      "latitude": "50.48137",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Райдужна, 51",
+      "capacity": 29,
+      "hasRamp": "False"
+    },
+    {
+      "id": 228,
+      "longitude": "30.59008",
+      "latitude": "50.47955",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Райдужна, 53",
+      "capacity": 6,
+      "hasRamp": "False"
+    },
+    {
+      "id": 229,
+      "longitude": "30.5916",
+      "latitude": "50.47713",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Райдужна, 73",
+      "capacity": 190,
+      "hasRamp": "False"
+    },
+    {
+      "id": 230,
+      "longitude": "30.58664",
+      "latitude": "50.48859",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Райдужна, 9А",
+      "capacity": 61,
+      "hasRamp": "False"
+    },
+    {
+      "id": 231,
+      "longitude": "30.62235",
+      "latitude": "50.43456",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Регенераторна, 4 буд.1",
+      "capacity": 19,
+      "hasRamp": "False"
+    },
+    {
+      "id": 232,
+      "longitude": "30.62127",
+      "latitude": "50.43751",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Регенераторна, 4 буд.10",
+      "capacity": 118,
+      "hasRamp": "False"
+    },
+    {
+      "id": 233,
+      "longitude": "30.6213",
+      "latitude": "50.43754",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Регенераторна, 4 буд.11",
+      "capacity": 133,
+      "hasRamp": "False"
+    },
+    {
+      "id": 234,
+      "longitude": "30.6188",
+      "latitude": "50.43527",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Регенераторна, 4 буд.12",
+      "capacity": 158,
+      "hasRamp": "False"
+    },
+    {
+      "id": 235,
+      "longitude": "30.62028",
+      "latitude": "50.43395",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Регенераторна, 4 буд.13",
+      "capacity": 76,
+      "hasRamp": "False"
+    },
+    {
+      "id": 236,
+      "longitude": "30.62062",
+      "latitude": "50.4334",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Регенераторна, 4 буд.14",
+      "capacity": 85,
+      "hasRamp": "False"
+    },
+    {
+      "id": 237,
+      "longitude": "30.62084",
+      "latitude": "50.43293",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Регенераторна, 4 буд.16",
+      "capacity": 160,
+      "hasRamp": "False"
+    },
+    {
+      "id": 238,
+      "longitude": "30.62403",
+      "latitude": "50.43385",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Регенераторна, 4 буд.2",
+      "capacity": 180,
+      "hasRamp": "False"
+    },
+    {
+      "id": 239,
+      "longitude": "30.62398",
+      "latitude": "50.43587",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Регенераторна, 4 буд.3",
+      "capacity": 149,
+      "hasRamp": "False"
+    },
+    {
+      "id": 240,
+      "longitude": "30.62094",
+      "latitude": "50.43603",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Регенераторна, 4 буд.4",
+      "capacity": 29,
+      "hasRamp": "False"
+    },
+    {
+      "id": 241,
+      "longitude": "30.62077",
+      "latitude": "50.43587",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Регенераторна, 4 буд.5",
+      "capacity": 32,
+      "hasRamp": "False"
+    },
+    {
+      "id": 242,
+      "longitude": "30.62147",
+      "latitude": "50.43427",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Регенераторна, 4 буд.6",
+      "capacity": 88,
+      "hasRamp": "False"
+    },
+    {
+      "id": 243,
+      "longitude": "30.6224",
+      "latitude": "50.43397",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Регенераторна, 4 буд.7",
+      "capacity": 146,
+      "hasRamp": "False"
+    },
+    {
+      "id": 244,
+      "longitude": "30.61942",
+      "latitude": "50.43713",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Регенераторна, 4 буд.8",
+      "capacity": 9,
+      "hasRamp": "False"
+    },
+    {
+      "id": 245,
+      "longitude": "30.61851",
+      "latitude": "50.43683",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Регенераторна, 4 буд.9",
+      "capacity": 180,
+      "hasRamp": "False"
+    },
+    {
+      "id": 246,
+      "longitude": "30.62318",
+      "latitude": "50.43476",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Регенераторна, 4В",
+      "capacity": 27,
+      "hasRamp": "False"
+    },
+    {
+      "id": 247,
+      "longitude": "30.67504",
+      "latitude": "50.45096",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Рогозівська, 1",
+      "capacity": 41,
+      "hasRamp": "False"
+    },
+    {
+      "id": 248,
+      "longitude": "30.67308",
+      "latitude": "50.45341",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Рогозівська, 10А",
+      "capacity": 71,
+      "hasRamp": "False"
+    },
+    {
+      "id": 249,
+      "longitude": "30.67613",
+      "latitude": "50.4511",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Рогозівська, 4",
+      "capacity": 173,
+      "hasRamp": "False"
+    },
+    {
+      "id": 250,
+      "longitude": "30.59462",
+      "latitude": "50.44117",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Русанівська набережна, 12/3",
+      "capacity": 81,
+      "hasRamp": "False"
+    },
+    {
+      "id": 251,
+      "longitude": "30.60471",
+      "latitude": "50.44617",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Сверстюка, 6В",
+      "capacity": 92,
+      "hasRamp": "False"
+    },
+    {
+      "id": 252,
+      "longitude": "30.59406",
+      "latitude": "50.4504",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Сверстюка, 4Б",
+      "capacity": 104,
+      "hasRamp": ""
+    },
+    {
+      "id": 253,
+      "longitude": "30.63063",
+      "latitude": "50.44673",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Сергієнка, 11",
+      "capacity": 149,
+      "hasRamp": "False"
+    },
+    {
+      "id": 254,
+      "longitude": "30.63133",
+      "latitude": "50.44789",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Сергієнка, 15",
+      "capacity": 71,
+      "hasRamp": "False"
+    },
+    {
+      "id": 255,
+      "longitude": "30.62838",
+      "latitude": "50.44439",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Сергієнка, 3А",
+      "capacity": 35,
+      "hasRamp": "False"
+    },
+    {
+      "id": 256,
+      "longitude": "30.62992",
+      "latitude": "50.44568",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Сергієнка, 7",
+      "capacity": 1,
+      "hasRamp": "False"
+    },
+    {
+      "id": 257,
+      "longitude": "30.63088",
+      "latitude": "50.44718",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Сергієнка, 13",
+      "capacity": 142,
+      "hasRamp": "False"
+    },
+    {
+      "id": 258,
+      "longitude": "30.58787",
+      "latitude": "50.48622",
+      "type": "Підвал з пандусом",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Серова, 19",
+      "capacity": 29,
+      "hasRamp": ""
+    },
+    {
+      "id": 259,
+      "longitude": "30.62208",
+      "latitude": "50.46279",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Солов’яненка, 12А",
+      "capacity": 91,
+      "hasRamp": "False"
+    },
+    {
+      "id": 260,
+      "longitude": "30.62536",
+      "latitude": "50.46391",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Солов’яненка, 16А ",
+      "capacity": 179,
+      "hasRamp": "False"
+    },
+    {
+      "id": 261,
+      "longitude": "30.61829",
+      "latitude": "50.46165",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Солов’яненка, 4А",
+      "capacity": 31,
+      "hasRamp": "False"
+    },
+    {
+      "id": 262,
+      "longitude": "30.61764",
+      "latitude": "50.46316",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Солов’яненка, 5",
+      "capacity": 58,
+      "hasRamp": "False"
+    },
+    {
+      "id": 263,
+      "longitude": "30.61879",
+      "latitude": "50.46361",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Солов’яненка, 7",
+      "capacity": 129,
+      "hasRamp": "False"
+    },
+    {
+      "id": 264,
+      "longitude": "30.61934",
+      "latitude": "50.46401",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Солов’яненка, 9А",
+      "capacity": 35,
+      "hasRamp": "False"
+    },
+    {
+      "id": 265,
+      "longitude": "30.63715",
+      "latitude": "50.43664",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Сосницька, 8А",
+      "capacity": 115,
+      "hasRamp": "False"
+    },
+    {
+      "id": 266,
+      "longitude": "30.59779",
+      "latitude": "50.4826",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Стальського, 10А",
+      "capacity": 109,
+      "hasRamp": "False"
+    },
+    {
+      "id": 267,
+      "longitude": "30.59898",
+      "latitude": "50.48383",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Стальського, 12",
+      "capacity": 87,
+      "hasRamp": "False"
+    },
+    {
+      "id": 268,
+      "longitude": "30.60784",
+      "latitude": "50.48399",
+      "type": "Підвал з пандусом ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Стальського, 26А",
+      "capacity": 118,
+      "hasRamp": ""
+    },
+    {
+      "id": 269,
+      "longitude": "30.59317",
+      "latitude": "50.47472",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Старосільська, 2",
+      "capacity": 163,
+      "hasRamp": "False"
+    },
+    {
+      "id": 270,
+      "longitude": "30.59304",
+      "latitude": "50.47474",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Старосільська, 2",
+      "capacity": 154,
+      "hasRamp": "False"
+    },
+    {
+      "id": 271,
+      "longitude": "30.61385",
+      "latitude": "50.44296",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Тампере, 12",
+      "capacity": 1,
+      "hasRamp": "False"
+    },
+    {
+      "id": 272,
+      "longitude": "30.61034",
+      "latitude": "50.44509",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Тампере, 17А",
+      "capacity": 18,
+      "hasRamp": "False"
+    },
+    {
+      "id": 273,
+      "longitude": "30.61268",
+      "latitude": "50.44191",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Тампере, 7А",
+      "capacity": 66,
+      "hasRamp": "False"
+    },
+    {
+      "id": 274,
+      "longitude": "30.61269",
+      "latitude": "50.44246",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Тампере, 9",
+      "capacity": 28,
+      "hasRamp": "False"
+    },
+    {
+      "id": 275,
+      "longitude": "30.60448",
+      "latitude": "50.4275",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Тичини, 18",
+      "capacity": 73,
+      "hasRamp": "False"
+    },
+    {
+      "id": 276,
+      "longitude": "30.61265",
+      "latitude": "50.44572",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Тороповського, 49/1",
+      "capacity": 69,
+      "hasRamp": "False"
+    },
+    {
+      "id": 277,
+      "longitude": "30.6037",
+      "latitude": "50.44392",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Туманяна, 15А",
+      "capacity": 179,
+      "hasRamp": ""
+    },
+    {
+      "id": 278,
+      "longitude": "30.60376",
+      "latitude": "50.44395",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Туманяна, 15А",
+      "capacity": 32,
+      "hasRamp": "False"
+    },
+    {
+      "id": 279,
+      "longitude": "30.60074",
+      "latitude": "50.44649",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Туманяна, 2",
+      "capacity": 159,
+      "hasRamp": "False"
+    },
+    {
+      "id": 280,
+      "longitude": "30.60138",
+      "latitude": "50.44652",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Туманяна, 3",
+      "capacity": 72,
+      "hasRamp": "False"
+    },
+    {
+      "id": 281,
+      "longitude": "30.62984",
+      "latitude": "50.44644",
+      "type": "Підвал з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Усенка, 4/9",
+      "capacity": 51,
+      "hasRamp": ""
+    },
+    {
+      "id": 282,
+      "longitude": "30.59336",
+      "latitude": "50.44757",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Флоренції, 3",
+      "capacity": 155,
+      "hasRamp": "False"
+    },
+    {
+      "id": 283,
+      "longitude": "30.59576",
+      "latitude": "50.44693",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Флоренції, 7",
+      "capacity": 12,
+      "hasRamp": "False"
+    },
+    {
+      "id": 284,
+      "longitude": "30.63764",
+      "latitude": "50.43592",
+      "type": "Підвал з пандусом ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Хорольська, 19",
+      "capacity": 153,
+      "hasRamp": ""
+    },
+    {
+      "id": 285,
+      "longitude": "30.64078",
+      "latitude": "50.43386",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Хорольська, 1А",
+      "capacity": 176,
+      "hasRamp": "False"
+    },
+    {
+      "id": 286,
+      "longitude": "30.59635",
+      "latitude": "50.45871",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Челябінська, 5",
+      "capacity": 110,
+      "hasRamp": "False"
+    },
+    {
+      "id": 287,
+      "longitude": "30.59368",
+      "latitude": "50.45909",
+      "type": "Підвал з пандусом",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Челябінська, 7В",
+      "capacity": 63,
+      "hasRamp": ""
+    },
+    {
+      "id": 288,
+      "longitude": "30.59479",
+      "latitude": "50.46019",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Челябінська, 9А",
+      "capacity": 60,
+      "hasRamp": "False"
+    },
+    {
+      "id": 289,
+      "longitude": "30.6161",
+      "latitude": "50.45031",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Червоноткацька, 12",
+      "capacity": 42,
+      "hasRamp": "False"
+    },
+    {
+      "id": 290,
+      "longitude": "30.62115",
+      "latitude": "50.45098",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Червоноткацька, 16Б",
+      "capacity": 82,
+      "hasRamp": "False"
+    },
+    {
+      "id": 291,
+      "longitude": "30.61491",
+      "latitude": "50.45072",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Червоноткацька, 17",
+      "capacity": 78,
+      "hasRamp": "False"
+    },
+    {
+      "id": 292,
+      "longitude": "30.61545",
+      "latitude": "50.45139",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Червоноткацька, 17А",
+      "capacity": 35,
+      "hasRamp": "False"
+    },
+    {
+      "id": 293,
+      "longitude": "30.62211",
+      "latitude": "50.45123",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Червоноткацька, 18Б",
+      "capacity": 140,
+      "hasRamp": "False"
+    },
+    {
+      "id": 294,
+      "longitude": "30.61648",
+      "latitude": "50.45114",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Червоноткацька, 19",
+      "capacity": 111,
+      "hasRamp": "False"
+    },
+    {
+      "id": 295,
+      "longitude": "30.61082",
+      "latitude": "50.44893",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Червоноткацька, 2",
+      "capacity": 186,
+      "hasRamp": "False"
+    },
+    {
+      "id": 296,
+      "longitude": "30.61527",
+      "latitude": "50.45137",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Червоноткацька, 33/10",
+      "capacity": 134,
+      "hasRamp": "False"
+    },
+    {
+      "id": 297,
+      "longitude": "30.62999",
+      "latitude": "50.45477",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Червоноткацька, 39/7",
+      "capacity": 38,
+      "hasRamp": "False"
+    },
+    {
+      "id": 298,
+      "longitude": "30.63174",
+      "latitude": "50.4555",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Червоноткацька, 43",
+      "capacity": 177,
+      "hasRamp": "False"
+    },
+    {
+      "id": 299,
+      "longitude": "30.62109",
+      "latitude": "50.44448",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Чупринки, 8А",
+      "capacity": 168,
+      "hasRamp": "False"
+    },
+    {
+      "id": 300,
+      "longitude": "30.61775",
+      "latitude": "50.46823",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Шалетт, 10А",
+      "capacity": 50,
+      "hasRamp": "False"
+    },
+    {
+      "id": 301,
+      "longitude": "30.61265",
+      "latitude": "50.46398",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Шалетт, 1А",
+      "capacity": 18,
+      "hasRamp": "False"
+    },
+    {
+      "id": 302,
+      "longitude": "30.5976",
+      "latitude": "50.45421",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Шептицького, 10",
+      "capacity": 26,
+      "hasRamp": "False"
+    },
+    {
+      "id": 303,
+      "longitude": "30.59883",
+      "latitude": "50.45413",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Шептицького, 12",
+      "capacity": 159,
+      "hasRamp": "False"
+    },
+    {
+      "id": 304,
+      "longitude": "30.59883",
+      "latitude": "50.45475",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Шептицького, 14",
+      "capacity": 75,
+      "hasRamp": "False"
+    },
+    {
+      "id": 305,
+      "longitude": "30.59072",
+      "latitude": "50.45667",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Шептицького, 1В",
+      "capacity": 29,
+      "hasRamp": "False"
+    },
+    {
+      "id": 306,
+      "longitude": "30.59452",
+      "latitude": "50.45583",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Шептицького, 20",
+      "capacity": 119,
+      "hasRamp": "False"
+    },
+    {
+      "id": 307,
+      "longitude": "30.59506",
+      "latitude": "50.45626",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Шептицького, 20А",
+      "capacity": 185,
+      "hasRamp": "False"
+    },
+    {
+      "id": 308,
+      "longitude": "30.59343",
+      "latitude": "50.45654",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Шептицького, 22В",
+      "capacity": 43,
+      "hasRamp": "False"
+    },
+    {
+      "id": 309,
+      "longitude": "30.59376",
+      "latitude": "50.45788",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Шептицького, 24Б",
+      "capacity": 132,
+      "hasRamp": "False"
+    },
+    {
+      "id": 310,
+      "longitude": "30.5862",
+      "latitude": "50.4563",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Шептицького, 3Г",
+      "capacity": 108,
+      "hasRamp": "False"
+    },
+    {
+      "id": 311,
+      "longitude": "30.58602",
+      "latitude": "50.45694",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Шептицького, 5А",
+      "capacity": 113,
+      "hasRamp": "False"
+    },
+    {
+      "id": 312,
+      "longitude": "30.58673",
+      "latitude": "50.45873",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Шептицького, 7А",
+      "capacity": 147,
+      "hasRamp": "False"
+    },
+    {
+      "id": 313,
+      "longitude": "30.60331",
+      "latitude": "50.4265",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "вул. Шумського, 1",
+      "capacity": 97,
+      "hasRamp": ""
+    },
+    {
+      "id": 314,
+      "longitude": "30.60399",
+      "latitude": "50.42605",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Шумського, 1А",
+      "capacity": 5,
+      "hasRamp": "False"
+    },
+    {
+      "id": 315,
+      "longitude": "30.60471",
+      "latitude": "50.42578",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Шумського, 1Б",
+      "capacity": 8,
+      "hasRamp": "False"
+    },
+    {
+      "id": 316,
+      "longitude": "30.6039",
+      "latitude": "50.42422",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Шумського, 3Г",
+      "capacity": 171,
+      "hasRamp": "False"
+    },
+    {
+      "id": 317,
+      "longitude": "30.60042",
+      "latitude": "50.4251",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Шумського, 6А",
+      "capacity": 160,
+      "hasRamp": "False"
+    },
+    {
+      "id": 318,
+      "longitude": "30.62014",
+      "latitude": "50.46744",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Юності, 12",
+      "capacity": 132,
+      "hasRamp": "False"
+    },
+    {
+      "id": 319,
+      "longitude": "30.61531",
+      "latitude": "50.46365",
+      "type": "Підвал з пандусом ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Юності, 3",
+      "capacity": 73,
+      "hasRamp": ""
+    },
+    {
+      "id": 320,
+      "longitude": "30.61715",
+      "latitude": "50.46614",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Юності, 5",
+      "capacity": 95,
+      "hasRamp": "False"
+    },
+    {
+      "id": 321,
+      "longitude": "30.61899",
+      "latitude": "50.46596",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "вул. Юності, 8/2",
+      "capacity": 77,
+      "hasRamp": "False"
+    },
+    {
+      "id": 322,
+      "longitude": "30.59462",
+      "latitude": "50.4283",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "Дніпровська набережна, 1",
+      "capacity": 180,
+      "hasRamp": "False"
+    },
+    {
+      "id": 323,
+      "longitude": "30.59284",
+      "latitude": "50.43021",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "Дніпровська набережна, 1",
+      "capacity": 60,
+      "hasRamp": ""
+    },
+    {
+      "id": 324,
+      "longitude": "30.59538",
+      "latitude": "50.42954",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "Дніпровська набережна, 1А",
+      "capacity": 1,
+      "hasRamp": "False"
+    },
+    {
+      "id": 325,
+      "longitude": "30.59459",
+      "latitude": "50.42877",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "Дніпровська набережна, 1А",
+      "capacity": 151,
+      "hasRamp": ""
+    },
+    {
+      "id": 326,
+      "longitude": "30.6598",
+      "latitude": "50.46888",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Броварський (Биковня-1)",
+      "capacity": 103,
+      "hasRamp": ""
+    },
+    {
+      "id": 327,
+      "longitude": "30.67234",
+      "latitude": "50.47228",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Броварський (Биковня-2)",
+      "capacity": 54,
+      "hasRamp": ""
+    },
+    {
+      "id": 328,
+      "longitude": "30.68076",
+      "latitude": "50.47473",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Броварський (Биковня-3)",
+      "capacity": 13,
+      "hasRamp": ""
+    },
+    {
+      "id": 329,
+      "longitude": "30.72408",
+      "latitude": "50.48681",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Броварський (Зазим'є)",
+      "capacity": 23,
+      "hasRamp": ""
+    },
+    {
+      "id": 330,
+      "longitude": "30.6287",
+      "latitude": "50.46205",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Броварський (парк Кіото)",
+      "capacity": 188,
+      "hasRamp": ""
+    },
+    {
+      "id": 331,
+      "longitude": "30.62735",
+      "latitude": "50.46002",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Броварський (ст. м. \"Чернігівська\")",
+      "capacity": 37,
+      "hasRamp": ""
+    },
+    {
+      "id": 332,
+      "longitude": "30.63075",
+      "latitude": "50.45138",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Гагаріна (зуп. БВР)",
+      "capacity": 29,
+      "hasRamp": ""
+    },
+    {
+      "id": 333,
+      "longitude": "30.62638",
+      "latitude": "50.4441",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Гагаріна (ріг вул. Володимира Сосюри)",
+      "capacity": 165,
+      "hasRamp": ""
+    },
+    {
+      "id": 334,
+      "longitude": "30.6282",
+      "latitude": "50.44711",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Гагаріна (ріг вул. ПавлаУсенка)",
+      "capacity": 113,
+      "hasRamp": ""
+    },
+    {
+      "id": 335,
+      "longitude": "30.62834",
+      "latitude": "50.44643",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Гагаріна, 10/2",
+      "capacity": 25,
+      "hasRamp": "False"
+    },
+    {
+      "id": 336,
+      "longitude": "30.62643",
+      "latitude": "50.44781",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Гагаріна, 11",
+      "capacity": 128,
+      "hasRamp": "False"
+    },
+    {
+      "id": 337,
+      "longitude": "30.62888",
+      "latitude": "50.44735",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Гагаріна, 12/1",
+      "capacity": 125,
+      "hasRamp": "False"
+    },
+    {
+      "id": 338,
+      "longitude": "30.62942",
+      "latitude": "50.44812",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Гагаріна, 14А",
+      "capacity": 190,
+      "hasRamp": "False"
+    },
+    {
+      "id": 339,
+      "longitude": "30.62847",
+      "latitude": "50.44906",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Гагаріна, 15",
+      "capacity": 105,
+      "hasRamp": "False"
+    },
+    {
+      "id": 340,
+      "longitude": "30.63011",
+      "latitude": "50.4491",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Гагаріна, 16",
+      "capacity": 56,
+      "hasRamp": "False"
+    },
+    {
+      "id": 341,
+      "longitude": "30.63144",
+      "latitude": "50.45399",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Гагаріна, 19",
+      "capacity": 167,
+      "hasRamp": "False"
+    },
+    {
+      "id": 342,
+      "longitude": "30.62713",
+      "latitude": "50.44446",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Гагаріна, 2/35",
+      "capacity": 189,
+      "hasRamp": "False"
+    },
+    {
+      "id": 343,
+      "longitude": "30.63204",
+      "latitude": "50.45048",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Гагаріна, 20А",
+      "capacity": 17,
+      "hasRamp": "False"
+    },
+    {
+      "id": 344,
+      "longitude": "30.62751",
+      "latitude": "50.44507",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Гагаріна, 4",
+      "capacity": 124,
+      "hasRamp": "False"
+    },
+    {
+      "id": 345,
+      "longitude": "30.62621",
+      "latitude": "50.44524",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Гагаріна, 5/2",
+      "capacity": 132,
+      "hasRamp": "False"
+    },
+    {
+      "id": 346,
+      "longitude": "30.62797",
+      "latitude": "50.44593",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Гагаріна, 8",
+      "capacity": 172,
+      "hasRamp": "False"
+    },
+    {
+      "id": 347,
+      "longitude": "30.62699",
+      "latitude": "50.4467",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Гагаріна, 9",
+      "capacity": 96,
+      "hasRamp": "False"
+    },
+    {
+      "id": 348,
+      "longitude": "30.62646",
+      "latitude": "50.44672",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Гагаріна, 9А",
+      "capacity": 20,
+      "hasRamp": "False"
+    },
+    {
+      "id": 349,
+      "longitude": "30.599358",
+      "latitude": "50.4717418",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Навої, 69",
+      "capacity": 128,
+      "hasRamp": "False"
+    },
+    {
+      "id": 350,
+      "longitude": "30.60077",
+      "latitude": "50.43397",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Соборності - б-р Шамо",
+      "capacity": 34,
+      "hasRamp": ""
+    },
+    {
+      "id": 351,
+      "longitude": "30.61587",
+      "latitude": "50.4336",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Соборності - вул. Тампере",
+      "capacity": 11,
+      "hasRamp": ""
+    },
+    {
+      "id": 352,
+      "longitude": "30.60497",
+      "latitude": "50.43546",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Соборності (зуп. Березняки)",
+      "capacity": 142,
+      "hasRamp": ""
+    },
+    {
+      "id": 353,
+      "longitude": "30.6191",
+      "latitude": "50.44017",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Соборності (зуп. Регенераторний завод)",
+      "capacity": 125,
+      "hasRamp": ""
+    },
+    {
+      "id": 354,
+      "longitude": "30.59609",
+      "latitude": "50.43202",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Соборності (зуп. Русанівка)",
+      "capacity": 25,
+      "hasRamp": ""
+    },
+    {
+      "id": 355,
+      "longitude": "30.62328",
+      "latitude": "50.44115",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Соборності, 1",
+      "capacity": 110,
+      "hasRamp": "False"
+    },
+    {
+      "id": 356,
+      "longitude": "30.62374",
+      "latitude": "50.4415",
+      "type": "Підземний перехі",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Соборності, 1",
+      "capacity": 40,
+      "hasRamp": "False"
+    },
+    {
+      "id": 357,
+      "longitude": "30.62011",
+      "latitude": "50.44079",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Соборності, 10/1",
+      "capacity": 57,
+      "hasRamp": "False"
+    },
+    {
+      "id": 358,
+      "longitude": "30.61825",
+      "latitude": "50.44206",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Соборності, 12В",
+      "capacity": 57,
+      "hasRamp": "False"
+    },
+    {
+      "id": 359,
+      "longitude": "30.61852",
+      "latitude": "50.44066",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Соборності, 14",
+      "capacity": 186,
+      "hasRamp": "False"
+    },
+    {
+      "id": 360,
+      "longitude": "30.61438",
+      "latitude": "50.43644",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Соборності, 17",
+      "capacity": 125,
+      "hasRamp": "False"
+    },
+    {
+      "id": 361,
+      "longitude": "30.62256",
+      "latitude": "50.44196",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Соборності, 6",
+      "capacity": 194,
+      "hasRamp": "False"
+    },
+    {
+      "id": 362,
+      "longitude": "30.59844",
+      "latitude": "50.42591",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Тичини, 14Б",
+      "capacity": 49,
+      "hasRamp": "False"
+    },
+    {
+      "id": 363,
+      "longitude": "30.59823",
+      "latitude": "50.42499",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Тичини, 14В",
+      "capacity": 123,
+      "hasRamp": "False"
+    },
+    {
+      "id": 364,
+      "longitude": "30.60126",
+      "latitude": "50.42671",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Тичини, 16/2",
+      "capacity": 18,
+      "hasRamp": "False"
+    },
+    {
+      "id": 365,
+      "longitude": "30.60132",
+      "latitude": "50.4268",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Тичини, 16/2",
+      "capacity": 120,
+      "hasRamp": "False"
+    },
+    {
+      "id": 366,
+      "longitude": "30.60355",
+      "latitude": "50.42816",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "просп. Тичини, 18Б",
+      "capacity": 10,
+      "hasRamp": ""
+    },
+    {
+      "id": 367,
+      "longitude": "30.59366",
+      "latitude": "50.42745",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Тичини, 2",
+      "capacity": 32,
+      "hasRamp": "False"
+    },
+    {
+      "id": 368,
+      "longitude": "30.58856",
+      "latitude": "50.45771",
+      "type": "Підвал з пандусом",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Тичини, 22",
+      "capacity": 158,
+      "hasRamp": ""
+    },
+    {
+      "id": 369,
+      "longitude": "30.61175",
+      "latitude": "50.43075",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Тичини, 28А",
+      "capacity": 32,
+      "hasRamp": "False"
+    },
+    {
+      "id": 370,
+      "longitude": "30.60927",
+      "latitude": "50.42909",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Тичини, 2Б",
+      "capacity": 69,
+      "hasRamp": "False"
+    },
+    {
+      "id": 371,
+      "longitude": "30.5928",
+      "latitude": "50.49331",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Шухевича, 22Б",
+      "capacity": 25,
+      "hasRamp": "False"
+    },
+    {
+      "id": 372,
+      "longitude": "30.59406",
+      "latitude": "50.49262",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Шухевича, 22В",
+      "capacity": 15,
+      "hasRamp": "False"
+    },
+    {
+      "id": 373,
+      "longitude": "30.59741",
+      "latitude": "50.45438",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Шухевича, 26",
+      "capacity": 145,
+      "hasRamp": "False"
+    },
+    {
+      "id": 374,
+      "longitude": "30.59823",
+      "latitude": "50.49528",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Шухевича, 26А",
+      "capacity": 193,
+      "hasRamp": "False"
+    },
+    {
+      "id": 375,
+      "longitude": "30.60079",
+      "latitude": "50.49371",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Шухевича, 28А",
+      "capacity": 45,
+      "hasRamp": "False"
+    },
+    {
+      "id": 376,
+      "longitude": "30.5643",
+      "latitude": "50.49498",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Шухевича, 2А",
+      "capacity": 1,
+      "hasRamp": "False"
+    },
+    {
+      "id": 377,
+      "longitude": "30.58045",
+      "latitude": "50.49251",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "просп. Шухевича, 4В",
+      "capacity": 86,
+      "hasRamp": "False"
+    },
+    {
+      "id": 378,
+      "longitude": "30.59227",
+      "latitude": "50.43996",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "Русанівська набережна, 10",
+      "capacity": 55,
+      "hasRamp": "False"
+    },
+    {
+      "id": 379,
+      "longitude": "30.5928",
+      "latitude": "50.4371",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "Русанівська набережна, 8",
+      "capacity": 191,
+      "hasRamp": "False"
+    },
+    {
+      "id": 380,
+      "longitude": "30.60857",
+      "latitude": "50.4302",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "Ст. метро «Гідропарк»",
+      "capacity": 39,
+      "hasRamp": ""
+    },
+    {
+      "id": 381,
+      "longitude": "30.57669",
+      "latitude": "50.44601",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "Ст. метро «Дарниця»",
+      "capacity": 174,
+      "hasRamp": ""
+    },
+    {
+      "id": 382,
+      "longitude": "30.63027",
+      "latitude": "50.4595",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "Ст. метро «Чернігівська»",
+      "capacity": 115,
+      "hasRamp": ""
+    },
+    {
+      "id": 383,
+      "longitude": "30.62792",
+      "latitude": "50.44053",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "Харківське шосе (зуп. вул. Празька)",
+      "capacity": 51,
+      "hasRamp": ""
+    },
+    {
+      "id": 384,
+      "longitude": "30.63316",
+      "latitude": "50.432",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "Харківське шосе (зуп. Інститут хімії)",
+      "capacity": 4,
+      "hasRamp": ""
+    },
+    {
+      "id": 385,
+      "longitude": "30.63035",
+      "latitude": "50.43667",
+      "type": "Підземний перехід з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "Харківське шосе (зуп.б-р Гашека)",
+      "capacity": 41,
+      "hasRamp": ""
+    },
+    {
+      "id": 386,
+      "longitude": "30.62902",
+      "latitude": "50.44025",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "Харківське шосе, 1",
+      "capacity": 9,
+      "hasRamp": "False"
+    },
+    {
+      "id": 387,
+      "longitude": "30.63175",
+      "latitude": "50.43682",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "Харківське шосе, 11",
+      "capacity": 37,
+      "hasRamp": "False"
+    },
+    {
+      "id": 388,
+      "longitude": "30.62965",
+      "latitude": "50.43685",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "Харківське шосе, 12",
+      "capacity": 189,
+      "hasRamp": "False"
+    },
+    {
+      "id": 389,
+      "longitude": "30.6319",
+      "latitude": "50.43549",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "Харківське шосе, 13",
+      "capacity": 145,
+      "hasRamp": "False"
+    },
+    {
+      "id": 390,
+      "longitude": "30.62932",
+      "latitude": "50.43511",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "Харківське шосе, 16/1",
+      "capacity": 84,
+      "hasRamp": "False"
+    },
+    {
+      "id": 391,
+      "longitude": "30.63477",
+      "latitude": "50.43355",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "Харківське шосе, 17А",
+      "capacity": 16,
+      "hasRamp": "False"
+    },
+    {
+      "id": 392,
+      "longitude": "30.63068",
+      "latitude": "50.43503",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "Харківське шосе, 18",
+      "capacity": 80,
+      "hasRamp": "False"
+    },
+    {
+      "id": 393,
+      "longitude": "30.63524",
+      "latitude": "50.43109",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "Харківське шосе, 19",
+      "capacity": 120,
+      "hasRamp": "False"
+    },
+    {
+      "id": 394,
+      "longitude": "30.63463",
+      "latitude": "50.43171",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "Харківське шосе, 19Б",
+      "capacity": 117,
+      "hasRamp": ""
+    },
+    {
+      "id": 395,
+      "longitude": "30.6275",
+      "latitude": "50.44035",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "Харківське шосе, 4",
+      "capacity": 108,
+      "hasRamp": "False"
+    },
+    {
+      "id": 396,
+      "longitude": "30.62858",
+      "latitude": "50.43859",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "Харківське шосе, 8",
+      "capacity": 16,
       "hasRamp": "False"
     }
   ]

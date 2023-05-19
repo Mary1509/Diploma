@@ -1,14 +1,14 @@
 import { StyleSheet, View, Text, Pressable, Dimensions } from "react-native";
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 export function ShelterItem(props) {
   return (
     <View style={styles.goalItem}>
       <Pressable
-        android_ripple={{ color: "#02499e", borderless: true}}
+        android_ripple={{ color: "#09008e", borderless: true}}
         style={({pressed}) => pressed && styles.pressedItem}
-        onPress={()=> console.log("Item pressed: " + props.id)}
+        onPress={props.onPress}
       >
         <Text style={styles.goalText}>{props.text}</Text>
       </Pressable>

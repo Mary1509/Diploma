@@ -16,7 +16,6 @@ export function HomeScreen() {
   const [hasRampFilter, setHasRampFilter] = useState("");
   const [errorMsg, setErrorMsg] = useState(null);
   const [location, setLocation] = useState(null);
-  
 
   useEffect(() => {
     (async () => {
@@ -38,21 +37,9 @@ export function HomeScreen() {
   function MainScreen({ navigation, route }) {
     const [fileteredShelters, setFilteredShelters] = useState([]);
     const [shelters, setShelters] = useState([]);
+    const [isFound, setIsFound] = useState(false);
 
     function SheltersList({ navigation }) {
-      // <View style={styles.container}>
-      //   <FlatList
-      //     data={fileteredShelters}
-      //     renderItem={(itemData) => {
-      //       return (
-      //         <ShelterItem
-      //           text={itemData.item.address}
-      //           id={itemData.item.id}
-      //         />
-      //       );
-      //     }}
-      //   />
-      // </View>
       if (location) {
         var markers = shelters || [];
         return (
@@ -60,15 +47,24 @@ export function HomeScreen() {
             <MapView
               style={styles.map}
               initialRegion={{
-                latitude: 50.45466,
-                longitude: 30.5238,
-                latitudeDelta: 0.5,
-                longitudeDelta: 0.5,
+                latitude: location.latitude,
+                longitude: location.longitude,
+                latitudeDelta: 0.05,
+                longitudeDelta: 0.05,
               }}
+              loadingEnabled={true}
+              loadingIndicatorColor="#666666"
+              loadingBackgroundColor="#eeeeee"
+              moveOnMarkerPress={true}
+              showsUserLocation={true}
+              showsCompass={true}
+              showsPointsOfInterest={false}
+              provider="google"
+              zoomControlEnabled={true}
             >
               <Marker coordinate={location} pinColor={"blue"} title="Ви тут" />
-              
-              {markers.map(shelter => (
+
+              {markers.map((shelter) => (
                 <Marker
                   key={shelter.id}
                   coordinate={{
@@ -76,6 +72,7 @@ export function HomeScreen() {
                     longitude: parseFloat(shelter.longitude),
                   }}
                   title={shelter.address}
+                  pinColor={shelter.id == 0 ? 'green' : 'red'}
                 />
               ))}
             </MapView>
@@ -102,6 +99,9 @@ export function HomeScreen() {
       setShelters(sheltersJson.shelters);
       setFilteredShelters(sheltersJson.shelters);
       console.log(shelters);
+      setIsFound(() => {
+        return true;
+      });
     }
 
     return (

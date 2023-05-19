@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Finder",
-    "slug": "Finder",
+    "slug": "diploma",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -31,6 +31,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7fa19126-b0fd-4071-b2c5-0fbdc5bdfa46"
+      }
+    },
+    "owner": "maryver"
   }
 }
