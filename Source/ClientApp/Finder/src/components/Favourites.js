@@ -16,6 +16,7 @@ import { Filters } from "../components/FilterComponent";
 import { FilterButton } from "../components/FilterButton";
 import { useSelector, useDispatch } from "react-redux";
 import { Shelter } from "../components/ShelterComponent";
+import { Adder } from "./AddShelter";
 
 export function Favourites({ navigation }) {
   const [shelters, setShelters] = useState([]);
@@ -93,6 +94,7 @@ export function Favourites({ navigation }) {
       <RootStack.Group>
         <RootStack.Screen name="SheltersList" component={SheltersList} />
         <RootStack.Screen name="Shelter" component={Shelter} />
+        <RootStack.Screen name="Editor" component={Adder} />
       </RootStack.Group>
     </RootStack.Navigator>
   );

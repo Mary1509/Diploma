@@ -21,6 +21,13 @@ export function ShelterEdit(props) {
   const [isErrorness, setIsErrorness] = useState(false);
   const [shelter, setShelter] = useState(props.shelter);
 
+  useEffect(() => {
+    props.shelter.latitude &&
+      setPosition({
+        latitude: parseFloat(props.shelter.latitude),
+        longitude: parseFloat(props.shelter.longitude),
+      });
+  }, []);
 
   handlePointSelection = (event) => {
     positionNew = {
@@ -54,7 +61,7 @@ export function ShelterEdit(props) {
         <TextInput
           style={!isErrorness ? styles.textInputs : styles.textInputsError}
           placeholder="Місткість"
-          value={(shelter.capacity).toString()}
+          value={shelter.capacity ? shelter.capacity.toString() : ""}
           onChangeText={(text) => setUserEmail(text)}
         />
         <View style={styles.checkboxContainer}>
@@ -82,7 +89,11 @@ export function ShelterEdit(props) {
           onPress={(point) => handlePointSelection(point)}
         >
           {position && (
-            <Marker coordinate={position} pinColor={"orange"} title="Локація укриття" />
+            <Marker
+              coordinate={position}
+              pinColor={"orange"}
+              title="Локація укриття"
+            />
           )}
         </MapView>
       </View>
@@ -93,7 +104,7 @@ export function ShelterEdit(props) {
 const styles = StyleSheet.create({
   container: {
     width: width,
-    height: 0.75* height,
+    height: 0.75 * height,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
@@ -122,7 +133,7 @@ const styles = StyleSheet.create({
     width: "100%",
     flex: 7,
     backgroundColor: "#f0f0f0",
-    padding: 10
+    padding: 10,
   },
   headerTable: {
     fontSize: 20,
@@ -162,6 +173,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flex: 1,
     alignItems: "center",
-    justifyContent: "flex-start"
+    justifyContent: "flex-start",
   },
 });
