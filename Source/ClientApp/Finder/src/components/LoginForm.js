@@ -8,10 +8,13 @@ import {
 } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
+import md5 from "md5";
+
 import { useDispatch } from "react-redux";
 import { login } from "../redux/actions/loginAction";
 import { Button } from "./MainButton";
 import { RegisterForm } from "./RegisterForm";
+import { useState } from "react";
 
 const { width, height } = Dimensions.get("window");
 
@@ -23,33 +26,53 @@ const image = {
 
 export function LoginForm() {
   const dispatch = useDispatch();
-  
 
+  const [isErrorness, setIsErrorness] = useState(false);
 
   async function getUserById(url) {
     const responce = await fetch(url);
     return responce.json();
   }
 
-  const handleLogin = () => {
-    dispatch(login());
-  };
-
   function Form({ navigation }) {
+    const [useremail, setUserEmail] = useState("");
+    const [pass, setPass] = useState("");
+
+    const handleLogin = () => {
+      console.log(useremail, pass, isErrorness);
+      setIsErrorness(() => {
+        return !isErrorness;
+      });
+      // !isErrorness && dispatch(login());
+    };
+
     return (
       <View style={styles.container}>
         <ImageBackground source={image} style={styles.image}>
           <View style={styles.loginForm}>
             <Text style={styles.headingText}>Вхід</Text>
-            <TextInput style={styles.textInputs} placeholder="Email" />
             <TextInput
-              style={styles.textInputs}
+              style={!isErrorness ? styles.textInputs : styles.textInputsError}
+              placeholder="Email"
+              value={useremail}
+              onChangeText={(text) => setUserEmail(text)}
+            />
+            <TextInput
+              style={!isErrorness ? styles.textInputs : styles.textInputsError}
               placeholder="Пароль"
               secureTextEntry={true}
+              value={pass}
+              onChangeText={(text) => setPass(text)}
             />
+            {isErrorness && (
+              <Text style={styles.errText}>Помилка облікових даних</Text>
+            )}
             <View style={styles.buttonContainer}>
               <Button title="Увійти" onPress={handleLogin}></Button>
-              <Button title="Реєстрація" onPress={() => navigation.navigate("Register")}></Button>
+              <Button
+                title="Реєстрація"
+                onPress={() => navigation.navigate("Register")}
+              ></Button>
             </View>
           </View>
         </ImageBackground>
@@ -97,6 +120,17 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     backgroundColor: "#fff",
   },
+  textInputsError: {
+    fontFamily: "Monserrat-SemiBold",
+    borderColor: "#ee6c4d",
+    borderWidth: 3,
+    fontSize: 16,
+    padding: 3,
+    height: 50,
+    borderRadius: 10,
+    marginBottom: 10,
+    backgroundColor: "#fff",
+  },
   image: {
     flex: 1,
     resizeMode: "cover",
@@ -116,4 +150,10 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "column",
   },
+  errText: {
+    fontFamily: "Monserrat-SemiBold",
+    fontSize: 15,
+    color: "#fff",
+    alignSelf: "center",
+  }
 });
