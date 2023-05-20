@@ -12,33 +12,39 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { DataTable } from "react-native-paper";
 import MapView from "react-native-maps";
 import { Marker } from "react-native-maps";
+import { Button } from "./MainButton";
 
 const { width, height } = Dimensions.get("window");
 
-export function Shelter({ navigation, route }) {
-  const [shelter, setShelter] = useState(null);
-  const [isFavourite, setIsFavourite] = useState(false);
+export function Location({ navigation, route }) {
+  const [location, setLocation] = useState(null);
+  const [shelters, setShelters] = useState([]);
+  const [isFound, setIsFound] = useState(false);
 
   const isLogged = useSelector((store) => store.isLogged.isLogged);
 
   useEffect(() => {
-    const sheltersJson = require("./../../data/shelters.json");
-    fileteredSHelter = sheltersJson.shelters.filter(
-      (shelter) => shelter.id == route.params.id
+    const locationsJson = require("./../../data/locations.json");
+    fileteredLocation = locationsJson.locations.filter(
+      (location) => location.id == route.params.id
     );
-    console.log(fileteredSHelter);
+    console.log(fileteredLocation);
     // fetch if favourite
-    setShelter(() => fileteredSHelter[0]);
+    setLocation(() => fileteredLocation[0]);
   }, []);
 
-  handleAddFavourite = () => {
-    // fetch add favourite
-    setIsFavourite(() => {
-      return !isFavourite;
+  function handleFind() {
+    sheltersJson = require("./../../data/shelters.json");
+    console.log(sheltersJson.shelters);
+    setShelters(sheltersJson.shelters);
+    console.log(shelters);
+    setIsFound(() => {
+      return true;
     });
-  };
+  }
 
-  if (shelter) {
+  if (location) {
+    var markers = shelters || [];
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -51,72 +57,19 @@ export function Shelter({ navigation, route }) {
             <Icon name="caret-left" size={35} color={"#ee6c4d"} />
             <Text style={styles.headeringText}>До списку</Text>
           </Pressable>
-          {isLogged && (
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                alignItems: "center",
-                width: "20%",
-              }}
-            >
-              <Pressable
-                onPress={() =>
-                  navigation.navigate("Editor", { shelter: shelter })
-                }
-              >
-                <Icon name={"edit"} size={25} color={"#ee6c4d"} />
-              </Pressable>
-              <Pressable onPress={handleAddFavourite}>
-                <Icon
-                  name={isFavourite ? "star" : "star-o"}
-                  size={25}
-                  color={"#ee6c4d"}
-                />
-              </Pressable>
-            </View>
-          )}
         </View>
-        {shelter && (
+        {location && (
           <View style={styles.tableStyle}>
-            <DataTable>
-              <DataTable.Header>
-                <DataTable.Title textStyle={styles.headerTable}>
-                  Укриття
-                </DataTable.Title>
-              </DataTable.Header>
-              <DataTable.Row>
-                <DataTable.Cell>{"Адреса"}</DataTable.Cell>
-                <DataTable.Cell>{shelter.address}</DataTable.Cell>
-              </DataTable.Row>
-              <DataTable.Row>
-                <DataTable.Cell>Тип</DataTable.Cell>
-                <DataTable.Cell>{shelter.type}</DataTable.Cell>
-              </DataTable.Row>
-              <DataTable.Row>
-                <DataTable.Cell>Призначення</DataTable.Cell>
-                <DataTable.Cell>{shelter.purpose}</DataTable.Cell>
-              </DataTable.Row>
-              <DataTable.Row>
-                <DataTable.Cell>Місткість</DataTable.Cell>
-                <DataTable.Cell>{shelter.capacity}</DataTable.Cell>
-              </DataTable.Row>
-              <DataTable.Row>
-                <DataTable.Cell>Наявність пандусу</DataTable.Cell>
-                <DataTable.Cell>
-                  {shelter.hasRamp ? "Наявний" : "Відсутній"}
-                </DataTable.Cell>
-              </DataTable.Row>
-            </DataTable>
+            <Text style={styles.headeringText}>{location.alias}</Text>
           </View>
         )}
-        {shelter && (
+        {location && (
           <View flex={6}>
             <MapView
               style={styles.map}
               initialRegion={{
-                latitude: parseFloat(shelter.latitude),
-                longitude: parseFloat(shelter.longitude),
+                latitude: parseFloat(location.latitude),
+                longitude: parseFloat(location.longitude),
                 latitudeDelta: 0.005,
                 longitudeDelta: 0.005,
               }}
@@ -131,17 +84,31 @@ export function Shelter({ navigation, route }) {
             >
               <Marker
                 coordinate={{
-                  latitude: parseFloat(shelter.latitude),
-                  longitude: parseFloat(shelter.longitude),
+                  latitude: parseFloat(location.latitude),
+                  longitude: parseFloat(location.longitude),
                   latitudeDelta: 0.05,
                   longitudeDelta: 0.05,
                 }}
-                pinColor={"red"}
-                title={shelter.address}
+                pinColor={"orange"}
+                title={location.alias}
+                sho
               />
+
+              {markers.map((shelter) => (
+                <Marker
+                  key={shelter.id}
+                  coordinate={{
+                    latitude: parseFloat(shelter.latitude),
+                    longitude: parseFloat(shelter.longitude),
+                  }}
+                  title={shelter.address}
+                  pinColor={shelter.id == 0 ? "green" : "red"}
+                />
+              ))}
             </MapView>
           </View>
         )}
+        <Button title="Знайти найближче" onPress={handleFind} />
       </View>
     );
   } else {
@@ -192,8 +159,11 @@ const styles = StyleSheet.create({
   },
   tableStyle: {
     width: "100%",
-    flex: 7,
+    flex: 1,
     backgroundColor: "#f0f0f0",
+    alignContent: "center",
+    alignItems: "center",
+    justifyContent: "center",
   },
   headerTable: {
     fontSize: 20,
@@ -201,10 +171,9 @@ const styles = StyleSheet.create({
     fontFamily: "Monserrat-SemiBold",
     letterSpacing: 0.25,
     color: "#09008e",
-    // color: "#ee6c4d"
   },
   map: {
     width: width,
-    height: height / 3,
+    height: height / 2,
   },
 });

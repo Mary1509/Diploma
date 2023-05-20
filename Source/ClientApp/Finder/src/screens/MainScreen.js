@@ -24,7 +24,10 @@ export function HomeScreen() {
         setErrorMsg("Permission to access location was denied");
         return;
       }
-      var location = await Location.getCurrentPositionAsync({});
+      var location = await Location.getCurrentPositionAsync({
+        accuracy: Location.Accuracy.Highest,
+        maximumAge: 10000,
+      });
       setLocation(() => {
         return {
           latitude: location.coords.latitude,
@@ -72,7 +75,7 @@ export function HomeScreen() {
                     longitude: parseFloat(shelter.longitude),
                   }}
                   title={shelter.address}
-                  pinColor={shelter.id == 0 ? 'green' : 'red'}
+                  pinColor={shelter.id == 0 ? "green" : "red"}
                 />
               ))}
             </MapView>

@@ -39,11 +39,11 @@ export function LoginForm() {
     const [pass, setPass] = useState("");
 
     const handleLogin = () => {
-      console.log(useremail, pass, isErrorness);
-      setIsErrorness(() => {
-        return !isErrorness;
-      });
-      // !isErrorness && dispatch(login());
+      console.log(useremail, md5(pass), isErrorness);
+      // setIsErrorness(() => {
+      //   return !isErrorness;
+      // });
+      !isErrorness && dispatch(login());
     };
 
     return (

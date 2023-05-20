@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "displayName": "Шукач Мар'яна",
+      "email" : "shukach@example.com",
+      "password": "fb53a168a24ca9dfefa4ae82ed657988"
+    },
+    {
+      "id": 1,
+      "displayName": "Везун Венучійович",
+      "email" : "vesun@example.com",
+      "password": "df27cc4e04a104e024345c9dc8ebf829"
+    },
+    {
+      "id": 2,
+      "displayName": "Катеринка",
+      "email" : "kateSuper@example.com",
+      "password": "4e8f18e66cedc48bf30d9fe935783d2b"
+    }
+  ]
+}

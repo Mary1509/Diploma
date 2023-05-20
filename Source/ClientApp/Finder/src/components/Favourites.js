@@ -16,20 +16,13 @@ import { Filters } from "../components/FilterComponent";
 import { FilterButton } from "../components/FilterButton";
 import { useSelector, useDispatch } from "react-redux";
 import { Shelter } from "../components/ShelterComponent";
-import { ShelterEdit } from "../components/ShelterEdit";
-import { Adder } from "../components/AddShelter";
 
-export function SheltersScreen({ navigation }) {
+export function Favourites({ navigation }) {
   const [shelters, setShelters] = useState([]);
-  const [fileteredShelters, setFilteredShelters] = useState([]);
-  const [search, setSearch] = useState("");
-
-  const isLogged = useSelector((store) => store.isLogged.isLogged);
 
   useEffect(() => {
-    const sheltersJson = require("./../../data/shelters.json");
-    setShelters(sheltersJson.shelters);
-    setFilteredShelters(sheltersJson.shelters);
+    const favouritesJson = require("./../../data/favourites.json");
+    setShelters(favouritesJson.favourites);
   }, []);
 
   async function searchFilter(text) {
@@ -57,45 +50,23 @@ export function SheltersScreen({ navigation }) {
 
   const RootStack = createNativeStackNavigator();
 
-  const SearchAndFilters = () => {
-    const [temp, setTemp] = useState("");
-
-    return (
-      <View style={styles.filterContainer}>
-        <TextInput
-          flex={5}
-          style={styles.textInput}
-          placeholder="Введіть адресу для пошуку"
-          value={search.text}
-          onChangeText={(text) => setTemp(text)}
-          onSubmitEditing={() => searchFilter(temp)}
-        />
-        <FilterButton flex={1} onPress={() => navigation.navigate("Filters")} />
-      </View>
-    );
-  };
-
   function SheltersList({ navigation }) {
     return (
       <View style={styles.container}>
-        {search && (
-          <View style={styles.searchLabel}>
-            <Text style={styles.searchText}>{search}</Text>
-            <Pressable
-              onPress={() => {
-                setSearch("");
-                setFilteredShelters(() => {
-                  return shelters;
-                });
-              }}
-            >
-              <Icon name="times" size={20} color={"white"} />
-            </Pressable>
-          </View>
-        )}
+        <View style={styles.header}>
+          <Pressable
+            style={({ pressed }) =>
+              pressed ? styles.pressablePressed : styles.pressable
+            }
+            onPress={() => navigation.goBack()}
+          >
+            <Icon name="caret-left" size={35} color={"#ee6c4d"} />
+            <Text style={styles.headeringText}>Назад</Text>
+          </Pressable>
+        </View>
         <View style={styles.container}>
           <FlatList
-            data={fileteredShelters}
+            data={shelters}
             renderItem={(itemData) => {
               return (
                 <ShelterItem
@@ -110,7 +81,6 @@ export function SheltersScreen({ navigation }) {
             }}
           />
         </View>
-        <SearchAndFilters />
       </View>
     );
   }
@@ -123,19 +93,6 @@ export function SheltersScreen({ navigation }) {
       <RootStack.Group>
         <RootStack.Screen name="SheltersList" component={SheltersList} />
         <RootStack.Screen name="Shelter" component={Shelter} />
-        <RootStack.Screen name="Editor" component={Adder} />
-      </RootStack.Group>
-      <RootStack.Group
-        screenOptions={{
-          presentation: "transparentModal",
-          animation: "fade_from_bottom",
-        }}
-      >
-        <RootStack.Screen
-          name="Filters"
-          component={Filters}
-          initialParams={{ parentWin: "SheltersList" }}
-        />
       </RootStack.Group>
     </RootStack.Navigator>
   );
@@ -143,7 +100,7 @@ export function SheltersScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 7,
+    flex: 12,
     width: "100%",
     backgroundColor: "#fff",
     alignItems: "center",
@@ -184,5 +141,35 @@ const styles = StyleSheet.create({
     fontSize: 15,
     paddingHorizontal: 5,
     color: "#fff",
+  },
+  header: {
+    flex: 1,
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 10,
+    borderBottomColor: "#878787",
+    borderBottomWidth: 0.5,
+  },
+  headeringText: {
+    padding: 10,
+    fontSize: 17,
+    lineHeight: 21,
+    fontFamily: "Monserrat-SemiBold",
+    letterSpacing: 0.25,
+    color: "#09008e",
+    // color: "#ee6c4d"
+  },
+  pressable: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+  },
+  pressablePressed: {
+    opacity: 0.5,
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
   },
 });

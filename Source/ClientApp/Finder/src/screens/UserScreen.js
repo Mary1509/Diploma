@@ -5,6 +5,7 @@ import { logout } from "../redux/actions/loginAction";
 
 // Import components
 import { LoginForm } from "../components/LoginForm";
+import { UserComponent } from "../components/UserComponent";
 
 export function UserScreen() {
   const dispatch = useDispatch();
@@ -17,10 +18,7 @@ export function UserScreen() {
 
   if (isLogged) {
     return (
-      <View style={styles.container}>
-        <Text>User screen with list of options (After success login)</Text>
-        <Button title="Logout" onPress={handleLogout}></Button>
-      </View>
+      <UserComponent />
     );
   } else {
     return <LoginForm />;

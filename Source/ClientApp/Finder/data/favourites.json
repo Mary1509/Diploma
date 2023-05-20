@@ -1,0 +1,164 @@
+{
+  "favourites": [
+    {
+      "id": 0,
+      "longitude": "30.59555",
+      "latitude": "50.47551",
+      "type": "Підвал з пандусом ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р  Перова, 1",
+      "capacity": 197,
+      "hasRamp": ""
+    },
+    {
+      "id": 1,
+      "longitude": "30.59181",
+      "latitude": "50.48599",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р  Перова, 23",
+      "capacity": 146,
+      "hasRamp": "False"
+    },
+    {
+      "id": 2,
+      "longitude": "30.59471",
+      "latitude": "50.47716",
+      "type": "Підвал з пандусом ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р  Перова, 3",
+      "capacity": 193,
+      "hasRamp": ""
+    },
+    {
+      "id": 3,
+      "longitude": "30.62627",
+      "latitude": "50.4482",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Верховної Ради, 12",
+      "capacity": 86,
+      "hasRamp": "False"
+    },
+    {
+      "id": 4,
+      "longitude": "30.61675",
+      "latitude": "50.44835",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Верховної Ради, 13",
+      "capacity": 96,
+      "hasRamp": "False"
+    },
+    {
+      "id": 5,
+      "longitude": "30.62033",
+      "latitude": "50.44725",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Верховної Ради, 14Б",
+      "capacity": 12,
+      "hasRamp": ""
+    },
+    {
+      "id": 6,
+      "longitude": "30.61723",
+      "latitude": "50.44957",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Верховної Ради, 15А",
+      "capacity": 124,
+      "hasRamp": "False"
+    },
+    {
+      "id": 7,
+      "longitude": "30.61884",
+      "latitude": "50.44892",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Верховної Ради, 17",
+      "capacity": 2,
+      "hasRamp": "False"
+    },
+    {
+      "id": 8,
+      "longitude": "30.62341",
+      "latitude": "50.44821",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Верховної Ради, 20А",
+      "capacity": 86,
+      "hasRamp": "False"
+    },
+    {
+      "id": 9,
+      "longitude": "30.62215",
+      "latitude": "50.45045",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Верховної Ради, 21",
+      "capacity": 61,
+      "hasRamp": "False"
+    },
+    {
+      "id": 10,
+      "longitude": "30.62209",
+      "latitude": "50.44991",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Верховної Ради, 21А",
+      "capacity": 69,
+      "hasRamp": "False"
+    },
+    {
+      "id": 11,
+      "longitude": "30.62241",
+      "latitude": "50.45013",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Верховної Ради, 21А",
+      "capacity": 142,
+      "hasRamp": ""
+    },
+    {
+      "id": 12,
+      "longitude": "30.62207",
+      "latitude": "50.44996",
+      "type": "Підземний паркінг з пандусом",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Верховної Ради, 21Б",
+      "capacity": 162,
+      "hasRamp": ""
+    },
+    {
+      "id": 13,
+      "longitude": "30.62388",
+      "latitude": "50.4494",
+      "type": "Підвал",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Верховної Ради, 22",
+      "capacity": 5,
+      "hasRamp": "False"
+    },
+    {
+      "id": 14,
+      "longitude": "30.61174",
+      "latitude": "50.44697",
+      "type": "Підвал",
+      "purpose": "Подвійного призначення",
+      "address": "б-р Верховної Ради, 3",
+      "capacity": 30,
+      "hasRamp": "False"
+    },
+    {
+      "id": 15,
+      "longitude": "30.61361",
+      "latitude": "50.44775",
+      "type": "Підвал ОЗ",
+      "purpose": "Найпростіші укриття",
+      "address": "б-р Верховної Ради, 7А",
+      "capacity": 148,
+      "hasRamp": "False"
+    }
+  ]
+}
