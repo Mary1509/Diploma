@@ -6,8 +6,10 @@ import {
   Button,
   FlatList,
   TextInput,
+  Pressable,
 } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 import { ShelterItem } from "./../components/ShelterItem";
 import { Filters } from "../components/FilterComponent";
@@ -74,6 +76,14 @@ export function SheltersScreen({ navigation }) {
   function SheltersList({ navigation }) {
     return (
       <View style={styles.container}>
+        {search && (
+          <View style={styles.searchLabel}>
+            <Text style={styles.searchText}>{search}</Text>
+            <Pressable onPress={() => setSearch("")}>
+              <Icon name="times" size={20} color={"white"}/>
+            </Pressable>
+          </View>
+        )}
         <View style={styles.container}>
           <FlatList
             data={fileteredShelters}
@@ -81,10 +91,11 @@ export function SheltersScreen({ navigation }) {
               return (
                 <ShelterItem
                   text={itemData.item.address}
-                  onPress={()=> navigation.navigate("Shelter", {
-                    id: itemData.item.id
-                  })}
-                  
+                  onPress={() =>
+                    navigation.navigate("Shelter", {
+                      id: itemData.item.id,
+                    })
+                  }
                 />
               );
             }}
@@ -146,4 +157,21 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 10,
   },
+  searchLabel: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    backgroundColor: "#ee6c4d",
+    elevation: 20,
+    borderWidth: 1,
+    borderColor: "#ee6c4d",
+    borderRadius: 15,
+    padding: 10,
+    margin: 10
+  },
+  searchText: {
+    fontFamily: "Monserrat-SemiBold",
+    fontSize: 15,
+    paddingHorizontal: 5,
+    color: "#fff"
+  }
 });
