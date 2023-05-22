@@ -29,12 +29,21 @@ export function ShelterEdit(props) {
       });
   }, []);
 
+  useEffect(() => {
+    props.callBack(shelter);
+  }, [shelter]);
+
   handlePointSelection = (event) => {
     positionNew = {
       latitude: event.nativeEvent.coordinate.latitude,
       longitude: event.nativeEvent.coordinate.longitude,
     };
     setPosition(() => positionNew);
+    setShelter({
+      ...shelter,
+      longitude: positionNew.longitude,
+      latitude: positionNew.latitude,
+    });
   };
 
   return (
@@ -44,29 +53,35 @@ export function ShelterEdit(props) {
           style={!isErrorness ? styles.textInputs : styles.textInputsError}
           placeholder="Адреса"
           value={shelter.address}
-          onChangeText={(text) => setUserEmail(text)}
+          onChangeText={(text) => setShelter({ ...shelter, email: text })}
         />
         <TextInput
           style={!isErrorness ? styles.textInputs : styles.textInputsError}
           placeholder="Тип"
           value={shelter.type}
-          onChangeText={(text) => setUserEmail(text)}
+          onChangeText={(text) => setShelter({ ...shelter, type: text })}
         />
         <TextInput
           style={!isErrorness ? styles.textInputs : styles.textInputsError}
           placeholder="Призначення"
           value={shelter.purpose}
-          onChangeText={(text) => setUserEmail(text)}
+          onChangeText={(text) => setShelter({ ...shelter, purpose: text })}
         />
         <TextInput
           style={!isErrorness ? styles.textInputs : styles.textInputsError}
           placeholder="Місткість"
           value={shelter.capacity ? shelter.capacity.toString() : ""}
-          onChangeText={(text) => setUserEmail(text)}
+          onChangeText={(text) => setShelter({ ...shelter, capacity: text })}
         />
         <View style={styles.checkboxContainer}>
           <Text style={styles.headeringText}>Наявність пандусу</Text>
-          <Checkbox value={shelter.hasRamp} color={"#ee6c4d"}></Checkbox>
+          <Checkbox
+            value={shelter.hasRamp}
+            color={"#ee6c4d"}
+            onValueChange={(value) =>
+              setShelter({ ...shelter, hasRamp: value })
+            }
+          ></Checkbox>
         </View>
       </View>
       <View flex={6}>

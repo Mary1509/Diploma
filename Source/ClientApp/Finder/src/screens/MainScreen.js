@@ -37,6 +37,8 @@ export function HomeScreen() {
     })();
   }, []);
 
+  
+
   function MainScreen({ navigation, route }) {
     const [fileteredShelters, setFilteredShelters] = useState([]);
     const [shelters, setShelters] = useState([]);
@@ -112,7 +114,7 @@ export function HomeScreen() {
         <View style={styles.listContainer}>
           <SheltersList />
         </View>
-        <View
+        {!errorMsg && <View
           style={
             Platform.OS == "android"
               ? styles.buttonContainerAndroid
@@ -127,7 +129,7 @@ export function HomeScreen() {
               onPress={() => navigation.navigate("Filters")}
             ></FilterButton>
           </View>
-        </View>
+        </View>}
       </View>
     );
   }

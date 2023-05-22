@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import {
   Text,
   StyleSheet,
-  Pressable,
   View,
   Platform,
   FlatList,
@@ -16,8 +15,7 @@ export function Filters({ navigation, route }) {
   const [filterTypes, setFilterTypes] = useState([]);
   const [filterPurposes, setFilterPurposes] = useState([]);
 
-  const [hasRamp, setHasRamp] = useState(false);
-  const toggleRampSwitch = () => setHasRamp(hasRamp => !hasRamp);
+  const [hasRamp, setHasRamp] = useState();
 
 
   function saveFilterHandler() {
@@ -78,7 +76,7 @@ export function Filters({ navigation, route }) {
   }
 
   function setRampSwitchValue(val) {
-    setHasRamp(val);
+    setHasRamp(() => val);
   }
 
   const listTypeItem = (itemData, index) => {
@@ -130,7 +128,7 @@ export function Filters({ navigation, route }) {
         <View style={styles.filtersListItem}>
           <Text style={styles.headeringText}>Наявність пандусу</Text>
           <Switch
-            onValueChange={toggleRampSwitch}
+            onValueChange={setRampSwitchValue}
             value={hasRamp}
             style={styles.listSwitcher}
           />

@@ -8,8 +8,16 @@ const { width, height } = Dimensions.get("window");
 
 export function Adder({ navigation, route }) {
   const [shelter, setShelter] = useState(route.params.shelter);
+  const [childShelter, setChildShelter] = useState(route.params.shelter);
+
+  editorHandler = (childShelter) => {
+    setChildShelter(() => childShelter)
+  }
+
+
 
   handleSave = () => {
+    console.log(childShelter);
     navigation.goBack();
   };
 
@@ -37,6 +45,7 @@ export function Adder({ navigation, route }) {
       </View>
       <ShelterEdit
         shelter={route.params.shelter ? route.params.shelter : newShelter}
+        callBack={editorHandler}
       />
     </View>
   );
