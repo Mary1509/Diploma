@@ -39,11 +39,16 @@ export function LoginForm() {
     const [pass, setPass] = useState("");
 
     const handleLogin = () => {
+      var iserr = false
       console.log(useremail, md5(pass), isErrorness);
-      // setIsErrorness(() => {
-      //   return !isErrorness;
-      // });
-      !isErrorness && dispatch(login());
+      if (useremail === "" || pass === "") {
+        iserr = true
+        setIsErrorness(() => {
+          return true;
+        });
+      }
+
+      if (!iserr) dispatch(login());
     };
 
     return (
@@ -55,7 +60,8 @@ export function LoginForm() {
               style={!isErrorness ? styles.textInputs : styles.textInputsError}
               placeholder="Email"
               value={useremail}
-              onChangeText={(text) => setUserEmail(text)}
+              onChangeText={(text) => {setUserEmail(text)}}
+              onPressIn={() => setIsErrorness(false)}
             />
             <TextInput
               style={!isErrorness ? styles.textInputs : styles.textInputsError}
@@ -155,5 +161,5 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: "#fff",
     alignSelf: "center",
-  }
+  },
 });

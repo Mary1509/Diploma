@@ -7,6 +7,7 @@ import {
   FlatList,
   TextInput,
   Pressable,
+  ActivityIndicator,
 } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -25,12 +26,6 @@ export function SheltersScreen({ navigation }) {
   const [search, setSearch] = useState("");
 
   const isLogged = useSelector((store) => store.isLogged.isLogged);
-
-  useEffect(() => {
-    const sheltersJson = require("./../../data/shelters.json");
-    setShelters(sheltersJson.shelters);
-    setFilteredShelters(sheltersJson.shelters);
-  }, []);
 
   async function searchFilter(text) {
     if (text) {
@@ -75,7 +70,20 @@ export function SheltersScreen({ navigation }) {
     );
   };
 
-  function SheltersList({ navigation }) {
+  function SheltersList({ navigation, route }) {
+    const [typesFilters, setTypesFilters] = useState(route.params.types);
+    const [purposesFilters, setPurposesFilters] = useState(
+      route.params.purposes
+    );
+    const [hasRampFilter, setHasRampFilter] = useState(route.params.hasRamp);
+
+    useEffect(() => {
+      const sheltersJson = require("./../../data/shelters.json");
+      setShelters(sheltersJson.shelters);
+      console.log(typesFilters);
+      setFilteredShelters(sheltersJson.shelters);
+    }, [typesFilters, purposesFilters, hasRampFilter]);
+
     return (
       <View style={styles.container}>
         {search && (
@@ -93,23 +101,27 @@ export function SheltersScreen({ navigation }) {
             </Pressable>
           </View>
         )}
-        <View style={styles.container}>
-          <FlatList
-            data={fileteredShelters}
-            renderItem={(itemData) => {
-              return (
-                <ShelterItem
-                  text={itemData.item.address}
-                  onPress={() =>
-                    navigation.navigate("Shelter", {
-                      id: itemData.item.id,
-                    })
-                  }
-                />
-              );
-            }}
-          />
-        </View>
+        {fileteredShelters ? (
+          <View style={styles.container}>
+            <FlatList
+              data={fileteredShelters}
+              renderItem={(itemData) => {
+                return (
+                  <ShelterItem
+                    text={itemData.item.address}
+                    onPress={() =>
+                      navigation.navigate("Shelter", {
+                        id: itemData.item.id,
+                      })
+                    }
+                  />
+                );
+              }}
+            />
+          </View>
+        ) : (
+          <ActivityIndicator />
+        )}
         <SearchAndFilters />
       </View>
     );
@@ -121,7 +133,15 @@ export function SheltersScreen({ navigation }) {
       initialRouteName="SheltersList"
     >
       <RootStack.Group>
-        <RootStack.Screen name="SheltersList" component={SheltersList} />
+        <RootStack.Screen
+          name="SheltersList"
+          component={SheltersList}
+          initialParams={{
+            types: [],
+            purposes: [],
+            hasRamp: "",
+          }}
+        />
         <RootStack.Screen name="Shelter" component={Shelter} />
         <RootStack.Screen name="Editor" component={Adder} />
       </RootStack.Group>

@@ -1,21 +1,29 @@
-import { StyleSheet, View, Platform, ActivityIndicator } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Platform,
+  ActivityIndicator,
+  Pressable,
+  Text,
+} from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as Location from "expo-location";
 import MapView from "react-native-maps";
 import { Marker } from "react-native-maps";
+import { useSelector } from "react-redux";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 // Import components
 import { Button } from "../components/MainButton";
 import { FilterButton } from "../components/FilterButton";
 import { Filters } from "../components/FilterComponent";
 import { useEffect, useState } from "react";
+import { LocAdder } from "../components/AddLocation";
 
 export function HomeScreen() {
-  const [typesFilters, setTypesFilters] = useState([]);
-  const [purposesFilters, setPurposesFilters] = useState([]);
-  const [hasRampFilter, setHasRampFilter] = useState("");
   const [errorMsg, setErrorMsg] = useState(null);
   const [location, setLocation] = useState(null);
+  const isLogged = useSelector((store) => store.isLogged.isLogged);
 
   useEffect(() => {
     (async () => {
@@ -37,12 +45,15 @@ export function HomeScreen() {
     })();
   }, []);
 
-  
-
   function MainScreen({ navigation, route }) {
     const [fileteredShelters, setFilteredShelters] = useState([]);
     const [shelters, setShelters] = useState([]);
     const [isFound, setIsFound] = useState(false);
+    const [typesFilters, setTypesFilters] = useState(route.params.types);
+    const [purposesFilters, setPurposesFilters] = useState(
+      route.params.purposes
+    );
+    const [hasRampFilter, setHasRampFilter] = useState(route.params.hasRamp);
 
     function SheltersList({ navigation }) {
       if (location) {
@@ -102,6 +113,11 @@ export function HomeScreen() {
       sheltersJson = require("./../../data/shelters.json");
       console.log(sheltersJson.shelters);
       setShelters(sheltersJson.shelters);
+      if (typesFilters.length > 0) {
+        console.log(
+          "fetch with filters, pass filters and parse them on backend."
+        );
+      }
       setFilteredShelters(sheltersJson.shelters);
       console.log(shelters);
       setIsFound(() => {
@@ -109,27 +125,55 @@ export function HomeScreen() {
       });
     }
 
+    handleSave = () => {
+      console.log("save position");
+      navigation.navigate("Saver", {
+        alias: "",
+        position: {
+          longitude: location.longitude,
+          latitude: location.latitude,
+        },
+      });
+    };
+
     return (
       <View style={styles.container}>
+        {isLogged && location && (
+          <View style={styles.save}>
+            <Pressable
+              style={({ pressed }) =>
+                pressed ? styles.pressablePressed : styles.pressable
+              }
+              onPress={handleSave}
+            >
+              <Text style={styles.headeringText}>Зберегти поточне місце</Text>
+              <Icon name="save" size={35} color={"#ee6c4d"} />
+            </Pressable>
+          </View>
+        )}
         <View style={styles.listContainer}>
           <SheltersList />
         </View>
-        {!errorMsg && <View
-          style={
-            Platform.OS == "android"
-              ? styles.buttonContainerAndroid
-              : styles.buttonContainerIOS
-          }
-        >
-          <View flex={3}>
-            <Button title="Знайти" onPress={handleFind} />
+        {!errorMsg && (
+          <View
+            style={
+              Platform.OS == "android"
+                ? styles.buttonContainerAndroid
+                : styles.buttonContainerIOS
+            }
+          >
+            <View flex={3}>
+              <Button title="Знайти" onPress={handleFind} />
+            </View>
+            <View flex={1}>
+              <FilterButton
+                onPress={() =>
+                  navigation.navigate("Filters", { parentWin: "Results" })
+                }
+              ></FilterButton>
+            </View>
           </View>
-          <View flex={1}>
-            <FilterButton
-              onPress={() => navigation.navigate("Filters")}
-            ></FilterButton>
-          </View>
-        </View>}
+        )}
       </View>
     );
   }
@@ -143,9 +187,9 @@ export function HomeScreen() {
           name="Results"
           component={MainScreen}
           initialParams={{
-            types: "types",
-            purposes: "purposes",
-            hasRamp: "hasRamp",
+            types: [],
+            purposes: [],
+            hasRamp: "",
           }}
         />
       </RootStack.Group>
@@ -159,6 +203,17 @@ export function HomeScreen() {
           name="Filters"
           component={Filters}
           initialParams={{ parentWin: "Results" }}
+        />
+        <RootStack.Screen
+          name="Saver"
+          component={LocAdder}
+          initialParams={{
+            alias: "",
+            position: {
+              longitude: "",
+              latitude: "",
+            },
+          }}
         />
       </RootStack.Group>
     </RootStack.Navigator>
@@ -203,5 +258,31 @@ const styles = StyleSheet.create({
   map: {
     width: "100%",
     height: "100%",
+  },
+  headeringText: {
+    padding: 10,
+    fontSize: 17,
+    lineHeight: 21,
+    fontFamily: "Monserrat-SemiBold",
+    letterSpacing: 0.25,
+    color: "#09008e",
+    // color: "#ee6c4d"
+  },
+  save: {
+    flexDirection: "row",
+    flex: 1,
+    width: "100%",
+    justifyContent: "flex-end"
+  },
+  pressable: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+  },
+  pressablePressed: {
+    opacity: 0.5,
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
   },
 });
