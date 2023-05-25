@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Finder",
-    "slug": "Finder",
+    "slug": "diploma",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -18,13 +18,25 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.finder.app",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAbSqW60kP_gtEonn-sBRN2CUNaYI5U2AQ"
+        }
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7fa19126-b0fd-4071-b2c5-0fbdc5bdfa46"
+      }
+    },
+    "owner": "maryver"
   }
 }
