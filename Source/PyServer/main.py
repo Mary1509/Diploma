@@ -1,16 +1,30 @@
-# This is a sample Python script.
-
-# Press Ctrl+F5 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press F9 to toggle the breakpoint.
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from routes.misc import blueprint as misc_blueprint
+from routes.shelters import blueprint as shelters_blueprint
+from routes.users import blueprint as users_blueprint
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def create_app():
+    db = SQLAlchemy()
+    app = Flask(__name__)
+    app.config.from_object('config')
+    db.init_app(app)
+    return app
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+app = create_app()
+
+# Register blueprints
+app.register_blueprint(misc_blueprint, url_prefix='/misc')
+app.register_blueprint(shelters_blueprint, url_prefix='/shelters')
+app.register_blueprint(users_blueprint, url_prefix='/users')
+
+@app.route("/")
+def hello():
+
+    return "Hello world"
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=4567, debug=True)
