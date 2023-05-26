@@ -14,3 +14,10 @@ class Location(Base):
     latitude = Column(DOUBLE_PRECISION, nullable=False)
     alias = Column(Text, nullable=False)
     userId = Column(Integer, ForeignKey('User.id', onupdate='CASCADE', ondelete='CASCADE'), nullable=False)
+
+    def __init__(self, id, longitude, latitude, alias, user_id):
+        self.id = id
+        self.longitude = longitude
+        self.latitude = latitude
+        self.alias = alias
+        self.userIdd = user_id

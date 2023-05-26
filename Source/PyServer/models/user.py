@@ -15,3 +15,9 @@ class User(Base):
     password = Column(Text, nullable=False)
     displayName = Column(Text, nullable=False)
     locations = relationship("Location", backref='User', passive_deletes=True)
+
+    def __init__(self, id, email, password, display_name):
+        self.id = id
+        self.email = email
+        self.password = password
+        self.displayName = display_name

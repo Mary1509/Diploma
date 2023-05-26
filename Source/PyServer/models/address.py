@@ -12,3 +12,8 @@ class Address(Base):
     street = Column(Text, nullable=False)
     houseNumber = Column(VARCHAR, nullable=False)
     shelters = relationship("Shelter", backref='Address', passive_deletes=True)
+
+    def __init__(self, id, street, house_number):
+        self.id = id
+        self.street = street
+        self.houseNumber = house_number

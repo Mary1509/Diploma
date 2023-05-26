@@ -1,6 +1,5 @@
 from sqlalchemy import *
-
-from base import Base
+from models.base import Base
 
 
 class Shelter(Base):
@@ -17,6 +16,19 @@ class Shelter(Base):
     typeId = Column(Integer, ForeignKey('Type.id', onupdate='CASCADE', ondelete='SET NULL'), nullable=False)
     purposeId = Column(Integer, ForeignKey('Purpose.id', onupdate='CASCADE', ondelete='SET NULL'), nullable=False)
     addressId = Column(Integer, ForeignKey('Address.id', onupdate='CASCADE', ondelete='SET NULL'), nullable=False)
+
+    def __init__(self, id, longitude, latitude, capacity, hasRamp, typeId, purposeId, addressId):
+        self.id = id
+        self.longitude = longitude
+        self.latitude = latitude
+        self.capacity = capacity
+        self.hasRamp = hasRamp
+        self.typeId = typeId
+        self.purposeId = purposeId
+        self.addressId = addressId
+
+    def as_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
 
 shelter_user_association = Table(

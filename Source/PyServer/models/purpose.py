@@ -14,3 +14,7 @@ class Purpose(Base):
                 server_default=Sequence('shelter_purposes_id_seq').next_value())
     purpose = Column(Text, nullable=False)
     shelters = relationship("Shelter", backref='Purpose', passive_deletes=True)
+
+    def __init__(self, id, purpose):
+        self.id = id
+        self.purpose = purpose

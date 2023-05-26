@@ -13,3 +13,7 @@ class Type(Base):
                 server_default=Sequence('shelter_types_id_seq').next_value())
     type = Column(Text, nullable=False)
     shelters = relationship("Shelter", backref='Type', passive_deletes=True)
+
+    def __init__(self, id, type):
+        self.id = id
+        self.type = type
