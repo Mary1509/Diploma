@@ -34,7 +34,7 @@ export function HomeScreen() {
       }
       var location = await Location.getCurrentPositionAsync({
         accuracy: Location.Accuracy.Highest,
-        maximumAge: 10000,
+        maximumAge: 100,
       });
       setLocation(() => {
         return {
@@ -43,10 +43,9 @@ export function HomeScreen() {
         };
       });
     })();
-  }, []);
+  }, [location]);
 
   function MainScreen({ navigation, route }) {
-    const [fileteredShelters, setFilteredShelters] = useState([]);
     const [shelters, setShelters] = useState([]);
     const [isFound, setIsFound] = useState(false);
     const [typesFilters, setTypesFilters] = useState(route.params.types);
@@ -80,7 +79,7 @@ export function HomeScreen() {
             >
               <Marker coordinate={location} pinColor={"blue"} title="Ви тут" />
 
-              {markers.map((shelter) => (
+              {markers && markers.map((shelter) => (
                 <Marker
                   key={shelter.id}
                   coordinate={{
@@ -88,7 +87,8 @@ export function HomeScreen() {
                     longitude: parseFloat(shelter.longitude),
                   }}
                   title={shelter.address}
-                  pinColor={shelter.id == 0 ? "green" : "red"}
+                  description={'Відстань: ' + Math.round(shelter.distance) + ' метрів'}
+                  pinColor={shelters.indexOf(shelter) == 0 ? "green" : "red"}
                 />
               ))}
             </MapView>
@@ -110,19 +110,42 @@ export function HomeScreen() {
     }
 
     function handleFind() {
-      sheltersJson = require("./../../data/shelters.json");
-      console.log(sheltersJson.shelters);
-      setShelters(sheltersJson.shelters);
-      if (typesFilters.length > 0) {
-        console.log(
-          "fetch with filters, pass filters and parse them on backend."
-        );
+      if (
+        (hasRampFilter === undefined ||
+        hasRampFilter === false) &&
+        typesFilters.length <= 0 &&
+        purposesFilters.length <= 0
+      ) {
+        fetch(
+          "http://10.0.2.2:4567/misc/nearest?lat=" +
+            location.latitude +
+            "&lng=" +
+            location.longitude
+        )
+          .then((response) => response.json())
+          .then((json) => setShelters(json))
+          .catch((err) => console.error(err))
+          .finally(() => setIsFound(true));
+      } else {
+        var url =
+          "http://10.0.2.2:4567/misc/nearest/filters?lat=" +
+          location.latitude +
+          "&lng=" +
+          location.longitude;
+        if (typesFilters.length > 0) {
+          url = url.concat("&type=", typesFilters.join());
+        }
+        if (purposesFilters.length > 0) {
+          url = url.concat("&purpose=", purposesFilters.join());
+        }
+        if (hasRampFilter === true) {
+          url = url.concat("&hasRamp=", hasRampFilter);
+        }
+        fetch(url)
+          .then((response) => response.json())
+          .then((json) => setShelters(json))
+          .catch((err) => console.error(err))
       }
-      setFilteredShelters(sheltersJson.shelters);
-      console.log(shelters);
-      setIsFound(() => {
-        return true;
-      });
     }
 
     handleSave = () => {
@@ -272,7 +295,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flex: 1,
     width: "100%",
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
   },
   pressable: {
     flexDirection: "row",

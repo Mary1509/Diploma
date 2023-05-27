@@ -65,14 +65,16 @@ export function Filters({ navigation, route }) {
         setFilterPurposes([...filterPurposes]);
       }
     });
+    val = hasRamp;
+    setHasRamp(val);
   }
 
   function setTypeSwitchValue(val, id) {
-    setTypes(...types, (types[id].selected = val));
+    setTypes(...types, (types[id-1].selected = val));
   }
 
   function setPurposeSwitchValue(val, id) {
-    setPurposes(...purposes, (purposes[id].selected = val));
+    setPurposes(...purposes, (purposes[id-1].selected = val));
   }
 
   function setRampSwitchValue(val) {
