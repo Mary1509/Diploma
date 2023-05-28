@@ -1,8 +1,10 @@
 from services import nearest
-from flask import request
+from flask import request, jsonify, make_response
 from models.base import db
+from models.type import Type
+from models.address import Address
+from models.purpose import Purpose
 from sqlalchemy.sql import text
-from flask import jsonify, make_response
 
 
 def index():
@@ -146,3 +148,35 @@ def getNearestSheltersWithFilters():
         return make_response(jsonify(res), 200)
     else:
         return make_response(jsonify({}), 200)
+
+
+def getTypes():
+    types = db.session.query(Type).all()
+    res = []
+    for type in types:
+        dict = type.as_dict()
+        res.append(dict)
+    return make_response(jsonify(res), 200)
+
+
+def getPurposes():
+    purposes = db.session.query(Purpose).all()
+    res = []
+    for purpose in purposes:
+        dict = purpose.as_dict()
+        res.append(dict)
+    return make_response(jsonify(res), 200)
+
+
+def addAddress(id=-1):
+    if id is -1:
+        address_raw = request.json
+        address_model = Address(street=address_raw['street'],
+                                house_number=address_raw['houseNumber'])
+        db.session.add(address_model)
+        db.session.commit()
+        return str(address_model.id)
+
+
+    else:
+        return 'Update shelter'

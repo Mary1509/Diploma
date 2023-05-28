@@ -2,7 +2,7 @@ from sqlalchemy import *
 from sqlalchemy.dialects.postgresql import MONEY
 from sqlalchemy.orm import relationship, backref
 
-from base import Base, meta
+from models.base import Base
 
 
 class Purpose(Base):
@@ -11,10 +11,14 @@ class Purpose(Base):
     id = Column(Integer,
                 Sequence('shelter_purposes_id_seq'),
                 primary_key=True,
-                server_default=Sequence('shelter_purposes_id_seq').next_value())
+                server_default=Sequence('shelter_purposes_id_seq').next_value(),
+                autoincrement=True)
     purpose = Column(Text, nullable=False)
-    shelters = relationship("Shelter", backref='Purpose', passive_deletes=True)
+    shelters = relationship("Shelter", backref='purposes', passive_deletes=True)
 
     def __init__(self, id, purpose):
         self.id = id
         self.purpose = purpose
+
+    def as_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}

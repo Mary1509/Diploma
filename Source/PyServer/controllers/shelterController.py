@@ -1,7 +1,8 @@
-from flask import jsonify, make_response
+from flask import jsonify, make_response, request
 from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.sql import text
 
-from models import shelter, base
+from models import shelter, base, address
 
 db = base.db
 
@@ -11,28 +12,117 @@ def index():
 
 
 def shelters():
-    shelters = db.session.query(shelter.Shelter).all()
+    shelters = db.session.query(shelter.Shelter, address.Address).join(address.Address).all()
     res = []
-    for shelter_res in shelters:
-        dict = shelter_res.as_dict()
+    for shelter_res, address_res in shelters:
+        dict_shelter = shelter_res.as_dict()
+        dict_address = address_res.as_dict()
+        if not dict_address['houseNumber'] is None:
+            address_str = str(dict_address['street']) + ', ' + str(dict_address['houseNumber'])
+        else:
+            address_str = str(dict_address['street'])
+        dict = {
+            'id': dict_shelter['id'],
+            'address': address_str
+        }
         res.append(dict)
     return make_response(jsonify(res), 200)
     # return "Shelters"
 
 
+def sheltersWithFilters():
+    types = request.args.getlist('type', None)
+    purposes = request.args.getlist('purpose', None)
+    hasRamp = request.args.get('hasRamp', None)
+
+    query = ''
+    if len(types) > 0:
+        types_str = ','.join(types)
+        if len(purposes) > 0:
+            purposes_str = ','.join(purposes)
+            if not hasRamp is None:
+                shelters = db.session.query(shelter.Shelter, address.Address).join(address.Address)\
+                    .filter(shelter.Shelter.typeId.in_(tuple(types)),
+                             shelter.Shelter.purposeId.in_(tuple(purposes)),
+                             shelter.Shelter.hasRamp == hasRamp).all()
+            else:
+                shelters = db.session.query(shelter.Shelter, address.Address).join(address.Address) \
+                    .filter(shelter.Shelter.typeId.in_(tuple(types)),
+                            shelter.Shelter.purposeId.in_(tuple(purposes))).all()
+        elif not hasRamp is None:
+            shelters = db.session.query(shelter.Shelter, address.Address).join(address.Address) \
+                .filter(shelter.Shelter.typeId.in_(tuple(types)), shelter.Shelter.hasRamp == hasRamp).all()
+        else:
+            shelters = db.session.query(shelter.Shelter, address.Address).join(address.Address) \
+                .filter(shelter.Shelter.typeId.in_(tuple(types))).all()
+    elif len(purposes) > 0:
+        purposes_str = ','.join(purposes)
+        if not hasRamp is None:
+            shelters = db.session.query(shelter.Shelter, address.Address).join(address.Address) \
+                        .filter(shelter.Shelter.purposeId.in_(tuple(purposes)), shelter.Shelter.hasRamp == hasRamp).all()
+        else:
+            shelters = db.session.query(shelter.Shelter, address.Address).join(address.Address) \
+                        .filter(shelter.Shelter.purposeId.in_(tuple(purposes))).all()
+    else:
+        shelters = db.session.query(shelter.Shelter, address.Address).join(address.Address) \
+                    .filter(shelter.Shelter.hasRamp == hasRamp).all()
+
+
+    res = []
+    for shelter_res, address_res in shelters:
+        dict_shelter = shelter_res.as_dict()
+        dict_address = address_res.as_dict()
+        if not dict_address['houseNumber'] is None:
+            address_str = str(dict_address['street']) + ', ' + str(dict_address['houseNumber'])
+        else:
+            address_str = str(dict_address['street'])
+        dict = {
+            'id': dict_shelter['id'],
+            'address': address_str
+        }
+        res.append(dict)
+    return make_response(jsonify(res), 200)
+
+
 def getShelterById(id):
-    shelter_res = db.session.query(shelter.Shelter).filter_by(id=int(id)).first()
+    query = text(f"""SELECT  sh.id, latitude, longitude, concat(addresses."street", ', ', addresses."houseNumber") AS address, 
+                     shelter_types.type AS type, 
+                     shelter_purposes.purpose AS purpose, capacity, sh."hasRamp"
+                     FROM shelters sh
+                     INNER JOIN addresses ON "addressId" = addresses.id
+                     INNER JOIN shelter_types ON "typeId" = shelter_types.id
+                     INNER JOIN shelter_purposes ON "purposeId" = shelter_purposes.id
+                     WHERE sh.id = {id}""")
+    shelter_res = db.session.execute(query).first()
+    print(shelter_res)
     res = {}
     if not shelter_res is None:
-        res = shelter_res.as_dict()
+        res = {
+            'id': shelter_res[0],
+            'latitude': shelter_res[1],
+            'longitude': shelter_res[2],
+            'address': shelter_res[3],
+            'type': shelter_res[4],
+            'purpose': shelter_res[5],
+            'capacity': shelter_res[6],
+            'hasRamp': shelter_res[7]
+        }
     else:
         return make_response(jsonify(res), 404)
     return make_response(jsonify(res), 200)
 
 
-def addShelter(id):
-    if id is None:
-        return 'Add shelter'
+def addShelter(id=-1):
+    if id is -1:
+        shelter_raw = request.json
+        shelter_model = shelter.Shelter(latitude=shelter_raw['latitude'],
+                                        longitude=shelter_raw['longitude'],
+                                        capacity=shelter_raw['capacity'],
+                                        hasRamp=shelter_raw['hasRamp'],
+                                        typeId=shelter_raw['typeId'],
+                                        purposeId=shelter_raw['purposeId'],
+                                        addressId=shelter_raw['addressId'])
+
     else:
         return 'Update shelter'
 
