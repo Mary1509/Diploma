@@ -17,8 +17,7 @@ class Location(Base):
     alias = Column(Text, nullable=False)
     userId = Column(Integer, ForeignKey('users.id', onupdate='CASCADE', ondelete='CASCADE'), nullable=False)
 
-    def __init__(self, id, longitude, latitude, alias, user_id):
-        self.id = id
+    def __init__(self, longitude, latitude, alias, user_id):
         self.longitude = longitude
         self.latitude = latitude
         self.alias = alias

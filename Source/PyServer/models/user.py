@@ -21,8 +21,7 @@ class User(Base):
     locations = relationship("Location", backref='users', passive_deletes=True)
     shelters = relationship('Shelter', secondary=shelter_user_association)
 
-    def __init__(self, id, email, password, display_name):
-        self.id = id
+    def __init__(self, email, password, display_name):
         self.email = email
         self.password = password
         self.displayName = display_name

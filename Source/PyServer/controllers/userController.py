@@ -1,13 +1,15 @@
 import jwt
 from flask import request, jsonify, make_response
 import hashlib
+from sqlalchemy import exc
 
 import config
 from models.user import User
 from models.base import db
 from models.address import Address
 from models.shelter import Shelter, shelter_user_association
-# from models.favourites import Favourites
+from models.location import Location
+
 from services.tokenGenerator import token_required
 
 
@@ -17,11 +19,15 @@ def index():
 
 def login():
     creds = request.json
+    print(creds)
 
     if not creds or not creds['email'] or not creds['password']:
-        return make_response('Credentials error', 401)
+        return make_response(jsonify({'message': 'Credentials not specified'}), 401)
 
     user = db.session.query(User).filter(User.email == creds['email']).first()
+
+    if not user:
+        return make_response(jsonify({'message': 'Invalid email'}), 404)
 
     if hashlib.md5(creds['password'].encode()).hexdigest() == user.password:
         token = jwt.encode({
@@ -29,12 +35,30 @@ def login():
         }, config.SECRET_KEY)
         return make_response({'token': token}, 200)
 
-    return make_response('Invalid password', 403)
-
+    return make_response(jsonify({'message': 'Invalid password'}), 401)
 
 
 def register():
-    return 'Register logic'
+    creds = request.json
+
+    if not creds or not creds['email'] or not creds['password'] or not creds['displayName']:
+        return make_response(jsonify({'message': 'Credentials not specified'}), 401)
+
+    user = db.session.query(User).filter(User.email == creds['email']).first()
+
+    if user:
+        return make_response(jsonify({'message': 'User with such email exists'}), 400)
+
+    user = User(email=creds['email'],
+                password=hashlib.md5(creds['password'].encode()).hexdigest(),
+                display_name=creds['displayName'])
+    try:
+        db.session.add(user)
+        db.session.commit()
+        return make_response(jsonify({'message': 'Successfully registered'}), 201)
+    except exc.SQLAlchemyError as err:
+        print(err)
+        return make_response(jsonify({'message': 'Error adding to db', 'error': f'{err}'}), 503)
 
 
 @token_required
@@ -59,12 +83,29 @@ def getUserFavourites(user):
 
 
 @token_required
-def addUserFavourite(user_id, shel_id):
-    return 'Add user favourite'
+def addUserFavourite(user, id):
+    shelter = db.session.query(Shelter).filter(Shelter.id == id).first()
+    user.shelters.append(shelter)
+    try:
+        db.session.add(user)
+        db.session.commit()
+        return make_response(jsonify({'message': 'Successfully added'}), 201)
+    except exc.SQLAlchemyError as err:
+        print(err)
+        return make_response(jsonify({'message': 'Error adding to db', 'error': f'{err}'}), 503)
 
 @token_required
-def delUserFavourite(user_id, shel_id):
-    return 'Del user favourite'
+def delUserFavourite(user, id):
+    shelter = db.session.query(Shelter).filter(Shelter.id == id).first()
+    ind = user.shelters.index(shelter)
+    user.shelters.pop(ind)
+    try:
+        db.session.add(user)
+        db.session.commit()
+        return make_response(jsonify({'message': 'Successfully deleted'}), 201)
+    except exc.SQLAlchemyError as err:
+        print(err)
+        return make_response(jsonify({'message': 'Error syncing with db', 'error': f'{err}'}), 503)
 
 
 @token_required
@@ -84,15 +125,38 @@ def getUserLocation(user, id):
             return make_response(jsonify(res), 200)
     return make_response(jsonify({}), 404)
 
+
 @token_required
-def addUserLocation(user_id):
-    return 'Add user favourite'
+def addUserLocation(user):
+    location_raw = request.json
+
+    if not location_raw or not location_raw['latitude'] or not location_raw['longitude'] or not location_raw['alias']:
+        return make_response(jsonify({'message': 'Location parameters not specified'}), 400)
+
+    location = Location(latitude=location_raw['latitude'],
+                        longitude=location_raw['longitude'],
+                        alias=location_raw['alias'],
+                        user_id=user.id)
+    user.locations.append(location)
+    try:
+        db.session.add(user)
+        db.session.commit()
+        return make_response(jsonify({'message': 'Successfully added'}), 201)
+    except exc.SQLAlchemyError as err:
+        print(err)
+        return make_response(jsonify({'message': 'Error syncing with db', 'error': f'{err}'}), 503)
+
 
 @token_required
 def delUserLocation(user, id):
-    # print(user.locations)
-    # for location in user.locations:
-    #     if location.id == id:
-    #         user.locations.pop(location)
-    # print(user.locations)
-    return 'Del user favourite'
+    location = db.session.query(Location).filter(Location.id == id, Location.userId == user.id).first()
+    ind = user.locations.index(location)
+    user.locations.pop(ind)
+    try:
+        db.session.add(user)
+        db.session.delete(location)
+        db.session.commit()
+        return make_response(jsonify({'message': 'Successfully deleted'}), 201)
+    except exc.SQLAlchemyError as err:
+        print(err)
+        return make_response(jsonify({'message': 'Error syncing with db', 'error': f'{err}'}), 503)

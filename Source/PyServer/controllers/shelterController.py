@@ -4,6 +4,7 @@ from sqlalchemy.sql import text
 
 from models import shelter, base, address
 
+
 db = base.db
 
 
@@ -113,18 +114,38 @@ def getShelterById(id):
 
 
 def addShelter(id=-1):
-    if id is -1:
-        shelter_raw = request.json
-        shelter_model = shelter.Shelter(latitude=shelter_raw['latitude'],
-                                        longitude=shelter_raw['longitude'],
-                                        capacity=shelter_raw['capacity'],
-                                        hasRamp=shelter_raw['hasRamp'],
-                                        typeId=shelter_raw['typeId'],
-                                        purposeId=shelter_raw['purposeId'],
-                                        addressId=shelter_raw['addressId'])
+    shelter_raw = request.json
+    if id is not\
+            -1:
+        shelter_old = db.session.query(shelter.Shelter).filter(shelter.Shelter.id == id).update(
+                                     {'latitude': shelter_raw['latitude'],
+                                      'longitude': shelter_raw['longitude'],
+                                      'capacity': shelter_raw['capacity'],
+                                      'hasRamp': shelter_raw['hasRamp'],
+                                      'typeId': shelter_raw['typeId'],
+                                      'purposeId': shelter_raw['purposeId'],
+                                      'addressId': shelter_raw['addressId']})
+        try:
+            db.session.commit()
+            return make_response(jsonify({'message': 'Successfully updated'}), 201)
+        except SQLAlchemyError as err:
+            print(err)
+            return make_response(jsonify({'message': 'Error syncing with db', 'error': f'{err}'}), 503)
 
-    else:
-        return 'Update shelter'
+    shelter_new = shelter.Shelter(latitude=shelter_raw['latitude'],
+                                  longitude=shelter_raw['longitude'],
+                                  capacity=shelter_raw['capacity'],
+                                  hasRamp=shelter_raw['hasRamp'],
+                                  typeId=shelter_raw['typeId'],
+                                  purposeId=shelter_raw['purposeId'],
+                                  addressId=shelter_raw['addressId'])
+    try:
+        db.session.add(shelter_new)
+        db.session.commit()
+        return make_response(jsonify({'message': 'Successfully added'}), 201)
+    except SQLAlchemyError as err:
+        print(err)
+        return make_response(jsonify({'message': 'Error syncing with db', 'error': f'{err}'}), 503)
 
 
 def delShelter(id):
