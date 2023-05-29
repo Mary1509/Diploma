@@ -36,6 +36,8 @@ def sheltersWithFilters():
     purposes = request.args.getlist('purpose', None)
     hasRamp = request.args.get('hasRamp', None)
 
+    print(types, types[0].split(','))
+
     query = ''
     if len(types) > 0:
         types_str = ','.join(types)
@@ -43,27 +45,27 @@ def sheltersWithFilters():
             purposes_str = ','.join(purposes)
             if not hasRamp is None:
                 shelters = db.session.query(shelter.Shelter, address.Address).join(address.Address)\
-                    .filter(shelter.Shelter.typeId.in_(tuple(types)),
-                             shelter.Shelter.purposeId.in_(tuple(purposes)),
+                    .filter(shelter.Shelter.typeId.in_(types[0].split(',')),
+                             shelter.Shelter.purposeId.in_(purposes[0].split(',')),
                              shelter.Shelter.hasRamp == hasRamp).all()
             else:
                 shelters = db.session.query(shelter.Shelter, address.Address).join(address.Address) \
-                    .filter(shelter.Shelter.typeId.in_(tuple(types)),
-                            shelter.Shelter.purposeId.in_(tuple(purposes))).all()
+                    .filter(shelter.Shelter.typeId.in_(types[0].split(',')),
+                            shelter.Shelter.purposeId.in_(purposes[0].split(','))).all()
         elif not hasRamp is None:
             shelters = db.session.query(shelter.Shelter, address.Address).join(address.Address) \
-                .filter(shelter.Shelter.typeId.in_(tuple(types)), shelter.Shelter.hasRamp == hasRamp).all()
+                .filter(shelter.Shelter.typeId.in_(types[0].split(',')), shelter.Shelter.hasRamp == hasRamp).all()
         else:
             shelters = db.session.query(shelter.Shelter, address.Address).join(address.Address) \
-                .filter(shelter.Shelter.typeId.in_(tuple(types))).all()
+                .filter(shelter.Shelter.typeId.in_(types[0].split(','))).all()
     elif len(purposes) > 0:
         purposes_str = ','.join(purposes)
         if not hasRamp is None:
             shelters = db.session.query(shelter.Shelter, address.Address).join(address.Address) \
-                        .filter(shelter.Shelter.purposeId.in_(tuple(purposes)), shelter.Shelter.hasRamp == hasRamp).all()
+                        .filter(shelter.Shelter.purposeId.in_(purposes[0].split(',')), shelter.Shelter.hasRamp == hasRamp).all()
         else:
             shelters = db.session.query(shelter.Shelter, address.Address).join(address.Address) \
-                        .filter(shelter.Shelter.purposeId.in_(tuple(purposes))).all()
+                        .filter(shelter.Shelter.purposeId.in_(purposes[0].split(','))).all()
     else:
         shelters = db.session.query(shelter.Shelter, address.Address).join(address.Address) \
                     .filter(shelter.Shelter.hasRamp == hasRamp).all()

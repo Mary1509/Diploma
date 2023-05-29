@@ -79,18 +79,21 @@ export function HomeScreen() {
             >
               <Marker coordinate={location} pinColor={"blue"} title="Ви тут" />
 
-              {markers && markers.map((shelter) => (
-                <Marker
-                  key={shelter.id}
-                  coordinate={{
-                    latitude: parseFloat(shelter.latitude),
-                    longitude: parseFloat(shelter.longitude),
-                  }}
-                  title={shelter.address}
-                  description={'Відстань: ' + Math.round(shelter.distance) + ' метрів'}
-                  pinColor={shelters.indexOf(shelter) == 0 ? "green" : "red"}
-                />
-              ))}
+              {markers &&
+                markers.map((shelter) => (
+                  <Marker
+                    key={shelter.id}
+                    coordinate={{
+                      latitude: parseFloat(shelter.latitude),
+                      longitude: parseFloat(shelter.longitude),
+                    }}
+                    title={shelter.address}
+                    description={
+                      "Відстань: " + Math.round(shelter.distance) + " метрів"
+                    }
+                    pinColor={shelters.indexOf(shelter) == 0 ? "green" : "red"}
+                  />
+                ))}
             </MapView>
           </View>
         );
@@ -112,7 +115,8 @@ export function HomeScreen() {
     function handleFind() {
       if (
         (hasRampFilter === undefined ||
-        hasRampFilter === false) &&
+          hasRampFilter === false ||
+          hasRampFilter === "") &&
         typesFilters.length <= 0 &&
         purposesFilters.length <= 0
       ) {
@@ -144,7 +148,7 @@ export function HomeScreen() {
         fetch(url)
           .then((response) => response.json())
           .then((json) => setShelters(json))
-          .catch((err) => console.error(err))
+          .catch((err) => console.error(err));
       }
     }
 

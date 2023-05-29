@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -25,19 +25,22 @@ export function SheltersScreen({ navigation }) {
   const [fileteredShelters, setFilteredShelters] = useState([]);
   const [search, setSearch] = useState("");
 
+  const [typesFilters, setTypesFilters] = useState([]);
+  const [purposesFilters, setPurposesFilters] = useState([]);
+  const [hasRampFilter, setHasRampFilter] = useState("");
+
   const isLogged = useSelector((store) => store.isLogged.isLogged);
 
   async function searchFilter(text) {
     if (text) {
-      const newShelters = require("./../../data/shelters.json");
-      const filtered = newShelters.shelters.filter((shelter) => {
+      const newShelters = shelters;
+      const filtered = newShelters.filter((shelter) => {
         const shelterData = shelter.address
           ? shelter.address.toLowerCase()
           : "";
         const textData = text.toLowerCase();
         return shelterData.indexOf(textData) > -1;
       });
-      console.log(filtered);
       setFilteredShelters(() => {
         return filtered;
       });
@@ -69,20 +72,66 @@ export function SheltersScreen({ navigation }) {
       </View>
     );
   };
+  useEffect(() => {
+    if (
+      (hasRampFilter === undefined || hasRampFilter === false) &&
+      typesFilters.length <= 0 &&
+      purposesFilters.length <= 0
+    ) {
+      fetch("http://10.0.2.2:4567/shelters/all")
+        .then((response) => response.json())
+        .then((json) => setFilteredShelters(json))
+        .catch((err) => console.error(err));
+    } else {
+      var url = "http://10.0.2.2:4567/shelters/all/filters?";
+      if (typesFilters.length > 0) {
+        url = url.concat("&type=", typesFilters.join());
+      }
+      if (purposesFilters.length > 0) {
+        url = url.concat("&purpose=", purposesFilters.join());
+      }
+      if (hasRampFilter === true) {
+        url = url.concat("&hasRamp=", hasRampFilter);
+      }
+      fetch(url)
+        .then((response) => response.json())
+        .then((json) => setFilteredShelters(json))
+        .catch((err) => console.error(err));
+    }
+  }, [typesFilters, purposesFilters, hasRampFilter]);
+
+  const ShelterFlatList = () => {
+    return (
+      <View style={styles.container}>
+        <FlatList
+          data={fileteredShelters}
+          renderItem={(itemData) => {
+            return (
+              <ShelterItem
+                text={itemData.item.address}
+                onPress={() =>
+                  navigation.navigate("Shelter", {
+                    id: itemData.item.id,
+                  })
+                }
+              />
+            );
+          }}
+        />
+      </View>
+    );
+  };
 
   function SheltersList({ navigation, route }) {
-    const [typesFilters, setTypesFilters] = useState(route.params.types);
-    const [purposesFilters, setPurposesFilters] = useState(
-      route.params.purposes
-    );
-    const [hasRampFilter, setHasRampFilter] = useState(route.params.hasRamp);
+    const [types, setTypes] = useState(route.params.types);
+    const [purposes, setPurposes] = useState(route.params.purposes);
+    const [hasRamp, setHasRamp] = useState(route.params.hasRamp);
 
-    useEffect(() => {
-      const sheltersJson = require("./../../data/shelters.json");
-      setShelters(sheltersJson.shelters);
-      console.log(typesFilters);
-      setFilteredShelters(sheltersJson.shelters);
-    }, [typesFilters, purposesFilters, hasRampFilter]);
+    useMemo(() => {
+      setTypesFilters(types);
+      setPurposesFilters(purposes);
+      setHasRampFilter(hasRamp);
+    }, [route.params.types, route.params.purposes, route.params.hasRamp]);
 
     return (
       <View style={styles.container}>
@@ -101,27 +150,7 @@ export function SheltersScreen({ navigation }) {
             </Pressable>
           </View>
         )}
-        {fileteredShelters ? (
-          <View style={styles.container}>
-            <FlatList
-              data={fileteredShelters}
-              renderItem={(itemData) => {
-                return (
-                  <ShelterItem
-                    text={itemData.item.address}
-                    onPress={() =>
-                      navigation.navigate("Shelter", {
-                        id: itemData.item.id,
-                      })
-                    }
-                  />
-                );
-              }}
-            />
-          </View>
-        ) : (
-          <ActivityIndicator />
-        )}
+        {fileteredShelters ? <ShelterFlatList /> : <ActivityIndicator />}
         <SearchAndFilters />
       </View>
     );

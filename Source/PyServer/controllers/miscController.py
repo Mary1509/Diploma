@@ -169,14 +169,13 @@ def getPurposes():
 
 
 def addAddress(id=-1):
-    if id is -1:
+    if id == -1:
         address_raw = request.json
         address_model = Address(street=address_raw['street'],
                                 house_number=address_raw['houseNumber'])
         db.session.add(address_model)
         db.session.commit()
         return str(address_model.id)
-
 
     else:
         return 'Update shelter'
