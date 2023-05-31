@@ -9,13 +9,22 @@ const { width, height } = Dimensions.get("window");
 export function LocAdder({ navigation, route }) {
   const [location, setLocation] = useState(route.params.location);
   const [childLoc, setChildLoc] = useState(route.params.location);
+  const token = useSelector((store) => store.isLogged.token);
 
   editorHandler = (childLoc) => {
     setChildLoc(() => childLoc);
   };
 
-  handleSave = () => {
+  handleSave = async () => {
     console.log(childLoc);
+    var response = await fetch("http://10.0.2.2:4567/user/locations/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+      body: JSON.stringify(childLoc),
+    });
     navigation.goBack();
   };
 

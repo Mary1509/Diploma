@@ -1,23 +1,35 @@
 import { useEffect, useState } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  FlatList,
-  Pressable,
-} from "react-native";
+import { StyleSheet, View, Text, FlatList, Pressable } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Icon from "react-native-vector-icons/FontAwesome";
+
+import { useSelector } from "react-redux";
 
 import { LocationItem } from "./LocationItem";
 import { Location } from "./LocationComponent";
 
 export function Places({ navigation }) {
   const [locations, setLocations] = useState([]);
+  const token = useSelector((store) => store.isLogged.token);
 
   useEffect(() => {
-    const locationsJson = require("./../../data/locations.json");
-    setLocations(locationsJson.locations);
+    async function fetchLocs() {
+      const responce = await fetch("http://10.0.2.2:4567/user/locations", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      });
+      userfavs = await responce.json();
+      if (data.message === undefined) {
+        setLocations(() => {
+          return userfavs;
+        });
+      }
+    }
+
+    fetchLocs();
   }, []);
 
   const RootStack = createNativeStackNavigator();

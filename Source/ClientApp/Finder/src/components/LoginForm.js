@@ -8,8 +8,6 @@ import {
 } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import md5 from "md5";
-
 import { useDispatch } from "react-redux";
 import { login } from "../redux/actions/loginAction";
 import { Button } from "./MainButton";
@@ -28,6 +26,7 @@ export function LoginForm() {
   const dispatch = useDispatch();
 
   const [isErrorness, setIsErrorness] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   async function getUserById(url) {
     const responce = await fetch(url);
@@ -38,17 +37,40 @@ export function LoginForm() {
     const [useremail, setUserEmail] = useState("");
     const [pass, setPass] = useState("");
 
-    const handleLogin = () => {
-      var iserr = false
-      console.log(useremail, md5(pass), isErrorness);
+    const handleLogin = async () => {
+      var iserr = false;
+      // console.log(useremail, md5(pass), isErrorness);
       if (useremail === "" || pass === "") {
-        iserr = true
+        iserr = true;
         setIsErrorness(() => {
           return true;
         });
+      } else {
+        creds = {
+          email: useremail,
+          password: pass,
+        };
+        var response = await fetch("http://10.0.2.2:4567/user/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(creds),
+        });
+
+        data = await response.json();
+        if (data.token == undefined) {
+          iserr = true;
+          setIsErrorness(() => {
+            return true;
+          });
+          setErrorMsg(() => {
+            return data.message;
+          });
+        }
       }
 
-      if (!iserr) dispatch(login());
+      if (!iserr) dispatch(login(data.token));
     };
 
     return (
@@ -60,7 +82,9 @@ export function LoginForm() {
               style={!isErrorness ? styles.textInputs : styles.textInputsError}
               placeholder="Email"
               value={useremail}
-              onChangeText={(text) => {setUserEmail(text)}}
+              onChangeText={(text) => {
+                setUserEmail(text);
+              }}
               onPressIn={() => setIsErrorness(false)}
             />
             <TextInput
@@ -71,7 +95,7 @@ export function LoginForm() {
               onChangeText={(text) => setPass(text)}
             />
             {isErrorness && (
-              <Text style={styles.errText}>Помилка облікових даних</Text>
+              <Text style={styles.errText}>Помилка облікових даних: {errorMsg}</Text>
             )}
             <View style={styles.buttonContainer}>
               <Button title="Увійти" onPress={handleLogin}></Button>

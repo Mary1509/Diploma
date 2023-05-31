@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   },
   tableStyle: {
     width: "100%",
-    flex: 7,
+    flex: 1,
     backgroundColor: "#f0f0f0",
     padding: 10,
   },
@@ -132,7 +132,8 @@ const styles = StyleSheet.create({
   },
   map: {
     width: width,
-    height: height / 3,
+    height: height /1.6,
+    overflow: "hidden"
   },
   textInputs: {
     fontFamily: "Monserrat-SemiBold",

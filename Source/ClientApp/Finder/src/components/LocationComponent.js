@@ -21,26 +21,43 @@ export function Location({ navigation, route }) {
   const [shelters, setShelters] = useState([]);
   const [isFound, setIsFound] = useState(false);
 
-  const isLogged = useSelector((store) => store.isLogged.isLogged);
+  const token = useSelector((store) => store.isLogged.token);
 
   useEffect(() => {
-    const locationsJson = require("./../../data/locations.json");
-    fileteredLocation = locationsJson.locations.filter(
-      (location) => location.id == route.params.id
-    );
-    console.log(fileteredLocation);
-    // fetch if favourite
-    setLocation(() => fileteredLocation[0]);
+    async function fetchLocation() {
+      const responce = await fetch(
+        "http://10.0.2.2:4567/user/locations/" + route.params.id,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      locdata = await responce.json();
+      console.log(locdata);
+      if (locdata.message === undefined) {
+        setLocation(() => {
+          return locdata;
+        });
+      }
+    }
+
+    fetchLocation();
   }, []);
 
-  function handleFind() {
-    sheltersJson = require("./../../data/shelters.json");
-    console.log(sheltersJson.shelters);
-    setShelters(sheltersJson.shelters);
-    console.log(shelters);
-    setIsFound(() => {
-      return true;
-    });
+  async function handleFind() {
+    fetch(
+      "http://10.0.2.2:4567/misc/nearest?lat=" +
+        location.latitude +
+        "&lng=" +
+        location.longitude
+    )
+      .then((response) => response.json())
+      .then((json) => setShelters(json))
+      .catch((err) => console.error(err))
+      .finally(() => setIsFound(true));
   }
 
   if (location) {
@@ -102,7 +119,7 @@ export function Location({ navigation, route }) {
                     longitude: parseFloat(shelter.longitude),
                   }}
                   title={shelter.address}
-                  pinColor={shelter.id == 0 ? "green" : "red"}
+                  pinColor={shelters.indexOf(shelter) == 0 ? "green" : "red"}
                 />
               ))}
             </MapView>

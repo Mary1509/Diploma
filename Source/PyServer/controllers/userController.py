@@ -118,10 +118,10 @@ def getUserLocations(user):
 
 @token_required
 def getUserLocation(user, id):
-    res = []
+    res = {}
     for location in user.locations:
         if location.id == id:
-            res.append(location.as_dict())
+            res = location.as_dict()
             return make_response(jsonify(res), 200)
     return make_response(jsonify({}), 404)
 
@@ -130,11 +130,12 @@ def getUserLocation(user, id):
 def addUserLocation(user):
     location_raw = request.json
 
-    if not location_raw or not location_raw['latitude'] or not location_raw['longitude'] or not location_raw['alias']:
+    if not location_raw or not location_raw['position']['latitude'] or not location_raw['position']['longitude'] \
+            or not location_raw['alias']:
         return make_response(jsonify({'message': 'Location parameters not specified'}), 400)
 
-    location = Location(latitude=location_raw['latitude'],
-                        longitude=location_raw['longitude'],
+    location = Location(latitude=location_raw['position']['latitude'],
+                        longitude=location_raw['position']['longitude'],
                         alias=location_raw['alias'],
                         user_id=user.id)
     user.locations.append(location)

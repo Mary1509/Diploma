@@ -20,10 +20,26 @@ import { Adder } from "./AddShelter";
 
 export function Favourites({ navigation }) {
   const [shelters, setShelters] = useState([]);
+  const token = useSelector((store) => store.isLogged.token);
 
   useEffect(() => {
-    const favouritesJson = require("./../../data/favourites.json");
-    setShelters(favouritesJson.favourites);
+    async function fetchFavs() {
+      const responce = await fetch("http://10.0.2.2:4567/user/favourites", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      });
+      userfavs = await responce.json();
+      if (data.message === undefined) {
+        setShelters(() => {
+          return userfavs;
+        });
+      }
+    }
+
+    fetchFavs();
   }, []);
 
   async function searchFilter(text) {

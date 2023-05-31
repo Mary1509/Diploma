@@ -10,9 +10,8 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/actions/loginAction";
-import { Button } from "./MainButton";
 import { useEffect, useState } from "react";
 import { UserOptionItem } from "./UserOptionItem";
 import { Favourites } from "./Favourites";
@@ -25,20 +24,28 @@ const RootStack = createNativeStackNavigator();
 
 export function UserComponent({ navigation }) {
   const dispatch = useDispatch();
+  const token = useSelector((store) => store.isLogged.token);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const usersJson = require("./../../data/users.json");
-    fileteredUser = usersJson.users.filter((user) => user.id == "0");
-    console.log(fileteredUser);
-    // fetch if favourite
-    setUser(() => fileteredUser[0]);
-  }, []);
+    async function fetchUser() {
+      const responce = await fetch("http://10.0.2.2:4567/user/get", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      });
+      userdata = await responce.json();
+      if (data.message === undefined) {
+        setUser(() => {
+          return userdata;
+        });
+      }
+    }
 
-  async function getUserById(url) {
-    const responce = await fetch(url);
-    return responce.json();
-  }
+    fetchUser();
+  }, []);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -78,7 +85,7 @@ export function UserComponent({ navigation }) {
             <UserOptionItem
               icon="plus"
               text="Додати укриття"
-              onPress={() => navigation.navigate("Adder", {shelter: {}})}
+              onPress={() => navigation.navigate("Adder", { shelter: {} })}
             />
           </View>
         </View>

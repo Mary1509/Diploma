@@ -20,22 +20,53 @@ export function Shelter({ navigation, route }) {
   const [isFavourite, setIsFavourite] = useState(false);
 
   const isLogged = useSelector((store) => store.isLogged.isLogged);
+  const token = useSelector((store) => store.isLogged.token);
 
   useEffect(() => {
-    const sheltersJson = require("./../../data/shelters.json");
-    fileteredSHelter = sheltersJson.shelters.filter(
-      (shelter) => shelter.id == route.params.id
-    );
-    console.log(fileteredSHelter);
-    // fetch if favourite
-    setShelter(() => fileteredSHelter[0]);
+    async function fetchShelter() {
+      const responce = await fetch("http://10.0.2.2:4567/shelters/"+route.params.id, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      shelterdata = await responce.json();
+      if (shelterdata.message === undefined) {
+        setShelter(() => {
+          return shelterdata;
+        });
+      }
+    }
+
+    fetchShelter();
   }, []);
 
-  handleAddFavourite = () => {
-    // fetch add favourite
-    setIsFavourite(() => {
-      return !isFavourite;
-    });
+  handleAddFavourite = async () => {
+    // fetch if already favourite then
+    const responce = await fetch(
+      "http://10.0.2.2:4567/user/favourites/add/" + route.params.id,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
+    // or remove from favourite
+    // const statusCode = responce.status
+    // console.log(statusCode);
+    // result = await responce.json();
+    // console.log(result);
+    // if (locdata.message === 'undefined') {
+    //   setLocation(() => {
+    //     return locdata;
+    //   });
+    // }
+    
+    // setIsFavourite(() => {
+    //   return !isFavourite;
+    // });
   };
 
   if (shelter) {

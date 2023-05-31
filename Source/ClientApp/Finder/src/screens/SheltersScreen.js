@@ -74,13 +74,18 @@ export function SheltersScreen({ navigation }) {
   };
   useEffect(() => {
     if (
-      (hasRampFilter === undefined || hasRampFilter === false) &&
+      (hasRampFilter === undefined ||
+        hasRampFilter === false ||
+        hasRampFilter === "") &&
       typesFilters.length <= 0 &&
       purposesFilters.length <= 0
     ) {
       fetch("http://10.0.2.2:4567/shelters/all")
         .then((response) => response.json())
-        .then((json) => setFilteredShelters(json))
+        .then((json) => {
+          setFilteredShelters(json);
+          setShelters(json);
+        })
         .catch((err) => console.error(err));
     } else {
       var url = "http://10.0.2.2:4567/shelters/all/filters?";
@@ -127,7 +132,7 @@ export function SheltersScreen({ navigation }) {
     const [purposes, setPurposes] = useState(route.params.purposes);
     const [hasRamp, setHasRamp] = useState(route.params.hasRamp);
 
-    useMemo(() => {
+    useEffect(() => {
       setTypesFilters(types);
       setPurposesFilters(purposes);
       setHasRampFilter(hasRamp);

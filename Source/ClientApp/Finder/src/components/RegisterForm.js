@@ -16,13 +16,16 @@ const { width, height } = Dimensions.get("window");
 
 export function RegisterForm({ navigation }) {
   const dispatch = useDispatch();
+  const [displayName, setDisplayName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   async function getUserById(url) {
     const responce = await fetch(url);
     return responce.json();
   }
 
-  const handleLogin = () => {
+  const handleRegister = () => {
     dispatch(login());
   };
 
@@ -41,12 +44,24 @@ export function RegisterForm({ navigation }) {
       </View>
       <View style={styles.loginForm}>
         <Text style={styles.headingText}>Реєстрація</Text>
-        <TextInput style={styles.textInputs} placeholder="Ваше ім'я" />
-        <TextInput style={styles.textInputs} placeholder="Email" />
+        <TextInput
+          style={styles.textInputs}
+          placeholder="Ваше ім'я"
+          value={displayName}
+          onChangeText={(text) => setDisplayName(text)}
+        />
+        <TextInput
+          style={styles.textInputs}
+          placeholder="Email"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+        />
         <TextInput
           style={styles.textInputs}
           placeholder="Пароль"
           secureTextEntry={true}
+          value={password}
+          onChangeText={(text) => setPassword(text)}
         />
         <View style={styles.buttonContainer}>
           <Button title="Зареєструватися" onPress={handleLogin}></Button>
