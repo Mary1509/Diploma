@@ -29,7 +29,8 @@ def getNearestShelters():
                 'id': coord[0],
                 'latitude': coord[1],
                 'longitude': coord[2],
-                'address': coord[3]
+                'address': coord[3],
+                'distance': coord[4]
             }
             res.append(dict)
     return make_response(jsonify(res), 200)

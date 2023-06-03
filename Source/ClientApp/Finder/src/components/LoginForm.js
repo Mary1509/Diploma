@@ -28,10 +28,6 @@ export function LoginForm() {
   const [isErrorness, setIsErrorness] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
-  async function getUserById(url) {
-    const responce = await fetch(url);
-    return responce.json();
-  }
 
   function Form({ navigation }) {
     const [useremail, setUserEmail] = useState("");
@@ -39,7 +35,6 @@ export function LoginForm() {
 
     const handleLogin = async () => {
       var iserr = false;
-      // console.log(useremail, md5(pass), isErrorness);
       if (useremail === "" || pass === "") {
         iserr = true;
         setIsErrorness(() => {
@@ -50,7 +45,7 @@ export function LoginForm() {
           email: useremail,
           password: pass,
         };
-        var response = await fetch("http://10.0.2.2:4567/user/login", {
+        var response = await fetch("http://10.0.2.2:4567/user/login", {   // ЗАПИТ АВТОРИЗАЦІЇ КОРИСТУВАЧА
           method: "POST",
           headers: {
             "Content-Type": "application/json",

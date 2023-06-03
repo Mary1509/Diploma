@@ -82,7 +82,7 @@ export function Shelter({ navigation, route }) {
             <Icon name="caret-left" size={35} color={"#ee6c4d"} />
             <Text style={styles.headeringText}>До списку</Text>
           </Pressable>
-          {isLogged && (
+          {isLogged && (              // УМОВНА КОНСТРУКЦІЯ ДЛЯ РОЗШИРЕННЯ ФУНКЦІОНАЛУ
             <View
               style={{
                 flexDirection: "row",
