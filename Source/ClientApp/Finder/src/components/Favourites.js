@@ -7,6 +7,7 @@ import {
   FlatList,
   TextInput,
   Pressable,
+  RefreshControl,
 } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFocusEffect } from "@react-navigation/native";
@@ -22,6 +23,7 @@ import { Adder } from "./AddShelter";
 export function Favourites({ navigation, route }) {
   const [shelters, setShelters] = useState([]);
   const token = useSelector((store) => store.isLogged.token);
+  const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
     async function fetchFavs() {
@@ -41,8 +43,29 @@ export function Favourites({ navigation, route }) {
     }
     console.log(route.params.refresh);
 
-    if (route.params?.refresh) fetchFavs();
-  }, [route.params?.refresh]);
+    fetchFavs();
+  }, []);
+
+  const refresh = useCallback(async () => {
+    async function fetchFavs() {
+      const responce = await fetch("http://10.0.2.2:4567/user/favourites", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      });
+      userfavs = await responce.json();
+      if (responce.status == 200) {
+        setShelters(() => {
+          return userfavs;
+        });
+      }
+    }
+    console.log(route.params.refresh);
+
+    fetchFavs();
+  }, [refreshing]);
 
   const RootStack = createNativeStackNavigator();
 
@@ -75,6 +98,9 @@ export function Favourites({ navigation, route }) {
                 />
               );
             }}
+            refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={refresh} />
+            }
           />
         </View>
       </View>

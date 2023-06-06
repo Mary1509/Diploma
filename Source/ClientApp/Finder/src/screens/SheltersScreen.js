@@ -3,7 +3,7 @@ import {
   StyleSheet,
   View,
   Text,
-  Button,
+  RefreshControl,
   FlatList,
   TextInput,
   Pressable,
@@ -30,6 +30,7 @@ export function SheltersScreen({ navigation }) {
   const [hasRampFilter, setHasRampFilter] = useState("");
 
   const isLogged = useSelector((store) => store.isLogged.isLogged);
+  const [refreshing, setRefreshing] = useState(false);
 
   async function searchFilter(text) {
     if (text) {
@@ -83,6 +84,9 @@ export function SheltersScreen({ navigation }) {
       fetch("http://10.0.2.2:4567/shelters/all")
         .then((response) => response.json())
         .then((json) => {
+          setRefreshing(() => {
+            return false;
+          });
           setFilteredShelters(json);
           setShelters(json);
         })
@@ -100,10 +104,52 @@ export function SheltersScreen({ navigation }) {
       }
       fetch(url)
         .then((response) => response.json())
-        .then((json) => setFilteredShelters(json))
+        .then((json) => {
+          setRefreshing(() => {
+            return false;
+          });
+          setFilteredShelters(json);
+        })
         .catch((err) => console.error(err));
     }
   }, [typesFilters, purposesFilters, hasRampFilter]);
+
+  refresh = useCallback( async () => {
+    if (
+      (hasRampFilter === undefined ||
+        hasRampFilter === false ||
+        hasRampFilter === "") &&
+      typesFilters.length <= 0 &&
+      purposesFilters.length <= 0
+    ) {
+      fetch("http://10.0.2.2:4567/shelters/all")
+        .then((response) => response.json())
+        .then((json) => {
+          setRefreshing(false);
+          setFilteredShelters(json);
+          setShelters(json);
+        })
+        .catch((err) => console.error(err));
+    } else {
+      var url = "http://10.0.2.2:4567/shelters/all/filters?";
+      if (typesFilters.length > 0) {
+        url = url.concat("&type=", typesFilters.join());
+      }
+      if (purposesFilters.length > 0) {
+        url = url.concat("&purpose=", purposesFilters.join());
+      }
+      if (hasRampFilter === true) {
+        url = url.concat("&hasRamp=", hasRampFilter);
+      }
+      fetch(url)
+        .then((response) => response.json())
+        .then((json) => {
+          setRefreshing(false);
+          setFilteredShelters(json);
+        })
+        .catch((err) => console.error(err));
+    }
+  }, [refreshing]);
 
   const ShelterFlatList = () => {
     return (
@@ -122,6 +168,9 @@ export function SheltersScreen({ navigation }) {
               />
             );
           }}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={refresh} />
+          }
         />
       </View>
     );
