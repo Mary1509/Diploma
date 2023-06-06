@@ -39,10 +39,12 @@ export function LocationEdit(props) {
       longitude: event.nativeEvent.coordinate.longitude,
     };
     setPosition(() => positionNew);
-    setShelter({
-      ...shelter,
-      longitude: positionNew.longitude,
-      latitude: positionNew.latitude,
+    setLocation({
+      ...location,
+      position: {
+        longitude: positionNew.longitude,
+        latitude: positionNew.latitude,
+      },
     });
   };
 
@@ -132,8 +134,8 @@ const styles = StyleSheet.create({
   },
   map: {
     width: width,
-    height: height /1.6,
-    overflow: "hidden"
+    height: height / 1.6,
+    overflow: "hidden",
   },
   textInputs: {
     fontFamily: "Monserrat-SemiBold",

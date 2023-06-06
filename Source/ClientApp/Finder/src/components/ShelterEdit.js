@@ -8,6 +8,7 @@ import {
   Dimensions,
   TextInput,
 } from "react-native";
+import { Picker } from "@react-native-picker/picker";
 import { useSelector } from "react-redux";
 import Icon from "react-native-vector-icons/FontAwesome";
 import MapView from "react-native-maps";
@@ -20,6 +21,8 @@ export function ShelterEdit(props) {
   const [position, setPosition] = useState(null);
   const [isErrorness, setIsErrorness] = useState(false);
   const [shelter, setShelter] = useState(props.shelter);
+  const [purpose, setPurpose] = useState("");
+  const [type, setType] = useState("");
 
   useEffect(() => {
     props.shelter.latitude &&
@@ -27,9 +30,26 @@ export function ShelterEdit(props) {
         latitude: parseFloat(props.shelter.latitude),
         longitude: parseFloat(props.shelter.longitude),
       });
+    console.log(shelter.type, shelter.purpose);
+    props.shelter.type == "Підвал"
+      ? setType("1")
+      : props.shelter.type == "Станція метро"
+      ? setType("2")
+      : setType("3");
+
+    props.shelter.purpose == "Найпростіше укриття"
+      ? setPurpose("1")
+      : props.shelter.purpose == "Подвійного призначення"
+      ? setPurpose("2")
+      : "1";
   }, []);
 
   useEffect(() => {
+    setShelter({ ...shelter, type: type, purpose: purpose });
+  }, [type, purpose])
+
+  useEffect(() => {
+    
     props.callBack(shelter);
   }, [shelter]);
 
@@ -53,23 +73,39 @@ export function ShelterEdit(props) {
           style={!isErrorness ? styles.textInputs : styles.textInputsError}
           placeholder="Адреса"
           value={shelter.address}
-          onChangeText={(text) => setShelter({ ...shelter, email: text })}
+          onChangeText={(text) => setShelter({ ...shelter, address: text })}
         />
-        <TextInput
-          style={!isErrorness ? styles.textInputs : styles.textInputsError}
-          placeholder="Тип"
-          value={shelter.type}
-          onChangeText={(text) => setShelter({ ...shelter, type: text })}
-        />
-        <TextInput
-          style={!isErrorness ? styles.textInputs : styles.textInputsError}
-          placeholder="Призначення"
-          value={shelter.purpose}
-          onChangeText={(text) => setShelter({ ...shelter, purpose: text })}
-        />
+        <Picker
+          onValueChange={(itemValue, itemIndex) => {
+            setShelter({ ...shelter, type: itemValue });
+            setType(() => {
+              return itemValue;
+            });
+          }}
+          selectedValue={type}
+          mode="dropdown"
+        >
+          <Picker.Item label="Підвал" value="1" />
+          <Picker.Item label="Станція метро" value="2" />
+          <Picker.Item label="Підземний перехід" value="3" />
+        </Picker>
+        <Picker
+          onValueChange={(itemValue, itemIndex) => {
+            setShelter({ ...shelter, purpose: itemValue });
+            setPurpose(() => {
+              return itemValue;
+            });
+          }}
+          selectedValue={purpose}
+          mode="dropdown"
+        >
+          <Picker.Item label="Найпростіше укриття" value="1" />
+          <Picker.Item label="Подвійного призначення" value="2" />
+        </Picker>
         <TextInput
           style={!isErrorness ? styles.textInputs : styles.textInputsError}
           placeholder="Місткість"
+          keyboardType="numeric"
           value={shelter.capacity ? shelter.capacity.toString() : ""}
           onChangeText={(text) => setShelter({ ...shelter, capacity: text })}
         />

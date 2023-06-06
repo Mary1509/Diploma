@@ -43,7 +43,7 @@ export function HomeScreen() {
         };
       });
     })();
-  }, [location]);
+  }, []);
 
   function MainScreen({ navigation, route }) {
     const [shelters, setShelters] = useState([]);

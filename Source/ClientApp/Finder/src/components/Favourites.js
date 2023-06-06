@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useDebugValue, useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -9,6 +9,7 @@ import {
   Pressable,
 } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useFocusEffect } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 import { ShelterItem } from "./../components/ShelterItem";
@@ -18,7 +19,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Shelter } from "../components/ShelterComponent";
 import { Adder } from "./AddShelter";
 
-export function Favourites({ navigation }) {
+export function Favourites({ navigation, route }) {
   const [shelters, setShelters] = useState([]);
   const token = useSelector((store) => store.isLogged.token);
 
@@ -32,38 +33,16 @@ export function Favourites({ navigation }) {
         },
       });
       userfavs = await responce.json();
-      if (data.message === undefined) {
+      if (responce.status == 200) {
         setShelters(() => {
           return userfavs;
         });
       }
     }
+    console.log(route.params.refresh);
 
-    fetchFavs();
-  }, []);
-
-  async function searchFilter(text) {
-    if (text) {
-      const newShelters = require("./../../data/shelters.json");
-      const filtered = newShelters.shelters.filter((shelter) => {
-        const shelterData = shelter.address
-          ? shelter.address.toLowerCase()
-          : "";
-        const textData = text.toLowerCase();
-        return shelterData.indexOf(textData) > -1;
-      });
-      console.log(filtered);
-      setFilteredShelters(() => {
-        return filtered;
-      });
-      setSearch(() => {
-        return text;
-      });
-    } else {
-      setFilteredShelters(shelters);
-      setSearch(text);
-    }
-  }
+    if (route.params?.refresh) fetchFavs();
+  }, [route.params?.refresh]);
 
   const RootStack = createNativeStackNavigator();
 
@@ -109,7 +88,11 @@ export function Favourites({ navigation }) {
     >
       <RootStack.Group>
         <RootStack.Screen name="SheltersList" component={SheltersList} />
-        <RootStack.Screen name="Shelter" component={Shelter} />
+        <RootStack.Screen
+          name="Shelter"
+          component={Shelter}
+          initialParams={{ parentWin: "SheltersList" }}
+        />
         <RootStack.Screen name="Editor" component={Adder} />
       </RootStack.Group>
     </RootStack.Navigator>

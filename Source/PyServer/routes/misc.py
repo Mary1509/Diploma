@@ -9,4 +9,3 @@ blueprint.route('/nearest/filters', methods=['GET'])(getNearestSheltersWithFilte
 blueprint.route('/types', methods=['GET'])(getTypes)
 blueprint.route('/purposes', methods=['GET'])(getPurposes)
 blueprint.route('/address/add', methods=['POST'])(addAddress)
-blueprint.route('/address/add/<int:id>', methods=['POST'])(addAddress)

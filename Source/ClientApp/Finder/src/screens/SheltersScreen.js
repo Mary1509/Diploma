@@ -176,7 +176,11 @@ export function SheltersScreen({ navigation }) {
             hasRamp: "",
           }}
         />
-        <RootStack.Screen name="Shelter" component={Shelter} />
+        <RootStack.Screen
+          name="Shelter"
+          component={Shelter}
+          initialParams={{ parentWin: "SheltersList" }}
+        />
         <RootStack.Screen name="Editor" component={Adder} />
       </RootStack.Group>
       <RootStack.Group

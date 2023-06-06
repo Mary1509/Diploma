@@ -93,6 +93,15 @@ def addUserFavourite(user, id):
     except exc.SQLAlchemyError as err:
         print(err)
         return make_response(jsonify({'message': 'Error adding to db', 'error': f'{err}'}), 503)
+@token_required
+def isUserFavourite(user, id):
+    shelter = db.session.query(Shelter).filter(Shelter.id == id).first()
+    try:
+        ind = user.shelters.index(shelter)
+        return make_response(jsonify({'isFavourite': True}), 200)
+    except ValueError as err:
+        return make_response(jsonify({'isFavourite': False}), 404)
+
 
 @token_required
 def delUserFavourite(user, id):

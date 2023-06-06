@@ -5,28 +5,45 @@ import {
   TextInput,
   Dimensions,
   Pressable,
+  Alert,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { useState } from "react";
 
-import { useDispatch } from "react-redux";
-import { login } from "../redux/actions/loginAction";
 import { Button } from "./MainButton";
 
 const { width, height } = Dimensions.get("window");
 
 export function RegisterForm({ navigation }) {
-  const dispatch = useDispatch();
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  async function getUserById(url) {
-    const responce = await fetch(url);
-    return responce.json();
-  }
+  const handleRegister = async () => {
+    creds = {
+      email: email,
+      password: password,
+      displayName: displayName,
+    };
+    var response = await fetch("http://10.0.2.2:4567/user/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(creds),
+    });
+    if (response.status == 401){
+      Alert.alert("Помилка реєстрації", "Невірно введені дані. Спробуйте знову.")
+    }
+    else if (response.status == 400){
+      Alert.alert("Помилка реєстрації", "Користувач з таким email вже зареєстрований.")
+    }
+    else if (response.status == 201) {
+      Alert.alert("Вітаємо!", "Вас успішно зареєстровано. Здійсніть вхід для продовження роботи.")
+      navigation.goBack();
+    }
 
-  const handleRegister = () => {
-    dispatch(login());
+    
   };
 
   return (
@@ -64,7 +81,7 @@ export function RegisterForm({ navigation }) {
           onChangeText={(text) => setPassword(text)}
         />
         <View style={styles.buttonContainer}>
-          <Button title="Зареєструватися" onPress={handleLogin}></Button>
+          <Button title="Зареєструватися" onPress={handleRegister}></Button>
         </View>
       </View>
     </View>

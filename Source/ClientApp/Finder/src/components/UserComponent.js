@@ -75,7 +75,7 @@ export function UserComponent({ navigation }) {
             <UserOptionItem
               icon="star"
               text="Обрані укриття"
-              onPress={() => navigation.navigate("Favourites")}
+              onPress={() => navigation.navigate("Favourites", {refresh: true})}
             />
             <UserOptionItem
               icon="map-marker-alt"

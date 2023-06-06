@@ -2,7 +2,7 @@ from flask import jsonify, make_response, request
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.sql import text
 
-from models import shelter, base, address
+from models import shelter, base, address, type, purpose
 
 
 db = base.db
@@ -36,7 +36,6 @@ def sheltersWithFilters():
     purposes = request.args.getlist('purpose', None)
     hasRamp = request.args.get('hasRamp', None)
 
-    print(types, types[0].split(','))
 
     query = ''
     if len(types) > 0:
@@ -97,7 +96,6 @@ def getShelterById(id):
                      INNER JOIN shelter_purposes ON "purposeId" = shelter_purposes.id
                      WHERE sh.id = {id}""")
     shelter_res = db.session.execute(query).first()
-    print(shelter_res)
     res = {}
     if not shelter_res is None:
         res = {
@@ -117,16 +115,35 @@ def getShelterById(id):
 
 def addShelter(id=-1):
     shelter_raw = request.json
-    if id is not\
-            -1:
-        shelter_old = db.session.query(shelter.Shelter).filter(shelter.Shelter.id == id).update(
-                                     {'latitude': shelter_raw['latitude'],
-                                      'longitude': shelter_raw['longitude'],
-                                      'capacity': shelter_raw['capacity'],
-                                      'hasRamp': shelter_raw['hasRamp'],
-                                      'typeId': shelter_raw['typeId'],
-                                      'purposeId': shelter_raw['purposeId'],
-                                      'addressId': shelter_raw['addressId']})
+    print(shelter_raw)
+
+    address_raw = shelter_raw['address']
+    address_arr = address_raw.split(',')
+    old_address = db.session.query(address.Address).filter(address.Address.street == address_arr[0],
+                                                         address.Address.houseNumber == address_arr[1]).first()
+    if old_address is None:
+        address_model = address.Address(street=address_arr[0],
+                                house_number=address_arr[1])
+        try:
+            db.session.add(address_model)
+            db.session.commit()
+        except Exception as err:
+            print(err)
+            return make_response(jsonify({'message': 'Error syncing with db', 'error': f'{err}'}), 503)
+    else:
+        address_model = old_address
+
+    if id is not -1:
+        old_shelter = db.session.query(shelter.Shelter).filter(shelter.Shelter.id == id).first()
+        shelter_type = db.session.query(type.Type).filter(type.Type.id == shelter_raw['type']).first()
+        shelter_purpose = db.session.query(purpose.Purpose).filter(purpose.Purpose.id == shelter_raw['purpose']).first()
+        old_shelter.latitude = shelter_raw['latitude']
+        old_shelter.longitude = shelter_raw['longitude']
+        old_shelter.capacity = shelter_raw['capacity']
+        old_shelter.hasRamp = shelter_raw['hasRamp']
+        shelter_type.shelters.append(old_shelter)
+        shelter_purpose.shelters.append(old_shelter)
+        address_model.shelters.append(old_shelter)
         try:
             db.session.commit()
             return make_response(jsonify({'message': 'Successfully updated'}), 201)
@@ -138,9 +155,9 @@ def addShelter(id=-1):
                                   longitude=shelter_raw['longitude'],
                                   capacity=shelter_raw['capacity'],
                                   hasRamp=shelter_raw['hasRamp'],
-                                  typeId=shelter_raw['typeId'],
-                                  purposeId=shelter_raw['purposeId'],
-                                  addressId=shelter_raw['addressId'])
+                                  typeId=shelter_raw['type'],
+                                  purposeId=shelter_raw['purpose'],
+                                  addressId=address_model.id)
     try:
         db.session.add(shelter_new)
         db.session.commit()

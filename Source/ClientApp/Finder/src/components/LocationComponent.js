@@ -108,7 +108,6 @@ export function Location({ navigation, route }) {
                 }}
                 pinColor={"orange"}
                 title={location.alias}
-                sho
               />
 
               {markers.map((shelter) => (
@@ -119,6 +118,9 @@ export function Location({ navigation, route }) {
                     longitude: parseFloat(shelter.longitude),
                   }}
                   title={shelter.address}
+                  description={
+                    "Відстань: " + Math.round(shelter.distance) + " метрів"
+                  }
                   pinColor={shelters.indexOf(shelter) == 0 ? "green" : "red"}
                 />
               ))}

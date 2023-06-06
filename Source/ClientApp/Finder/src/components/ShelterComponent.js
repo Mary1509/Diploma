@@ -6,6 +6,7 @@ import {
   Pressable,
   ActivityIndicator,
   Dimensions,
+  Alert,
 } from "react-native";
 import { useSelector } from "react-redux";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -24,12 +25,15 @@ export function Shelter({ navigation, route }) {
 
   useEffect(() => {
     async function fetchShelter() {
-      const responce = await fetch("http://10.0.2.2:4567/shelters/"+route.params.id, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const responce = await fetch(
+        "http://10.0.2.2:4567/shelters/" + route.params.id,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       shelterdata = await responce.json();
       if (shelterdata.message === undefined) {
         setShelter(() => {
@@ -38,35 +42,67 @@ export function Shelter({ navigation, route }) {
       }
     }
 
+    async function checkIfFavourite() {
+      const responce = await fetch(
+        "http://10.0.2.2:4567/user/favourites/isFavourite/" + route.params.id,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      if (responce.status == 200) {
+        setIsFavourite(() => {
+          return true;
+        });
+      } else {
+        setIsFavourite(() => {
+          return false;
+        });
+      }
+    }
+
     fetchShelter();
+    checkIfFavourite();
   }, []);
 
   handleAddFavourite = async () => {
-    // fetch if already favourite then
-    const responce = await fetch(
-      "http://10.0.2.2:4567/user/favourites/add/" + route.params.id,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + token,
-        },
-      }
-    );
-    // or remove from favourite
-    // const statusCode = responce.status
-    // console.log(statusCode);
-    // result = await responce.json();
-    // console.log(result);
-    // if (locdata.message === 'undefined') {
-    //   setLocation(() => {
-    //     return locdata;
-    //   });
-    // }
-    
-    // setIsFavourite(() => {
-    //   return !isFavourite;
-    // });
+    if (isFavourite == false) {
+      const responce = await fetch(
+        "http://10.0.2.2:4567/user/favourites/add/" + route.params.id,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      responce.status == 201
+        ? setIsFavourite(() => {
+            return true;
+          })
+        : "";
+    }
+    else {
+      const responce = await fetch(
+        "http://10.0.2.2:4567/user/favourites/del/" + route.params.id,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      responce.status == 201
+        ? setIsFavourite(() => {
+            return false;
+          })
+        : "";
+    }
   };
 
   if (shelter) {
@@ -82,7 +118,7 @@ export function Shelter({ navigation, route }) {
             <Icon name="caret-left" size={35} color={"#ee6c4d"} />
             <Text style={styles.headeringText}>До списку</Text>
           </Pressable>
-          {isLogged && (              // УМОВНА КОНСТРУКЦІЯ ДЛЯ РОЗШИРЕННЯ ФУНКЦІОНАЛУ
+          {isLogged && ( // УМОВНА КОНСТРУКЦІЯ ДЛЯ РОЗШИРЕННЯ ФУНКЦІОНАЛУ
             <View
               style={{
                 flexDirection: "row",

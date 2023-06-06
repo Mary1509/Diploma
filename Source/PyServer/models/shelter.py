@@ -29,8 +29,7 @@ class Shelter(Base):
     addressId = Column(Integer, ForeignKey('addresses.id', onupdate='CASCADE', ondelete='SET NULL'), nullable=False)
     users = relationship('User', secondary=shelter_user_association, back_populates='shelters')
 
-    def __init__(self, id, longitude, latitude, capacity, hasRamp, typeId, purposeId, addressId):
-        self.id = id
+    def __init__(self, longitude, latitude, capacity, hasRamp, typeId, purposeId, addressId):
         self.longitude = longitude
         self.latitude = latitude
         self.capacity = capacity

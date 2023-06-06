@@ -169,14 +169,13 @@ def getPurposes():
     return make_response(jsonify(res), 200)
 
 
-def addAddress(id=-1):
-    if id == -1:
-        address_raw = request.json
-        address_model = Address(street=address_raw['street'],
-                                house_number=address_raw['houseNumber'])
+def addAddress():
+    address_raw = request.json
+    address_model = Address(street=address_raw['street'],
+                            house_number=address_raw['houseNumber'])
+    try:
         db.session.add(address_model)
         db.session.commit()
-        return str(address_model.id)
-
-    else:
-        return 'Update shelter'
+        return make_response(jsonify({"id": str(address_model.id)}), 201)
+    except Exception as err:
+        return make_response(jsonify({"message": err}), 500)

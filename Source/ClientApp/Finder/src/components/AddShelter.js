@@ -1,5 +1,13 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, View, Text, Pressable, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Pressable,
+  Dimensions,
+  Alert,
+} from "react-native";
+
 import { useSelector } from "react-redux";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { ShelterEdit } from "./ShelterEdit";
@@ -9,14 +17,36 @@ const { width, height } = Dimensions.get("window");
 export function Adder({ navigation, route }) {
   const [shelter, setShelter] = useState(route.params.shelter);
   const [childShelter, setChildShelter] = useState(route.params.shelter);
+  const token = useSelector((store) => store.isLogged.token);
 
   editorHandler = (childShelter) => {
-    setChildShelter(() => childShelter)
-  }
+    setChildShelter(() => childShelter);
+  };
 
-
+  addShelter = async (url, body) => {
+    const responce = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+      body: JSON.stringify(body),
+    });
+    if (responce.status == 201) return true;
+    return false;
+  };
 
   handleSave = () => {
+    if (childShelter.id) {
+      var url = "http://10.0.2.2:4567/shelters/add/" + childShelter.id
+      if (addShelter(url, childShelter)) Alert.alert("Дякуємо!", "Ваші зміни будуть враховані.");
+      else Alert.alert("Упс!", "Щось пішло не так. Спробуйте пізніше");
+    } else {
+      var url = "http://10.0.2.2:4567/shelters/add"
+      if (addShelter(url, childShelter)) Alert.alert("Дякуємо!", "Ваші зміни будуть враховані.");
+      else Alert.alert("Упс!", "Щось пішло не так. Спробуйте пізніше");
+    }
+    
     console.log(childShelter);
     navigation.goBack();
   };
