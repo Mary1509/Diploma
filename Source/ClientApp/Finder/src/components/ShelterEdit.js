@@ -41,7 +41,7 @@ export function ShelterEdit(props) {
       ? setPurpose("1")
       : props.shelter.purpose == "Подвійного призначення"
       ? setPurpose("2")
-      : "1";
+      : setPurpose("1");
   }, []);
 
   useEffect(() => {
