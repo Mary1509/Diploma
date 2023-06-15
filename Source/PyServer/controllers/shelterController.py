@@ -119,11 +119,19 @@ def addShelter(id=-1):
 
     address_raw = shelter_raw['address']
     address_arr = address_raw.split(',')
-    old_address = db.session.query(address.Address).filter(address.Address.street == address_arr[0],
+    print(address_arr)
+    if len(address_arr) > 1:
+        old_address = db.session.query(address.Address).filter(address.Address.street == address_arr[0],
                                                          address.Address.houseNumber == address_arr[1]).first()
+    else:
+        old_address = db.session.query(address.Address).filter(address.Address.street == address_arr[0]).first()
     if old_address is None:
-        address_model = address.Address(street=address_arr[0],
-                                house_number=address_arr[1])
+        if len(address_arr) > 1:
+            address_model = address.Address(street=address_arr[0],
+                                    house_number=address_arr[1])
+        else:
+            address_model = address.Address(street=address_arr[0],
+                                            house_number="")
         try:
             db.session.add(address_model)
             db.session.commit()
